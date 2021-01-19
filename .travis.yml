@@ -7,7 +7,7 @@ cache:
   - node_modules
 
 install:
-  - cnpm install
+  - npm install
 
 script:
   - hexo cl

@@ -26,6 +26,8 @@ soup = BeautifulSoup(open("D://demo.html"), 'html.parser')
 | lxml的xml解析器  | "xml"         | pip install lxml     |
 | html5lib的解析器 | "html5lib"    | pip install html5lib |
 
+
+
 | 基本元素        | 说明                                              |
 | --------------- | ------------------------------------------------- |
 | Tag             | 标签  soup.\<tag\> # 多个相同标签，优先返回首个。 |

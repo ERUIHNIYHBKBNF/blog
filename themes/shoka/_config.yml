@@ -356,6 +356,12 @@ minify:
     exclude:
       - '**/*.min.js'
 
+highlight:
+  enable: false
+
+prismjs:
+  enable: false
+
 autoprefixer:
   exclude:
     - '*.min.css'

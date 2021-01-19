@@ -1,0 +1,32 @@
+language: node_js
+
+node_js: stable
+
+cache: 
+  directories:
+  - node_modules
+
+install:
+  - cnpm install
+
+script:
+  - hexo cl
+  - hexo g
+
+after_script:
+  - cd ./public
+  - git init
+  - git config user.name "ERUIHNIYHBKBNF"
+  - git config user.email "839203521@qq.com"
+  - git config user.passward "6857161gjl"
+  - git add .
+  - git commit -m "Automatic deployment"
+  - git push --force --quiet  "https://${GH_TOKEN}@${GH_REF}" master:gh-pages
+
+branches:
+  only:
+    - master
+
+env:
+  global:
+    - GH_REF: github.com/ERUIHNIYHBKBNF/blog.git

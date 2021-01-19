@@ -10,6 +10,12 @@ install:
   - npm install
 
 script:
+  - npm un hexo-renderer-marked --save
+  - npm i hexo-renderer-multi-markdown-it --save
+  - npm i hexo-autoprefixer --save
+  - npm i hexo-algoliasearch --save
+  - npm i hexo-symbols-count-time --save
+  - npm i hexo-feed --save
   - hexo cl
   - hexo g
 

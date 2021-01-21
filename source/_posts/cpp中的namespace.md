@@ -1,5 +1,5 @@
 ---
-title: '[C++学习笔记] C++中的namespace'
+title: '[C++笔记] C++中的namespace'
 date: 2021-01-18 08:51:29
 tags:
 ---

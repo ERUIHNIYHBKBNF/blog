@@ -1,5 +1,5 @@
 ---
-title: '[C++笔记]C的语法扩展与C++11特性'
+title: '[C++笔记]杂七杂八的C语法扩展'
 date: 2021-01-21 16:32:15
 tags: 
 ---
@@ -130,7 +130,7 @@ cout << static_cast<double>(1 / 2) << endl; // 0
 
 RTFM : [Runoob_C++ 强制转换运算符](https://www.runoob.com/cplusplus/cpp-casting-operators.html) ~~懒得看了，以后有机会回来补，溜了，，~~
 
-## 自动类型推导：auto和decltype
+## 自动类型推导:auto与decltype
 
 ### auto关键字
 
@@ -225,5 +225,7 @@ auto x[] = {1, 2, 3}; // 编译器报错
 
 > decltype是在编译期推导一个表达式的类型，它只做静态分析，因此它不会导致已知类型表达式执行。
 
-decltype 主要用于泛型编程（模板），~~ 所以现在先跑路了~~
+decltype 主要用于泛型编程（模板），~~所以现在先跑路了~~
+
+下篇：[[C++笔记]杂七杂八的C语法扩展II]()
 

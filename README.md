@@ -5,7 +5,7 @@
 
 也许以后会有用叭|･ω･｀)
 
-自动部署真爽啊QwQ
+自动部署真爽啊OwO
 
 一点都不好看，不许看(/ω＼)：[不要点进来啊(ﾉ ○ Д ○)ﾉ](https://eruihniyhbkbnf.github.io/blog)
 

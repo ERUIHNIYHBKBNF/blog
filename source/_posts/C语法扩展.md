@@ -227,5 +227,5 @@ auto x[] = {1, 2, 3}; // 编译器报错
 
 decltype 主要用于泛型编程（模板），~~所以现在先跑路了~~
 
-下篇：[[C++笔记]杂七杂八的C语法扩展II]()
+下篇：[[C++笔记]杂七杂八的C语法扩展II](https://eruihniyhbkbnf.github.io/blog/2021/01/21/C%E8%AF%AD%E6%B3%95%E6%89%A9%E5%B1%95II/)
 

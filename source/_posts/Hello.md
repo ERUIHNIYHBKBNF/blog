@@ -2,6 +2,7 @@
 title: Hello!
 date: 2020-08-06 22:07:33
 tags: 杂项
+sticky: true
 ---
 
 DATE: 2020-08-07

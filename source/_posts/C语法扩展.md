@@ -27,6 +27,9 @@ int main()
 {
     int a = 3;
     fun(a);
+    /*
+    fun(a + 1)会报错，非常量引用必须为左值
+    */
     cout << a << endl; //输出为 5 
     return 0;
 }

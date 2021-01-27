@@ -1,7 +1,7 @@
 ---
 title: '[C++笔记] C语法扩展II'
 date: 2021-01-21 23:27:30
-tags:
+tags: C++, C++笔记
 ---
 
 接上篇[[C++笔记] C语法扩展](https://eruihniyhbkbnf.github.io/blog/2021/01/21/C%E8%AF%AD%E6%B3%95%E6%89%A9%E5%B1%95/)， 内容太多就分成两篇了。（~~顺带可以多水一篇文章~~）

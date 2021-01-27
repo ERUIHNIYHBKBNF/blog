@@ -1,7 +1,7 @@
 ---
 title: '[模板] 平衡树-Splay模板'
 date: 2020-11-28 21:24:14
-tags: qwq
+tags: acm, 模板, 数据结构
 
 ---
 

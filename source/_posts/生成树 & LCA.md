@@ -1,7 +1,7 @@
 ---
 title: '[杂题] 生成树 & LCA'
 date: 2020-08-07 16:01:46
-tags: qwq
+tags: acm, 模板
 math: true
 
 ---

@@ -1,7 +1,7 @@
 ---
 title: '[C++笔记] string类与array类'
 date: 2021-01-27 11:26:12
-tags: 
+tags: C++, C++笔记
 ---
 
 ## string类

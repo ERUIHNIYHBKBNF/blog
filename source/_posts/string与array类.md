@@ -178,23 +178,25 @@ int main()
 
 比较全~~但用处不大~~的表格：
 
-| 元素访问                                                     |                                    |
-| ------------------------------------------------------------ | ---------------------------------- |
-| [at](https://zh.cppreference.com/w/cpp/container/array/at)   | 访问指定的元素，同时进行越界检查   |
-| [operator](https://zh.cppreference.com/w/cpp/container/array/operator_at)[] | 访问指定的元素 , 无越界检查        |
-| [front](https://zh.cppreference.com/w/cpp/container/array/front) | 访问第一个元素                     |
-| [back](https://zh.cppreference.com/w/cpp/container/array/back) | 访问最后一个元素                   |
-| [data](https://zh.cppreference.com/w/cpp/container/array/data) | 返回指向内存中数组第一个元素的指针 |
-| **容量**                                                     |                                    |
-| [empty](https://zh.cppreference.com/w/cpp/container/array/empty) | 检查容器是否为空                   |
-| [size](https://zh.cppreference.com/w/cpp/container/array/size) | 返回容纳的元素数                   |
-| [max_size](https://zh.cppreference.com/w/cpp/container/array/max_size) | 返回可容纳的最大元素数             |
-| **操作**                                                     |                                    |
-| [fill](https://zh.cppreference.com/w/cpp/container/array/fill) | 以指定值填充容器                   |
-| [swap](https://zh.cppreference.com/w/cpp/container/array/swap) | 交换内容                           |
-| **迭代器**                                                   |                                    |
-| [beginc](https://zh.cppreference.com/w/cpp/container/array/begin)    [begin](https://zh.cppreference.com/w/cpp/container/array/begin) | 返回指向容器第一个元素的迭代器     |
-| [endc](https://zh.cppreference.com/w/cpp/container/array/end)    [end](https://zh.cppreference.com/w/cpp/container/array/end) | 返回指向容器尾端的迭代器           |
-| [rbeginc](https://zh.cppreference.com/w/cpp/container/array/rbegin)    [rbegin](https://zh.cppreference.com/w/cpp/container/array/rbegin) | 返回指向容器最后元素的逆向迭代器   |
-| [rendc ](https://zh.cppreference.com/w/cpp/container/array/rend)   [rend](https://zh.cppreference.com/w/cpp/container/array/rend) | 返回指向前端的逆向迭代器           |
+| 元素访问                                                     |                                      |
+| ------------------------------------------------------------ | ------------------------------------ |
+| [at](https://zh.cppreference.com/w/cpp/container/array/at)   | 访问指定的元素，同时进行越界检查     |
+| [operator](https://zh.cppreference.com/w/cpp/container/array/operator_at)[] | 访问指定的元素 , 无越界检查          |
+| [front](https://zh.cppreference.com/w/cpp/container/array/front) | 访问第一个元素                       |
+| [back](https://zh.cppreference.com/w/cpp/container/array/back) | 访问最后一个元素                     |
+| [data](https://zh.cppreference.com/w/cpp/container/array/data) | 返回指向内存中数组第一个元素的指针   |
+| **容量**                                                     |                                      |
+| [empty](https://zh.cppreference.com/w/cpp/container/array/empty) | 检查容器是否为空                     |
+| [size](https://zh.cppreference.com/w/cpp/container/array/size) | 返回容纳的元素数                     |
+| [max_size](https://zh.cppreference.com/w/cpp/container/array/max_size) | 返回可容纳的最大元素数               |
+| **操作**                                                     |                                      |
+| [fill](https://zh.cppreference.com/w/cpp/container/array/fill) | 以指定值填充容器                     |
+| [swap](https://zh.cppreference.com/w/cpp/container/array/swap) | 交换内容                             |
+| **迭代器**                                                   |                                      |
+| [beginc](https://zh.cppreference.com/w/cpp/container/array/begin)    [begin](https://zh.cppreference.com/w/cpp/container/array/begin) | 返回指向容器第一个元素的迭代器       |
+| [endc](https://zh.cppreference.com/w/cpp/container/array/end)    [end](https://zh.cppreference.com/w/cpp/container/array/end) | 返回指向容器尾端的迭代器             |
+| [rbeginc](https://zh.cppreference.com/w/cpp/container/array/rbegin)    [rbegin](https://zh.cppreference.com/w/cpp/container/array/rbegin) | 返回指向容器最后元素的**逆向迭代器** |
+| [rendc ](https://zh.cppreference.com/w/cpp/container/array/rend)   [rend](https://zh.cppreference.com/w/cpp/container/array/rend) | 返回指向前端的逆向迭代器             |
+
+`rbegin()` 和 `rend()` 用来比如从大到小排序什么的老好用了qwq
 

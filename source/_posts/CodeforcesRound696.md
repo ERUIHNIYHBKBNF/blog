@@ -2,7 +2,7 @@
 title: '[杂题] Codeforces Round #696 C,D题'
 date: 2021-01-23 14:36:20
 math: true
-tags: acm, 杂题
+tags: [acm, 杂题]
 ---
 
 ##  [C - Array Destruction](https://codeforces.com/contest/1474/problem/C)

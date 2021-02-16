@@ -1,7 +1,7 @@
 ---
-title: 用OpenCV和Python处理数据
+title: 'Python-ML中一些数据处理方式'
 date: 2021-02-08 23:03:01
-tags:
+tags: [python, 机器学习]
 ---
 
 > 所以要先学会处理数据什么的叭QAQ
@@ -127,7 +127,7 @@ In [2]: import matplotlib.pyplot as plt
 
 In [3]: import numpy as np
 
-In [4]: %matplotlib #shell中使用魔术命令，自动显示图形
+In [4]: %matplotlib #ipython shell中使用魔术命令，自动显示图形
 Using matplotlib backend: Qt5Agg
     
 In [5]: x = np.linspace(0, 10, 100) #创建x轴上线性空间，x值范围[0, 10]，100个样本点

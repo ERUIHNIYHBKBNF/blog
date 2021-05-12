@@ -232,3 +232,146 @@ decltype 主要用于泛型编程（模板），~~所以现在先跑路了~~
 
 下篇：[[C++笔记] C语法扩展II](https://eruihniyhbkbnf.github.io/blog/2021/01/21/C%E8%AF%AD%E6%B3%95%E6%89%A9%E5%B1%95II/)
 
+## 异常处理
+
+### 语法
+
+三个关键字 **try, throw, catch**
+
+语法：
+
+```cpp
+try
+{
+    //随便写点啥，这里可能会用trow抛异常，假设在某处
+    throw exception;
+}
+catch (exceptionType exceptionName) //会获取上面抛出对应类型，并开始执行这里
+{
+    //随便干啥QwQ
+    //执行完毕后直接退出整个try...catch语句块
+    //对于上一句，需要注意的是，继承关系中，应该先catch子类再catch父类，不然catch子类就没意义了emm
+}
+catch (exceptionType2 exceptionName2) //若执行了上面的catch, 这边直接跳过
+{
+	//随便干啥QwQ
+}
+catch (...) //catch所有异常
+{
+    //随便干啥QwQ
+}
+```
+
+**throw**抛出异常却没有**catch**来接的话程序就直接炸了qwq
+
+实例：
+
+```cpp
+#include <iostream>
+using namespace std;
+double division(int a, int b)
+{
+  if (b == 0)
+  {
+    throw "Division by zero condition!";
+  }
+  return (a / b);
+}
+int main()
+{
+  int x = 50;
+  int y = 0;
+  double z = 0;
+  try
+  {
+    z = division(x, y); // 执行这里时，因为b==0抛出异常
+    cout << z << endl;
+  }
+  catch (const char *msg) // msg接收字符串类型异常"Division by zero condition!"
+  {
+    cerr << msg << endl;
+  }
+  return 0;
+}
+```
+
+### 一些神奇的
+
+* 异常机制使得没有返回值的构造函数可以向程序报告错误。
+
+实例：
+
+```cpp
+#include <iostream>
+using namespace std;
+class division
+{
+private:
+	double ans;
+public:
+	division(double a = 1, double b = 1)
+	{
+		if (b == 0)
+		{
+			throw "Division by zero condition!";
+		}
+		this -> ans = a / b;
+	}
+	double getAns()
+	{
+		return this -> ans;
+	}
+};
+int main()
+{
+  try
+  {
+    division* d = new division{233, 0};
+    cout << d -> getAns() << endl;
+  }
+  catch (const char *msg)
+  {
+    cerr << msg << endl; //Division by zero condition!
+  }
+  return 0;
+}
+```
+
+* 重复抛出异常，处理一半再抛出去。
+
+实例：
+
+```cpp
+#include <iostream>
+using namespace std;
+int main()
+{
+	try
+	{
+		try
+		{
+			try
+			{
+				throw 233;
+			}
+			catch (int &a)
+			{
+				cerr << a << endl; // 233
+				a += 233;
+				throw; // 把 &a 再扔出去qwq
+			}
+		}
+		catch (int a) // 注意这里是个形参
+		{
+			cerr << a << endl; // 466
+			a += 233;
+			throw;
+		}
+	}
+	catch (int a)
+	{
+		cerr << a << endl; // 466
+	}
+	return 0;
+}
+```

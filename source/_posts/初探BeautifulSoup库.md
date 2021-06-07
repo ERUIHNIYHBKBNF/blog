@@ -1,7 +1,7 @@
 ---
 title: '[爬虫笔记] 初探BeautifulSoup库'
 date: 2021-01-18 09:52:35
-tags: [python, 爬虫, web]
+tags: [python, 爬虫]
 ---
 
 > Soup是汤啊..咱还以为是肥皂qwq

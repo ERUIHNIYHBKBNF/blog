@@ -1,5 +1,5 @@
 ---
-title: '[杂项] python查询md5爬虫和简单excel表格处理'
+title: '[杂项] py查询md5爬虫&简单excel处理'
 date: 2021-06-07 10:30:35
 tags: [python, 爬虫, 杂项]
 ---

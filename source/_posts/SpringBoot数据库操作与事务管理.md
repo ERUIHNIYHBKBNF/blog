@@ -226,13 +226,41 @@ public List<Chino> getChinoByHeight(@PathVariable("height") Integer height) {
 新建ChinoService类 ChinoService.java:
 
 ```java
-package com.example.demo1;import org.springframework.beans.factory.annotation.Autowired;import org.springframework.stereotype.Service;@Servicepublic class ChinoService {    @Autowired    private ChinoRepository chinoRepository;    public void insertTwoChino() {        Chino chino1 = new Chino(), chino2 = new Chino();        chino1.setHeight(144);        chino1.setHusband("Cocoa");        chinoRepository.save(chino1);        chino2.setHeight(145);        chino2.setHusband("Hoto Cocoa");        chinoRepository.save(chino2);    }}
+package com.example.demo1;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class ChinoService {
+
+    @Autowired
+    private ChinoRepository chinoRepository;
+
+    public void insertTwoChino() {
+        Chino chino1 = new Chino(), chino2 = new Chino();
+
+        chino1.setHeight(144);
+        chino1.setHusband("Cocoa");
+        chinoRepository.save(chino1);
+
+        chino2.setHeight(145);
+        chino2.setHusband("Hoto Cocoa");
+        chinoRepository.save(chino2);
+    }
+}
 ```
 
 ChinoController类中添加内容：
 
 ```java
-@AutowiredChinoService chinoService;@PostMapping(value="/chino/two")public void addTwoChino() {    chinoService.insertTwoChino();}
+@Autowired
+ChinoService chinoService;
+
+@PostMapping(value="/chino/two")
+public void addTwoChino() {
+    chinoService.insertTwoChino();
+}
 ```
 
 运行，POST一下"localhost:8080/chino/two"成功插入。
@@ -242,7 +270,8 @@ ChinoController类中添加内容：
 然后insertTwoChino方法前加注解：
 
 ```java
-@Transactionalpublic void insertTwoChino() {...}
+@Transactional
+public void insertTwoChino() {...}
 ```
 
 测试没有插入任何一条数据（顺带一提id还是会自增的（并且增加了2））。

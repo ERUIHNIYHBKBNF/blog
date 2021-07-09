@@ -20,7 +20,7 @@ tags: [python, 爬虫, 杂项]
 
 * 全专业同学的学号与姓名名单
 * 入选同学的学号姓名（上图，加密过的）
-* 随手找的一个md5加密网站：https://www.qvdv.com/tools/qvdv-md5（api：https://www.qvdv.com/tools/qvdv-md5-_index.html）
+* 随手找的一个md5加密网站：[https://www.qvdv.com/tools/qvdv-md5](https://www.qvdv.com/tools/qvdv-md5)  （api：https://www.qvdv.com/tools/qvdv-md5-_index.html）
 
 打算拿学号那一栏去对比。查询每个人学号加密后的结果，如果在入选名单中出现就是被选上啦，，
 

@@ -285,3 +285,5 @@ void MainWindow::paintEvent(QPaintEvent *)
 
 ~~因为做完课设就会一直咕咕咕下去所以直接把这篇推上去了~~
 
+贴个仓库：[https://gitee.com/set-up-a-group/mini_maze](https://gitee.com/set-up-a-group/mini_maze)
+

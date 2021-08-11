@@ -305,4 +305,4 @@ a:hover, p:hover {
 
 * 一般`@extend` 比 `@mixin`生成的css更小，因为只涉及选择器的重复。
 
-咕~
+咕\~

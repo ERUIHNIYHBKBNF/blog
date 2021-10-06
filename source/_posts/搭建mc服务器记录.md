@@ -49,11 +49,11 @@ export PATH=${JAVA_HOME}/bin:$PATH
 java -Xmx1024M -Xms1024M -jar minecraft_server.1.17.1.jar nogui
 ```
 
-启动失败，然后ls一下，发现多了个 `eula.txt`， 进去把之后一行改成 `eula=true` 。
+启动失败，然后ls一下，发现多了个 `eula.txt`， 进去把最后一行改成 `eula=true` 。
 
 然后再启动，进mc直接连接 `服务器ip:25565` 应该就可以连上。
 
-关于 ` server.properties` 的一些配置文档： https://minecraft.fandom.com/zh/wiki/Server.properties，改了重启服务器就好了的样子。
+关于 ` server.properties` 的一些配置文档： [https://minecraft.fandom.com/zh/wiki/Server.properties](https://minecraft.fandom.com/zh/wiki/Server.properties)，改了重启服务器就好了的样子。
 
 关于作弊模式，在服务器启动的时候终端输入 `op 游戏用户名` 就能把该用户设成管理员了。
 
@@ -65,7 +65,7 @@ https://files.minecraftforge.net/net/minecraftforge/forge/
 
 装好之后跟纯净服一样启动，会多出一个mods文件夹，把需要的mod放进去就好了。
 
-顺带有些mod要求客户端也要有的，本地安装forge，windows的话进入 `%appdata%/.minecraft/mods` 把mod放进去什么的。
+顺带有些mod要求客户端也要有的，本地安装forge，windows的话进入 `%appdata%/.minecraft/mods/` 把mod放进去什么的。
 
 ## 长期运行
 

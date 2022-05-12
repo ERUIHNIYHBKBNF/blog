@@ -4,6 +4,8 @@ date: 2022-05-12 14:47:03
 tags: [typeorm, node, 前端]
 ---
 
+https://stackoverflow.com/questions/51562162/no-metadata-for-user-was-found-using-typeorm
+
 ## 问题描述
 
 问题来自一个typeorm的dataSource配置：

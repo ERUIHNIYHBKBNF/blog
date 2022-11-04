@@ -27,7 +27,7 @@ tags: [node, C++]
 
 先跟官网来粘一份代码：
 
-```C++
+```cpp
 // hello.cc
 #include <node.h>
 
@@ -61,7 +61,7 @@ namespace demo
 
 所有node addon必须像这样暴露一个初始化函数：
 
-```C++
+```cpp
 void Initialize(Local<Object> exports);
 NODE_MODULE(NODE_GYP_MODULE_NAME, Initialize) // 后面没分号
 ```
@@ -82,7 +82,7 @@ node-gyp作为npm内置的一部分，被设计为正常情况下只有在npm in
 
 binding.gyp：
 
-```JSON
+```json
 {
   "targets": [
     {
@@ -101,7 +101,7 @@ binding.gyp：
 
 hello.js：
 
-```JavaScript
+```js
 const addon = require('./build/Release/addon');
 
 console.log(addon.hello());
@@ -125,7 +125,7 @@ console.log(addon.hello());
 
 addon.cc：
 
-```C++
+```cpp
 #include <node.h>
 
 namespace demo

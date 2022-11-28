@@ -1,0 +1,518 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/blog/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="Eruの兔叽窝" href="https://eruihniyhbkbnf.github.io/blog/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Eruの兔叽窝" href="https://eruihniyhbkbnf.github.io/blog/atom.xml" />
+<link rel="alternate" type="application/json" title="Eruの兔叽窝" href="https://eruihniyhbkbnf.github.io/blog/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/blog/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="java,SpringBoot,web后端" />
+
+
+<link rel="canonical" href="https://eruihniyhbkbnf.github.io/blog/2021/06/27/SpringBoot%E9%A1%B9%E7%9B%AE%E5%88%9B%E5%BB%BA%E4%B8%8EController/">
+
+
+
+  <title>
+[SpringBoot笔记]项目创建与Controller使用 |
+Eruの兔叽窝 = QwQ</title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">[SpringBoot笔记]项目创建与Controller使用
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2021-06-27 23:18:15">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-06-27T23:18:15+08:00">2021-06-27</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/blog/" rel="start">Eruの兔叽窝</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipet8c1a2j20zk0m8kct.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giph47e9vtj20zk0m8x6l.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclx29mstj20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipeuibk9fj20zk0m8ay2.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicliierfjj20zk0m8npd.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclxfdlttj20zk0m8npd.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/blog/">首页</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://eruihniyhbkbnf.github.io/blog/2021/06/27/SpringBoot%E9%A1%B9%E7%9B%AE%E5%88%9B%E5%BB%BA%E4%B8%8EController/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/blog/images/avatar.jpg">
+    <meta itemprop="name" content="ERUIHNIYHBKBNF">
+    <meta itemprop="description" content="QwQ, 嘤嘤嘤~">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Eruの兔叽窝">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h2 id="项目结构与配置"><a class="markdownIt-Anchor" href="#项目结构与配置">#</a> 项目结构与配置</h2>
+<p>目录：</p>
+<img data-src="https://z3.ax1x.com/2021/06/08/2BLrrT.png" width="300px">
+<p>配置文件 application.yml:</p>
+<figure class="highlight yaml"><figcaption data-lang="YAML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token key atrule">server</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8080</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token key atrule">context-path</span><span class="token punctuation">:</span> /</pre></td></tr></table></figure><h2 id="controller的使用"><a class="markdownIt-Anchor" href="#controller的使用">#</a> Controller 的使用</h2>
+<h3 id="restcontroller和requestmapping注解"><a class="markdownIt-Anchor" href="#restcontroller和requestmapping注解">#</a> @RestController 和 @RequestMapping 注解</h3>
+<p><s>@Controller 需要配合 @ResponseBody 使用</s>，Spring4 之后新增注解 @RestController 相当于前边两个合起来。</p>
+<table>
+<thead>
+<tr>
+<th>注解</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@RestController</td>
+<td>处理 Http 请求</td>
+</tr>
+<tr>
+<td>@RequestMapping</td>
+<td>配置 url 映射</td>
+</tr>
+<tr>
+<td>@GetMapping</td>
+<td>同上，方法指定 GET</td>
+</tr>
+<tr>
+<td>POST…blabla…</td>
+<td>同上 blabla…</td>
+</tr>
+</tbody>
+</table>
+<p>实例：</p>
+<p>HelloChinoController.java</p>
+<figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>example<span class="token punctuation">.</span>demo1</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">RequestMapping</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">RequestMethod</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">RestController</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment">// 可以直接 import org.springframework.web.bind.annotation.*;</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token comment">//@RestController = @Controller + @ResponseBody</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token annotation punctuation">@RestController</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token comment">//RequestMapping 配置整个类的 url</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/hello"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HelloChinoController</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token comment">/*</pre></td></tr><tr><td data-num="14"></td><td><pre>    单独配置每个方法的 url，&#123;&#125; 可包含多个</pre></td></tr><tr><td data-num="15"></td><td><pre>    不写 method 则支持全部方法（然而并不规范的样子 qwq</pre></td></tr><tr><td data-num="16"></td><td><pre>    支持多个 url，这里通过 "/hello/chino" 或 "/hello/chinochann" 访问</pre></td></tr><tr><td data-num="17"></td><td><pre>    */</span></pre></td></tr><tr><td data-num="18"></td><td><pre>    <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"/chino"</span><span class="token punctuation">,</span> <span class="token string">"/chinochann"</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> method <span class="token operator">=</span> <span class="token class-name">RequestMethod</span><span class="token punctuation">.</span>GET<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>        <span class="token keyword">return</span> <span class="token string">"Hello Chino!"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="22"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h3 id="请求参数的获取"><a class="markdownIt-Anchor" href="#请求参数的获取">#</a> 请求参数的获取</h3>
+<table>
+<thead>
+<tr>
+<th>注解</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@PathVariable</td>
+<td>从 url 获取参数</td>
+</tr>
+<tr>
+<td>@RequestParam</td>
+<td>从 body 获取参数</td>
+</tr>
+</tbody>
+</table>
+<p>从 url 获取参数：</p>
+<figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"/&#123;id&#125;chino/&#123;id2&#125;"</span><span class="token punctuation">,</span> method <span class="token operator">=</span> <span class="token class-name">RequestMethod</span><span class="token punctuation">.</span>GET<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">hello</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span> <span class="token class-name">Integer</span> id<span class="token punctuation">,</span> <span class="token annotation punctuation">@PathVariable</span><span class="token punctuation">(</span><span class="token string">"id2"</span><span class="token punctuation">)</span> <span class="token class-name">Integer</span> id2<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token keyword">return</span> <span class="token string">"Hello Chino! "</span> <span class="token operator">+</span> id <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> id2<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>通过 <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4MDgwL2hlbGxvLzIzM2NoaW5vLzQ2Ng==">http://localhost:8080/hello/233chino/466</span> 访问，返回 “Hello Chino! 233 466”</p>
+<p>GET 参数获取：</p>
+<figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/chino"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">hello</span><span class="token punctuation">(</span><span class="token annotation punctuation">@RequestParam</span><span class="token punctuation">(</span>required <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">,</span> defaultValue <span class="token operator">=</span> <span class="token string">"1"</span><span class="token punctuation">)</span> <span class="token class-name">Integer</span> id<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token comment">//id 只能叫 id</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token keyword">return</span> <span class="token string">"Hello Chino! "</span> <span class="token operator">+</span> id<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment">// 或者这样之类的，，反正到时候查手册啦，，</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/chino"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">hello</span><span class="token punctuation">(</span><span class="token annotation punctuation">@RequestParam</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"id"</span><span class="token punctuation">,</span> required <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">,</span> defaultValue <span class="token operator">=</span> <span class="token string">"1"</span><span class="token punctuation">)</span> <span class="token class-name">Integer</span> myId<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token keyword">return</span> <span class="token string">"Hello Chino! "</span> <span class="token operator">+</span> myId<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>通过 <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4MDgwL2hlbGxvL2NoaW5v">http://localhost:8080/hello/chino</span> 访问，返回 “Hello Chino! 1”，通过 <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4MDgwL2hlbGxvL2NoaW5vLz9pZD0yMzM=">http://localhost:8080/hello/chino/?id=233</span> 访问，返回 “Hello Chino! 233”</p>
+<p>随便粘个 POST 的实例：</p>
+<figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token annotation punctuation">@PostMapping</span><span class="token punctuation">(</span><span class="token string">"/pay"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">public</span> <span class="token class-name">AjaxResult</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">PayResult</span><span class="token punctuation">></span></span> <span class="token function">pay</span><span class="token punctuation">(</span><span class="token annotation punctuation">@RequestBody</span> <span class="token class-name">PayParam</span> param<span class="token punctuation">,</span> <span class="token class-name">HttpServletRequest</span> request<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token class-name">Long</span> userId <span class="token operator">=</span> <span class="token class-name">UserUtils</span><span class="token punctuation">.</span><span class="token function">getUserId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token class-name">String</span> ip <span class="token operator">=</span> <span class="token class-name">IPUtils</span><span class="token punctuation">.</span><span class="token function">getRequestClientRealIP</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token class-name">PayResult</span> payResult <span class="token operator">=</span> orderService<span class="token punctuation">.</span><span class="token function">pay</span><span class="token punctuation">(</span>param<span class="token punctuation">,</span> ip<span class="token punctuation">,</span> userId<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token keyword">return</span> <span class="token class-name">AjaxResult</span><span class="token punctuation">.</span><span class="token function">SUCCESS</span><span class="token punctuation">(</span>payResult<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure>
+      <div class="tags">
+          <a href="/blog/tags/java/" rel="tag"><i class="ic i-tag"></i> java</a>
+          <a href="/blog/tags/SpringBoot/" rel="tag"><i class="ic i-tag"></i> SpringBoot</a>
+          <a href="/blog/tags/web%E5%90%8E%E7%AB%AF/" rel="tag"><i class="ic i-tag"></i> web后端</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2022-11-28 22:26:18" itemprop="dateModified" datetime="2022-11-28T22:26:18+08:00">2022-11-28</time>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>ERUIHNIYHBKBNF <i class="ic i-at"><em>@</em></i>Eruの兔叽窝
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://eruihniyhbkbnf.github.io/blog/2021/06/27/SpringBoot%E9%A1%B9%E7%9B%AE%E5%88%9B%E5%BB%BA%E4%B8%8EController/" title="[SpringBoot笔记]项目创建与Controller使用">https://eruihniyhbkbnf.github.io/blog/2021/06/27/SpringBoot项目创建与Controller/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/blog/2021/06/07/%E6%9F%A5%E8%AF%A2md5%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8B/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipeyhsblkj20zk0m81kx.jpg" title="[杂项] py查询md5爬虫&amp;简单excel处理">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>[杂项] py查询md5爬虫&简单excel处理</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/blog/2021/06/27/SpringBoot%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%E4%B8%8E%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclh0m9pdj20zk0m8hdt.jpg" title="[SpringBoot笔记]数据库操作与事务管理">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>[SpringBoot笔记]数据库操作与事务管理</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="toc-number">1.</span> <span class="toc-text"> 项目结构与配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#controller%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text"> Controller 的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#restcontroller%E5%92%8Crequestmapping%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.1.</span> <span class="toc-text"> @RestController 和 @RequestMapping 注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E7%9A%84%E8%8E%B7%E5%8F%96"><span class="toc-number">2.2.</span> <span class="toc-text"> 请求参数的获取</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="ERUIHNIYHBKBNF"
+      data-src="/blog/images/avatar.jpg">
+  <p class="name" itemprop="name">ERUIHNIYHBKBNF</p>
+  <div class="description" itemprop="description">嘤嘤嘤~</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/blog/archives/">
+        <span class="count">53</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/blog/tags/">
+        <span class="count">31</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL0VSVUlITklZSEJLQk5G" title="https:&#x2F;&#x2F;github.com&#x2F;ERUIHNIYHBKBNF"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/blog/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/blog/2021/06/07/%E6%9F%A5%E8%AF%A2md5%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8B/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/blog/2021/06/27/SpringBoot%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%E4%B8%8E%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2020/08/16/%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E7%BA%BF%E6%AE%B5%E6%A0%91/" title="[模板] 可持久化线段树">[模板] 可持久化线段树</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/02/16/kNN%E7%AE%97%E6%B3%95/" title="摸一摸k-NN算法">摸一摸k-NN算法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/08/11/sass%E4%B8%80%E4%B8%AA%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/" title="sass一个入门笔记">sass一个入门笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/05/04/%E4%BA%8C%E5%88%86%E5%9B%BE%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D/" title="[杂题] 二分图最大匹配">[杂题] 二分图最大匹配</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/10/12/py%E5%AE%9E%E7%8E%B0%E4%BD%8E%E9%85%8D%E7%89%88%E9%AA%8C%E8%AF%81%E7%A0%81%E8%AF%86%E5%88%AB/" title="py实现低配版验证码识别">py实现低配版验证码识别</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2022/03/18/LCS%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97/" title="[模板]LCS最长公共子序列">[模板]LCS最长公共子序列</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/02/03/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1%E8%BF%9B%E9%98%B6/" title="[C++笔记] 类和对象进阶">[C++笔记] 类和对象进阶</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2020/08/13/%E6%A0%91%E5%89%96%20+%20%E7%BA%BF%E6%AE%B5%E6%A0%91/" title="[杂题] 树剖 + 线段树">[杂题] 树剖 + 线段树</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/09/26/%E7%BA%BF%E6%AE%B5%E6%A0%91%E6%9D%82%E9%A2%9820210926/" title="[杂题] 线段树一些题目">[杂题] 线段树一些题目</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/02/03/vector-%E5%8E%9F%E7%94%9F%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="[C++笔记] vector,stack,原生字符串">[C++笔记] vector,stack,原生字符串</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">ERUIHNIYHBKBNF @ Eruの兔叽窝</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2021/06/27/SpringBoot项目创建与Controller/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/blog/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

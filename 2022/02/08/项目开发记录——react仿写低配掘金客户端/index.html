@@ -1,0 +1,546 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/blog/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="Eruの兔叽窝" href="https://eruihniyhbkbnf.github.io/blog/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Eruの兔叽窝" href="https://eruihniyhbkbnf.github.io/blog/atom.xml" />
+<link rel="alternate" type="application/json" title="Eruの兔叽窝" href="https://eruihniyhbkbnf.github.io/blog/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/blog/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="前端,react" />
+
+
+<link rel="canonical" href="https://eruihniyhbkbnf.github.io/blog/2022/02/08/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95%E2%80%94%E2%80%94react%E4%BB%BF%E5%86%99%E4%BD%8E%E9%85%8D%E6%8E%98%E9%87%91%E5%AE%A2%E6%88%B7%E7%AB%AF/">
+
+
+
+  <title>
+项目开发记录——react仿写低配掘金客户端 |
+Eruの兔叽窝 = QwQ</title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">项目开发记录——react仿写低配掘金客户端
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2022-02-08 17:45:27">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2022-02-08T17:45:27+08:00">2022-02-08</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/blog/" rel="start">Eruの兔叽窝</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipexw3o58j20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipetv6p75j20zk0m8x6p.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giciundwu5j20zk0m8n9e.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicitcxhpij20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipewkhf1zj20zk0m81kx.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclhfehz7j20zk0m8u0x.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/blog/">首页</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://eruihniyhbkbnf.github.io/blog/2022/02/08/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95%E2%80%94%E2%80%94react%E4%BB%BF%E5%86%99%E4%BD%8E%E9%85%8D%E6%8E%98%E9%87%91%E5%AE%A2%E6%88%B7%E7%AB%AF/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/blog/images/avatar.jpg">
+    <meta itemprop="name" content="ERUIHNIYHBKBNF">
+    <meta itemprop="description" content="QwQ, 嘤嘤嘤~">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Eruの兔叽窝">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="开始做一个react项目叭历程记录"><a class="markdownIt-Anchor" href="#开始做一个react项目叭历程记录">#</a> 开始做一个 React 项目叭 —— 历程记录</h1>
+<p>有几次 vue 项目经历，尝试写个 react 小项目（<s>比着跟官方教程写的 tictactoe 抄抄就行了</s>），在此做点记录。</p>
+<p>来自<span class="exturl" data-url="aHR0cHM6Ly9ieXRlZGFuY2VjYW1wdXMxLmZlaXNodS5jbi9kb2NzL2RvY2NuNEFyaEU3TjNKM1YyT3N6aEdsWlFrZCM=">字学镜像计划</span>，最终代码存在 github：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0VSVUlITklZSEJLQk5GL3JlYWN0LWp1ZWppbg==">ERUIHNIYHBKBNF/react-juejin</span></p>
+<h2 id="初始化"><a class="markdownIt-Anchor" href="#初始化">#</a> 初始化</h2>
+<p>按官方文档来，创建一个新的单页应用。</p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre>npx create-react-app react-juejin</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token builtin class-name">cd</span> react-juejin</pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token function">npm</span> start</pre></td></tr></table></figure><p>然后一堆奇奇怪怪看不懂的文件全删掉（逃），最后留一点变成这样就好了叭：</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/ERUIHNIYHBKBNF/picapica@main/frontend/2022020702.webp" alt=""></p>
+<h2 id="添加路由"><a class="markdownIt-Anchor" href="#添加路由">#</a> 添加路由</h2>
+<p><strong>看文档之前一定先看好版本 QAQ</strong></p>
+<p>看上去还不错的一篇文章：<span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8xOTE0MTk4Nzk=">React Router v6 使用指南</span></p>
+<p>抄一下官方的 demo：<span class="exturl" data-url="aHR0cHM6Ly9yZWFjdHJvdXRlci5jb20vZG9jcy9lbi92Ni9leGFtcGxlcy9iYXNpYw==">Basic Example</span></p>
+<p>看起来只有 文章列表 和 文章 两个页面，不是很麻烦的样子 qwq</p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">npm</span> <span class="token function">install</span> -s react-router-dom@6</pre></td></tr></table></figure><p>然后用 Router 就相当于一个组件一样方便使用，具体去翻文档就好了唔。</p>
+<p>index.js：</p>
+<figure class="highlight jsx"><figcaption data-lang="React JSX"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">import</span> ReactDOM <span class="token keyword">from</span> <span class="token string">'react-dom'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">import</span> <span class="token string">'./index.css'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">import</span> App <span class="token keyword">from</span> <span class="token string">'./App'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> BrowserRouter <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'react-router-dom'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>ReactDOM<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">React.StrictMode</span></span><span class="token punctuation">></span></span><span class="token plain-text"></pre></td></tr><tr><td data-num="9"></td><td><pre>    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">BrowserRouter</span></span><span class="token punctuation">></span></span><span class="token plain-text"></pre></td></tr><tr><td data-num="10"></td><td><pre>      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">App</span></span> <span class="token punctuation">/></span></span><span class="token plain-text"></pre></td></tr><tr><td data-num="11"></td><td><pre>    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">BrowserRouter</span></span><span class="token punctuation">></span></span><span class="token plain-text"></pre></td></tr><tr><td data-num="12"></td><td><pre>  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">React.StrictMode</span></span><span class="token punctuation">></span></span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="13"></td><td><pre>  document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'root'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>App.js：</p>
+<figure class="highlight jsx"><figcaption data-lang="React JSX"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> Routes<span class="token punctuation">,</span> Route <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'react-router-dom'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">import</span> ArticleList <span class="token keyword">from</span> <span class="token string">'./articleList'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">import</span> Article <span class="token keyword">from</span> <span class="token string">'./article'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token keyword">return</span> <span class="token punctuation">(</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Routes</span></span><span class="token punctuation">></span></span><span class="token plain-text"></pre></td></tr><tr><td data-num="7"></td><td><pre>      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Route</span></span> <span class="token attr-name">path</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/<span class="token punctuation">"</span></span> <span class="token attr-name">element</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">&#123;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">ArticleList</span></span> <span class="token punctuation">/></span></span><span class="token punctuation">&#125;</span></span> <span class="token punctuation">/></span></span><span class="token plain-text"></pre></td></tr><tr><td data-num="8"></td><td><pre>      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Route</span></span> <span class="token attr-name">path</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/article<span class="token punctuation">"</span></span> <span class="token attr-name">element</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">&#123;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Article</span></span> <span class="token punctuation">/></span></span><span class="token punctuation">&#125;</span></span> <span class="token punctuation">/></span></span><span class="token plain-text"></pre></td></tr><tr><td data-num="9"></td><td><pre>    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">Routes</span></span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>然后写写 articleList 和 article 两个组件的初始化：</p>
+<figure class="highlight jsx"><figcaption data-lang="React JSX"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">"react"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">ArticleList</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token keyword">return</span> <span class="token punctuation">(</span></pre></td></tr><tr><td data-num="5"></td><td><pre>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">ArticleList</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>可以正常访问，然后开始撸页面就好了唔。</p>
+<p>顺带现在长这个样子：<img data-src="https://cdn.jsdelivr.net/gh/ERUIHNIYHBKBNF/picapica@main/frontend/2022020703.webp" width="200px"></p>
+<h2 id="开始撸页面"><a class="markdownIt-Anchor" href="#开始撸页面">#</a> 开始撸页面</h2>
+<h3 id="使用css"><a class="markdownIt-Anchor" href="#使用css">#</a> 使用 css</h3>
+<p><span class="exturl" data-url="aHR0cDovL3d3dy5ydWFueWlmZW5nLmNvbS9ibG9nLzIwMTYvMDYvY3NzX21vZHVsZXMuaHRtbA==">阮一峰 - CSS Modules 用法教程</span></p>
+<blockquote>
+<p>CSS 的规则都是全局的，任何一个组件的样式规则，都对整个页面有效。</p>
+<p>产生局部作用域的唯一方法，就是使用一个独一无二的 <code>class</code>  的名字，不会与其他选择器重名。这就是 CSS Modules 的做法。</p>
+</blockquote>
+<p>算了算了，反正也不急着弄明白啥意思（<s>赶紧水完项目要紧</s>）简单来说，局部样式和全局样式分别这样用：</p>
+<ul>
+<li>局部
+<ul>
+<li>命名： <code>style.module.css</code></li>
+<li>引入： <code>import style from 'style.module.css'</code></li>
+<li>使用：  <code>&lt;div className=&#123;style[className]&#125;&gt;</code></li>
+</ul>
+</li>
+<li>全局
+<ul>
+<li>命名： <code>style.css</code></li>
+<li>引入： <code>import 'style.css'</code></li>
+<li>使用： <code>&lt;div className='className'&gt;</code></li>
+</ul>
+</li>
+</ul>
+<p>顺带用一下 scss，至少能嵌套一下就很方便 qwq</p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">npm</span> <span class="token function">install</span> -d node-sass</pre></td></tr></table></figure><p>于是大部分就这样子写了：</p>
+<figure class="highlight jsx"><figcaption data-lang="React JSX"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">"react"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">import</span> style <span class="token keyword">from</span> <span class="token string">"../style.module.scss"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">Bottom</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token keyword">return</span> <span class="token punctuation">(</span></pre></td></tr><tr><td data-num="6"></td><td><pre>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">className</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">&#123;</span> style<span class="token punctuation">[</span><span class="token string">'bottom'</span><span class="token punctuation">]</span> <span class="token punctuation">&#125;</span></span><span class="token punctuation">></span></span><span class="token plain-text"></pre></td></tr><tr><td data-num="7"></td><td><pre>        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span><span class="token plain-text"></pre></td></tr><tr><td data-num="8"></td><td><pre>            </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span><span class="token plain-text">最新</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span><span class="token plain-text"></pre></td></tr><tr><td data-num="9"></td><td><pre>            </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span><span class="token plain-text">热门</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span><span class="token plain-text"></pre></td></tr><tr><td data-num="10"></td><td><pre>            </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span><span class="token plain-text">历史</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span><span class="token plain-text"></pre></td></tr><tr><td data-num="11"></td><td><pre>        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span><span class="token plain-text"></pre></td></tr><tr><td data-num="12"></td><td><pre>      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h3 id="基础页面绘制"><a class="markdownIt-Anchor" href="#基础页面绘制">#</a> 基础页面绘制</h3>
+<p>写过一堆 css 之后变成了这个样子：<img data-src="https://cdn.jsdelivr.net/gh/ERUIHNIYHBKBNF/picapica@main/frontend/2022020801.webp" width="200px"></p>
+<img data-src="https://cdn.jsdelivr.net/gh/ERUIHNIYHBKBNF/picapica@main/frontend/2022020802.webp" width="1000px">
+<h2 id="文章列表相关动态操作"><a class="markdownIt-Anchor" href="#文章列表相关动态操作">#</a> 文章列表相关动态操作</h2>
+<h3 id="切换tabs"><a class="markdownIt-Anchor" href="#切换tabs">#</a> 切换 tabs</h3>
+<p>这里所有 tab 的状态统一存到了公共的父组件  <code>/articleList/index.js</code>  里面，仍然以最底部的导航栏为例，父组件的 state 里存两个东西：</p>
+<p><code>bottomTabs: ['热门', '最新', '历史'], activeBottomTab: 0,</code></p>
+<p>分别表示都有哪些 tabs 和当前点击的 tab 是哪个，作为 props 传给底部导航栏组件处理即可，顺带父组件的 changeTab 事件也一并作为 props 传过去便于切换。</p>
+<p>index.js:</p>
+<figure class="highlight jsx"><figcaption data-lang="React JSX"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Bottom</span></span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token attr-name">tabs</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">&#123;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>bottomTabs <span class="token punctuation">&#125;</span></span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token attr-name">activeTab</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">&#123;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>activeBottomTab <span class="token punctuation">&#125;</span></span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token attr-name">changeTab</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">&#123;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>changeBottomTab <span class="token punctuation">&#125;</span></span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">/></span></span></pre></td></tr></table></figure><p>bottom.js:</p>
+<figure class="highlight jsx"><figcaption data-lang="React JSX"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">"react"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">import</span> style <span class="token keyword">from</span> <span class="token string">"../style.module.scss"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">Bottom</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token keyword">return</span> <span class="token punctuation">(</span></pre></td></tr><tr><td data-num="6"></td><td><pre>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">className</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">&#123;</span>style<span class="token punctuation">[</span><span class="token string">'bottom'</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span></span><span class="token punctuation">></span></span><span class="token plain-text"></pre></td></tr><tr><td data-num="7"></td><td><pre>        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span><span class="token plain-text"></pre></td></tr><tr><td data-num="8"></td><td><pre>          </span><span class="token punctuation">&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>tabs<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">item<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span></pre></td></tr><tr><td data-num="9"></td><td><pre>            <span class="token operator">&lt;</span>li</pre></td></tr><tr><td data-num="10"></td><td><pre>              onClick<span class="token operator">=</span><span class="token punctuation">&#123;</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span><span class="token function">changeTab</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span> <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>              <span class="token comment">// 为选中的组件动态绑定蓝色特效</span></pre></td></tr><tr><td data-num="12"></td><td><pre>              className<span class="token operator">=</span><span class="token punctuation">&#123;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>activeTab <span class="token operator">===</span> index <span class="token operator">?</span> style<span class="token punctuation">[</span><span class="token string">'active-tab'</span><span class="token punctuation">]</span> <span class="token operator">:</span> <span class="token string">''</span> <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>              key<span class="token operator">=</span><span class="token punctuation">&#123;</span> index <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>            <span class="token operator">></span></pre></td></tr><tr><td data-num="15"></td><td><pre>              <span class="token punctuation">&#123;</span>item<span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="17"></td><td><pre>          <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token plain-text"></pre></td></tr><tr><td data-num="18"></td><td><pre>        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span><span class="token plain-text"></pre></td></tr><tr><td data-num="19"></td><td><pre>      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="22"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h3 id="动态渲染文章预览"><a class="markdownIt-Anchor" href="#动态渲染文章预览">#</a> 动态渲染文章预览</h3>
+<p>其实跟 tabs 差不多，仍然是父组件  <code>/articleList/index.js</code>  去存储文章列表，把文章列表传给了  <code>body.js</code>  也就是页面主体部分，再由其分别传给每个小卡片。</p>
+<p><em>感觉这样安排也许会有些不合理的地方，不过主要考虑是，接口获取文章列表也需要当前各种 tabs 的选中情况，而这些状态都存在了  <code>index.js</code>  里，所以为了对接口方便只好这样安排了 qwq</em></p>
+<h3 id="对接fake-api动态获取数据"><a class="markdownIt-Anchor" href="#对接fake-api动态获取数据">#</a> 对接 fake-api 动态获取数据</h3>
+<p>因为是假的接口不需要网络请求，写起来就非常简单了，直接参考  <code>fake-api/index.js</code>  里的注释就好：</p>
+<p>/articleList/index.js：</p>
+<figure class="highlight jsx"><figcaption data-lang="React JSX"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">//...</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> getCategories<span class="token punctuation">,</span> getArticles <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">"../fake-api"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment">//...</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">ArticleList</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">/*......*/</span> <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token function">componentDidMount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">fetchCategories</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">fetchArticles</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token keyword">async</span> <span class="token function">fetchCategories</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">/*......*/</span> <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token keyword">async</span> <span class="token function">fetchArticles</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">/*......*/</span> <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token comment">//...</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>这样看上去就比较像样子了。</p>
+<img data-src="https://cdn.jsdelivr.net/gh/ERUIHNIYHBKBNF/picapica@main/frontend/2022020803.webp" width="600px">
+<p>关于无限下拉列表，跟上面提到的一样，这里父子组件关系安排有点乱，不如记录文章评论那里的无限下拉列表比较方便 qwq</p>
+<h2 id="文章内容相关动态操作"><a class="markdownIt-Anchor" href="#文章内容相关动态操作">#</a> 文章内容相关动态操作</h2>
+<h3 id="路由跳转"><a class="markdownIt-Anchor" href="#路由跳转">#</a> 路由跳转</h3>
+<p>一种方式：</p>
+<figure class="highlight jsx"><figcaption data-lang="React JSX"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// routes</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> Routes<span class="token punctuation">,</span> Route <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'react-router-dom'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Routes</span></span><span class="token punctuation">></span></span><span class="token plain-text"></pre></td></tr><tr><td data-num="4"></td><td><pre>  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Route</span></span> <span class="token attr-name">path</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/<span class="token punctuation">"</span></span> <span class="token attr-name">element</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">&#123;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">ArticleList</span></span> <span class="token punctuation">/></span></span><span class="token punctuation">&#125;</span></span> <span class="token punctuation">/></span></span><span class="token plain-text"></pre></td></tr><tr><td data-num="5"></td><td><pre>  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Route</span></span> <span class="token attr-name">path</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/article/:id<span class="token punctuation">"</span></span> <span class="token attr-name">element</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">&#123;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Article</span></span> <span class="token punctuation">/></span></span><span class="token punctuation">&#125;</span></span> <span class="token punctuation">/></span></span><span class="token plain-text"></pre></td></tr><tr><td data-num="6"></td><td><pre></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">Routes</span></span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token comment">// link</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> Link <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">"react-router-dom"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Link</span></span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span>&lt;!--swig￼0--</span><span class="token punctuation">></span></span><span class="token plain-text"></pre></td></tr><tr><td data-num="11"></td><td><pre>  to=</span><span class="token punctuation">&#123;</span> <span class="token string">'/article/'</span> <span class="token operator">+</span> item<span class="token punctuation">.</span>article_id <span class="token punctuation">&#125;</span><span class="token plain-text"></pre></td></tr><tr><td data-num="12"></td><td><pre>></pre></td></tr><tr><td data-num="13"></td><td><pre></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">Link</span></span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token comment">// 获取参数</span></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> useParams <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">"react-router-dom"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token keyword">const</span> <span class="token punctuation">&#123;</span> id <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token function">useParams</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h3 id="组件功能划分"><a class="markdownIt-Anchor" href="#组件功能划分">#</a> 组件功能划分</h3>
+<p>文件结构长这样：<img data-src="https://cdn.jsdelivr.net/gh/ERUIHNIYHBKBNF/picapica@main/frontend/2022020804.webp" width="250px"></p>
+<p>其中  <code>index.js</code>  负责从路由获取文章 id，分别传给文章主体部分  <code>body.js</code>  和评论部分  <code>comments.js</code>  ，相关内容由这两个组件分别获取。</p>
+<p>文章接口可以直接获取 html 代码，<s>无视 xss</s> 使用  <code>&lt;div dangerouslySetInnerHTML=&#123;&#123;__html: this.state.article &#125;&#125;/&gt;</code>  直接嵌入即可。</p>
+<h3 id="评论区无限下拉实现"><a class="markdownIt-Anchor" href="#评论区无限下拉实现">#</a> 评论区无限下拉实现</h3>
+<p>实现思路主要是这些：</p>
+<ul>
+<li>设定好一个  <code>加载中</code>  元素始终位于最底部。</li>
+<li>使用  <code>IntersectionObserver</code>  监听这个  <code>加载中</code>  元素与视窗的重合部分。</li>
+<li>到达一定重合面积（也就是当用户能看到 &quot;加载中&quot; 这三个字）时，获取新的数据， <code>offset</code>  就是本地已获取的数据列表长度。</li>
+<li>接口提供总数据量  <code>total</code> ，当本地已获取数据列表长度与之相等时，代表所有数据已经加载完毕。</li>
+<li>之后清除  <code>observer</code>  并将  <code>加载中</code>  替换为  <code>没有更多了</code> 。</li>
+</ul>
+<p><s>也许整个组件的代码都可以丢这里占篇幅 QwQ</s></p>
+<p>comments.js：</p>
+<figure class="highlight jsx"><figcaption data-lang="React JSX"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">"react"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">import</span> style <span class="token keyword">from</span> <span class="token string">"../style.module.scss"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> getCommentsByArticleId <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">"../../fake-api"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">Comments</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token keyword">super</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token keyword">this</span><span class="token punctuation">.</span>loading <span class="token operator">=</span> React<span class="token punctuation">.</span><span class="token function">createRef</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>      comments<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="10"></td><td><pre>      observer<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="11"></td><td><pre>      total<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>  <span class="token function">componentDidMount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token comment">// 创建 observer，重合 10% 时开始获取新的数据。</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token keyword">const</span> observer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IntersectionObserver</span><span class="token punctuation">(</span></pre></td></tr><tr><td data-num="17"></td><td><pre>      <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">fetchComments</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="20"></td><td><pre>      <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>        threshold<span class="token operator">:</span> <span class="token number">0.1</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="22"></td><td><pre>      <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>    <span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="24"></td><td><pre>    observer<span class="token punctuation">.</span><span class="token function">observe</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>loading<span class="token punctuation">.</span>current<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="25"></td><td><pre>    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">fetchComments</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="27"></td><td><pre>  <span class="token comment">// 获取新的数据</span></pre></td></tr><tr><td data-num="28"></td><td><pre>  <span class="token keyword">async</span> <span class="token function">fetchComments</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="29"></td><td><pre>    <span class="token keyword">const</span> response <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">getCommentsByArticleId</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>id<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>comments<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="30"></td><td><pre>    <span class="token keyword">let</span> comments <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>comments<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="31"></td><td><pre>    comments <span class="token operator">=</span> comments<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>data<span class="token punctuation">.</span>comments<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="32"></td><td><pre>    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="33"></td><td><pre>      comments<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="34"></td><td><pre>      total<span class="token operator">:</span> response<span class="token punctuation">.</span>total<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="35"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="36"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="37"></td><td><pre>  <span class="token function">renderCommentCard</span><span class="token punctuation">(</span><span class="token parameter">comment</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="38"></td><td><pre>    <span class="token comment">/* 渲染一个评论卡片 */</span></pre></td></tr><tr><td data-num="39"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="40"></td><td><pre>  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="41"></td><td><pre>    <span class="token keyword">return</span> <span class="token punctuation">(</span></pre></td></tr><tr><td data-num="42"></td><td><pre>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">className</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">&#123;</span>style<span class="token punctuation">[</span><span class="token string">'comments'</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span></span><span class="token punctuation">></span></span><span class="token plain-text"></pre></td></tr><tr><td data-num="43"></td><td><pre>        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span><span class="token plain-text"></pre></td></tr><tr><td data-num="44"></td><td><pre>          </span><span class="token punctuation">&#123;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>comments<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>renderCommentCard<span class="token punctuation">)</span> <span class="token punctuation">&#125;</span><span class="token plain-text"></pre></td></tr><tr><td data-num="45"></td><td><pre>        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span><span class="token plain-text"></pre></td></tr><tr><td data-num="46"></td><td><pre>          </span><span class="token punctuation">&#123;</span><span class="token comment">/* 这个 span 就是实现无限下拉的关键元素 */</span><span class="token punctuation">&#125;</span><span class="token plain-text"></pre></td></tr><tr><td data-num="47"></td><td><pre>          </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">ref</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>loading<span class="token punctuation">&#125;</span></span> <span class="token attr-name">className</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">&#123;</span> style<span class="token punctuation">[</span><span class="token string">'loading'</span><span class="token punctuation">]</span> <span class="token punctuation">&#125;</span></span><span class="token punctuation">></span></span><span class="token plain-text"></pre></td></tr><tr><td data-num="48"></td><td><pre>            </span><span class="token punctuation">&#123;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>total <span class="token operator">===</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>comments<span class="token punctuation">.</span>length <span class="token operator">?</span> <span class="token string">'没有更多了嘤~'</span> <span class="token operator">:</span> <span class="token string">'加载中...'</span> <span class="token punctuation">&#125;</span><span class="token plain-text"></pre></td></tr><tr><td data-num="49"></td><td><pre>          </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span><span class="token plain-text"></pre></td></tr><tr><td data-num="50"></td><td><pre>      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="51"></td><td><pre>    <span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="52"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="53"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h2 id="历史记录"><a class="markdownIt-Anchor" href="#历史记录">#</a> 历史记录</h2>
+<p>简单粗暴，在用户点击一篇文章时直接存 localStorage 即可：</p>
+<p><em>这里除了暴力没有想到什么比较好的去重方法，所以<s>直接懒得写</s>没有写去重 qwq</em></p>
+<figure class="highlight jsx"><figcaption data-lang="React JSX"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">addToHistory</span><span class="token punctuation">(</span><span class="token parameter">articleInfo</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token keyword">const</span> history <span class="token operator">=</span> localStorage<span class="token punctuation">.</span><span class="token function">getItem</span><span class="token punctuation">(</span><span class="token string">'historyArticles'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token keyword">if</span> <span class="token punctuation">(</span>history<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token keyword">const</span> historyArticles <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>history<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    historyArticles<span class="token punctuation">.</span><span class="token function">unshift</span><span class="token punctuation">(</span>articleInfo<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    localStorage<span class="token punctuation">.</span><span class="token function">setItem</span><span class="token punctuation">(</span><span class="token string">'historyArticles'</span><span class="token punctuation">,</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>historyArticles<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    localStorage<span class="token punctuation">.</span><span class="token function">setItem</span><span class="token punctuation">(</span><span class="token string">'historyArticles'</span><span class="token punctuation">,</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token punctuation">[</span>articleInfo<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>在获取文章时，先检查当前选中的 tab 是否为  <code>历史</code>  ，如果是，则文章列表直接在 localStorage 中获取：</p>
+<figure class="highlight jsx"><figcaption data-lang="React JSX"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">async</span> <span class="token function">fetchArticles</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>activeBottomTab <span class="token operator">===</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">fetchHistoryArticles</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>	<span class="token comment">/*......*/</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token function">fetchHistoryArticles</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token keyword">const</span> history <span class="token operator">=</span> localStorage<span class="token punctuation">.</span><span class="token function">getItem</span><span class="token punctuation">(</span><span class="token string">'historyArticles'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token comment">// 是否有历史记录</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token keyword">if</span> <span class="token punctuation">(</span>history<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token keyword">const</span> historyArticles <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>history<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>      articleList<span class="token operator">:</span> historyArticles<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="15"></td><td><pre>      totalArticles<span class="token operator">:</span> historyArticles<span class="token punctuation">.</span>length<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>      articleList<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="20"></td><td><pre>      totalArticles<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="22"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="23"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h2 id="总结"><a class="markdownIt-Anchor" href="#总结">#</a> 总结</h2>
+<p>唔姆唔姆，不知道总结什么，但总该有个结尾 qwq</p>
+<p>普普通通的一个项目叭，算是第一次体验了一下使用 react 进行开发～～（tictactoe 不算）~~，用起来还挺舒服的。</p>
+
+      <div class="tags">
+          <a href="/blog/tags/%E5%89%8D%E7%AB%AF/" rel="tag"><i class="ic i-tag"></i> 前端</a>
+          <a href="/blog/tags/react/" rel="tag"><i class="ic i-tag"></i> react</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2022-11-28 22:26:18" itemprop="dateModified" datetime="2022-11-28T22:26:18+08:00">2022-11-28</time>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>ERUIHNIYHBKBNF <i class="ic i-at"><em>@</em></i>Eruの兔叽窝
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://eruihniyhbkbnf.github.io/blog/2022/02/08/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95%E2%80%94%E2%80%94react%E4%BB%BF%E5%86%99%E4%BD%8E%E9%85%8D%E6%8E%98%E9%87%91%E5%AE%A2%E6%88%B7%E7%AB%AF/" title="项目开发记录——react仿写低配掘金客户端">https://eruihniyhbkbnf.github.io/blog/2022/02/08/项目开发记录——react仿写低配掘金客户端/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/blog/2022/02/06/%E7%AE%80%E5%8D%95%E7%B2%97%E6%9A%B4%E4%B8%BA%E7%BD%91%E7%AB%99%E6%B7%BB%E5%8A%A0%E6%B7%B1%E8%89%B2%E4%B8%BB%E9%A2%98/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclwuom7cj20zk0m8dvn.jpg" title="简单粗暴为网站添加深色主题">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>简单粗暴为网站添加深色主题</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/blog/2022/03/18/LCS%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclj9410cj20zk0m8h12.jpg" title="[模板]LCS最长公共子序列">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>[模板]LCS最长公共子序列</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E5%81%9A%E4%B8%80%E4%B8%AAreact%E9%A1%B9%E7%9B%AE%E5%8F%AD%E5%8E%86%E7%A8%8B%E8%AE%B0%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text"> 开始做一个 React 项目叭 —— 历程记录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">1.1.</span> <span class="toc-text"> 初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E8%B7%AF%E7%94%B1"><span class="toc-number">1.2.</span> <span class="toc-text"> 添加路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E6%92%B8%E9%A1%B5%E9%9D%A2"><span class="toc-number">1.3.</span> <span class="toc-text"> 开始撸页面</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8css"><span class="toc-number">1.3.1.</span> <span class="toc-text"> 使用 css</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E9%A1%B5%E9%9D%A2%E7%BB%98%E5%88%B6"><span class="toc-number">1.3.2.</span> <span class="toc-text"> 基础页面绘制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E7%AB%A0%E5%88%97%E8%A1%A8%E7%9B%B8%E5%85%B3%E5%8A%A8%E6%80%81%E6%93%8D%E4%BD%9C"><span class="toc-number">1.4.</span> <span class="toc-text"> 文章列表相关动态操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%87%E6%8D%A2tabs"><span class="toc-number">1.4.1.</span> <span class="toc-text"> 切换 tabs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E6%B8%B2%E6%9F%93%E6%96%87%E7%AB%A0%E9%A2%84%E8%A7%88"><span class="toc-number">1.4.2.</span> <span class="toc-text"> 动态渲染文章预览</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E6%8E%A5fake-api%E5%8A%A8%E6%80%81%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE"><span class="toc-number">1.4.3.</span> <span class="toc-text"> 对接 fake-api 动态获取数据</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E7%AB%A0%E5%86%85%E5%AE%B9%E7%9B%B8%E5%85%B3%E5%8A%A8%E6%80%81%E6%93%8D%E4%BD%9C"><span class="toc-number">1.5.</span> <span class="toc-text"> 文章内容相关动态操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC"><span class="toc-number">1.5.1.</span> <span class="toc-text"> 路由跳转</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E5%8A%9F%E8%83%BD%E5%88%92%E5%88%86"><span class="toc-number">1.5.2.</span> <span class="toc-text"> 组件功能划分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%84%E8%AE%BA%E5%8C%BA%E6%97%A0%E9%99%90%E4%B8%8B%E6%8B%89%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.5.3.</span> <span class="toc-text"> 评论区无限下拉实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95"><span class="toc-number">1.6.</span> <span class="toc-text"> 历史记录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.7.</span> <span class="toc-text"> 总结</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="ERUIHNIYHBKBNF"
+      data-src="/blog/images/avatar.jpg">
+  <p class="name" itemprop="name">ERUIHNIYHBKBNF</p>
+  <div class="description" itemprop="description">嘤嘤嘤~</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/blog/archives/">
+        <span class="count">53</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/blog/tags/">
+        <span class="count">31</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL0VSVUlITklZSEJLQk5G" title="https:&#x2F;&#x2F;github.com&#x2F;ERUIHNIYHBKBNF"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/blog/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/blog/2022/02/06/%E7%AE%80%E5%8D%95%E7%B2%97%E6%9A%B4%E4%B8%BA%E7%BD%91%E7%AB%99%E6%B7%BB%E5%8A%A0%E6%B7%B1%E8%89%B2%E4%B8%BB%E9%A2%98/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/blog/2022/03/18/LCS%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/05/04/%E4%BA%8C%E5%88%86%E5%9B%BE%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D/" title="[杂题] 二分图最大匹配">[杂题] 二分图最大匹配</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2020/12/23/%E5%86%99%E5%AF%B9%E6%8B%8D/" title="写对拍(｀･ω･´)ﾉ">写对拍(｀･ω･´)ﾉ</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2020/10/15/%E7%94%A8%E5%86%B0%E8%8C%B6%E5%A7%AC%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E8%BF%B7%E5%AE%AB/" title="[摸鱼] 用冰茶姬生成随机迷宫">[摸鱼] 用冰茶姬生成随机迷宫</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/08/17/%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83%E5%92%8C%E7%9F%A9%E9%98%B5%E6%B1%82%E9%80%86/" title="[模板]高斯消元和矩阵求逆">[模板]高斯消元和矩阵求逆</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2022/05/12/typeorm-No-metadata-for-User-was-found-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" title="文件路径问题 typeorm &#39;No metadata for User was found&#39; 解决">文件路径问题 typeorm 'No metadata for User was found' 解决</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/09/02/%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%BA%94%E7%94%A8%E4%B8%93%E9%A2%98/" title="Nowcoder线段树应用专题">Nowcoder线段树应用专题</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/07/12/QT%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/" title="QT入门笔记">QT入门笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/01/21/C%E8%AF%AD%E6%B3%95%E6%89%A9%E5%B1%95II/" title="[C++笔记] C语法扩展II">[C++笔记] C语法扩展II</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/09/26/%E7%BA%BF%E6%AE%B5%E6%A0%91%E6%9D%82%E9%A2%9820210926/" title="[杂题] 线段树一些题目">[杂题] 线段树一些题目</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/01/27/string%E4%B8%8Earray%E7%B1%BB/" title="[C++笔记] string类与array类">[C++笔记] string类与array类</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">ERUIHNIYHBKBNF @ Eruの兔叽窝</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2022/02/08/项目开发记录——react仿写低配掘金客户端/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/blog/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

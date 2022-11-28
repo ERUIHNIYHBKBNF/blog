@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>Eruの兔叽窝 • Posts by &#34;css&#34; tag</title>
+        <link>https://eruihniyhbkbnf.github.io/blog</link>
+        <description>嘤嘤嘤~</description>
+        <language>zh-CN</language>
+        <pubDate>Sun, 06 Feb 2022 13:18:30 +0000</pubDate>
+        <lastBuildDate>Sun, 06 Feb 2022 13:18:30 +0000</lastBuildDate>
+        <category>前端</category>
+        <category>react</category>
+        <category>acm</category>
+        <category>杂题</category>
+        <category>C++</category>
+        <category>C++笔记</category>
+        <category>杂项</category>
+        <category>模板</category>
+        <category>LCS</category>
+        <category>node</category>
+        <category>QT</category>
+        <category>java</category>
+        <category>SpringBoot</category>
+        <category>web后端</category>
+        <category>python</category>
+        <category>机器学习</category>
+        <category>linux</category>
+        <category>sass</category>
+        <category>typeorm</category>
+        <category>字符串</category>
+        <category>图论</category>
+        <category>爬虫</category>
+        <category>数据结构</category>
+        <category>区块链</category>
+        <category>web3</category>
+        <category>服务器</category>
+        <category>mc</category>
+        <category>css</category>
+        <category>ci/cd</category>
+        <category>CDQ分治</category>
+        <category>数学</category>
+        <item>
+            <guid isPermalink="true">https://eruihniyhbkbnf.github.io/blog/2022/02/06/%E7%AE%80%E5%8D%95%E7%B2%97%E6%9A%B4%E4%B8%BA%E7%BD%91%E7%AB%99%E6%B7%BB%E5%8A%A0%E6%B7%B1%E8%89%B2%E4%B8%BB%E9%A2%98/</guid>
+            <title>简单粗暴为网站添加深色主题</title>
+            <link>https://eruihniyhbkbnf.github.io/blog/2022/02/06/%E7%AE%80%E5%8D%95%E7%B2%97%E6%9A%B4%E4%B8%BA%E7%BD%91%E7%AB%99%E6%B7%BB%E5%8A%A0%E6%B7%B1%E8%89%B2%E4%B8%BB%E9%A2%98/</link>
+            <category>前端</category>
+            <category>css</category>
+            <pubDate>Sun, 06 Feb 2022 13:18:30 +0000</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;概述&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#概述&#34;&gt;#&lt;/a&gt; 概述&lt;/h2&gt;
+&lt;p&gt;深色主题，也就是夜间玩手机必须要的暗黑模式，好像也没啥需要概述的，贴个图好了 qwq&lt;/p&gt;
+&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/ERUIHNIYHBKBNF/picapica@main/frontend/2020020601.webp&#34; width=&#34;500px&#34;&gt;
+&lt;p&gt;现成的很多 ui 库比如 naiveUI，vuetify，antdesign 这种都支持暗黑模式来着。&lt;/p&gt;
+&lt;p&gt;暗黑模式要玩真的，就要动用很多 css 变量，还要慢慢调整配色很复杂的样子，所以这边提供一个简单粗暴的办法，虽然不能做到细节调整，但日常的大部分网站效果都还不错的。&lt;/p&gt;
+&lt;p&gt;观察深色模式下的网站，不难发现基本都是黑白反色，其它颜色相对变暗，具体实现之前先看两个颜色概念。&lt;/p&gt;
+&lt;h2 id=&#34;前置知识&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#前置知识&#34;&gt;#&lt;/a&gt; 前置知识&lt;/h2&gt;
+&lt;h3 id=&#34;rgb色环&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#rgb色环&#34;&gt;#&lt;/a&gt; RGB 色环&lt;/h3&gt;
+&lt;p&gt;RGB 色环长这个样子，三原色是红绿蓝，其它颜色都由这三种颜色调配出来的，大概不用细说 qwq&lt;/p&gt;
+&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/ERUIHNIYHBKBNF/picapica@main/frontend/2022020602.webp&#34; width=&#34;300px&#34;&gt;
+&lt;h3 id=&#34;css中的滤镜&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#css中的滤镜&#34;&gt;#&lt;/a&gt; CSS 中的滤镜&lt;/h3&gt;
+&lt;p&gt;css 的滤镜 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQ1NTL2ZpbHRlcg==&#34;&gt;filter&lt;/span&gt; 就是用来操作某个元素的色彩的。&lt;/p&gt;
+&lt;p&gt;这里会用到两个滤镜分别是  &lt;code&gt;invert()&lt;/code&gt;  和  &lt;code&gt;hue-rotate()&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;invert()&lt;/code&gt; ：取值范围 0~1，取值为 1 时，色环上任意一点的颜色会变成相对于圆心对称的点的颜色。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;hue-rotete()&lt;/code&gt; ：以角度为单位，进行色相旋转。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;直接上图更直观一些：&lt;/p&gt;
+&lt;p&gt;实际操作：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9jb2RlcGVuLmlvL0VSVUlITklZSEJLQk5GL3Blbi9Sd2pveHdv&#34;&gt;https://codepen.io/ERUIHNIYHBKBNF/pen/Rwjoxwo&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/ERUIHNIYHBKBNF/picapica@main/frontend/2020020603.webp&#34;&gt;
+&lt;p&gt;图一原图，图二使用  &lt;code&gt;invert(1)&lt;/code&gt;  进行处理，图三使用  &lt;code&gt;hue-rotete(180deg)&lt;/code&gt;  进行处理，图四使用两种滤镜同时处理。&lt;/p&gt;
+&lt;p&gt;对比图一和图四，深色模式的效果也就显而易见了，对应颜色都看上去比较舒服了。&lt;/p&gt;
+&lt;h2 id=&#34;具体实现&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#具体实现&#34;&gt;#&lt;/a&gt; 具体实现&lt;/h2&gt;
+&lt;p&gt;简单直接：&lt;/p&gt;
+&lt;figure class=&#34;highlight scss&#34;&gt;&lt;figcaption data-lang=&#34;Sass (Scss)&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// 对根元素添加 theme-dark 类名，对需要保留原色彩的元素添加 darkmode-ignore 类名即可&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token selector&#34;&gt;.theme-dark &lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token property&#34;&gt;filter&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;invert&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;1&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;hue-rotate&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;180deg&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token selector&#34;&gt;img, video, .darkmode-ignore&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token property&#34;&gt;filter&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;invert&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;1&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;hue-rotate&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;180deg&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;我们先对网站整体，也就是根元素使用一次这样的深色主题滤镜，&lt;s&gt;然后你会发现有图片的网站变成了阴间模式&lt;/s&gt;。&lt;/p&gt;
+&lt;p&gt;这样会有一个问题是，图片视频这样的元素在深色模式下也不应该被使用滤镜。不难发现其实  &lt;code&gt;invert(1) hue-rotate(180deg)&lt;/code&gt;  是非常对称的一个操作，那么我们对图片视频再应用一次这样的滤镜就可以了。&lt;/p&gt;
+&lt;p&gt;当然，额外设定一个名为  &lt;code&gt;darkmode-ignore&lt;/code&gt;  的类，用于其它一些不想被深色模式影响的元素。&lt;/p&gt;
+&lt;p&gt;再丢一个在 vue 项目里是实际应用好了：&lt;/p&gt;
+&lt;p&gt;当然我们可以把这个功能抽象出一个组件来，theme-container.vue:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-vue&#34;&gt;&amp;lt;template&amp;gt;
+  &amp;lt;!--这里有个特判，就是在路由为About的页面始终不应用深色模式--&amp;gt;
+  &amp;lt;div id=&amp;quot;app&amp;quot; :class=&amp;quot;$route.name === &#39;About&#39; || theme&amp;quot;&amp;gt;
+    &amp;lt;slot&amp;gt;&amp;lt;/slot&amp;gt;
+  &amp;lt;/div&amp;gt;
+&amp;lt;/template&amp;gt;
+
+&amp;lt;script&amp;gt;
+export default &amp;#123;
+  computed: &amp;#123;
+    theme() &amp;#123;
+      return this.$store.state.theme;
+    &amp;#125;,
+  &amp;#125;,
+&amp;#125;
+&amp;lt;/script&amp;gt;
+
+&amp;lt;style lang=&amp;quot;scss&amp;quot;&amp;gt;
+.theme-dark &amp;#123;
+  filter: invert(1) hue-rotate(180deg);
+  img, video, .darkmode-ignore&amp;#123;
+    filter: invert(1) hue-rotate(180deg);
+  &amp;#125;
+&amp;#125;
+&amp;lt;/style&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在 vuex 中写法也并不麻烦，记得存一下 localStorage 确保刷新网页之后主题不变：&lt;/p&gt;
+&lt;figure class=&#34;highlight js&#34;&gt;&lt;figcaption data-lang=&#34;JavaScript&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  state&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    theme&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; localStorage&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;getItem&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;wangwang-theme&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;||&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;theme-dark&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  mutations&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;changeTheme&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token keyword&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;state&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;theme &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;state&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;theme &lt;span class=&#34;token operator&#34;&gt;===&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;theme-dark&#39;&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;?&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;theme-light&#39;&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;theme-dark&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      localStorage&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;setItem&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;wangwang-theme&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;state&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;theme&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;然后在 App.vue 中直接套在最根部那个  &lt;code&gt;&amp;lt;router-view/&amp;gt;&lt;/code&gt;  外面即可：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-vue&#34;&gt;&amp;lt;template&amp;gt;
+  &amp;lt;div id=&amp;quot;app&amp;quot;&amp;gt;
+    &amp;lt;theme-container&amp;gt;
+      &amp;lt;router-view/&amp;gt;
+    &amp;lt;/theme-container&amp;gt;
+  &amp;lt;/div&amp;gt;
+&amp;lt;/template&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://eruihniyhbkbnf.github.io/blog/2022/01/16/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BD%BF%E7%94%A8less%E4%B8%8D%E7%94%9F%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</guid>
+            <title>关于跨域——浏览器使用less不生效的问题解决</title>
+            <link>https://eruihniyhbkbnf.github.io/blog/2022/01/16/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BD%BF%E7%94%A8less%E4%B8%8D%E7%94%9F%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</link>
+            <category>前端</category>
+            <category>css</category>
+            <pubDate>Sun, 16 Jan 2022 05:40:10 +0000</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;问题描述&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#问题描述&#34;&gt;#&lt;/a&gt; 问题描述&lt;/h2&gt;
+&lt;p&gt;想用原生三件套写点东西来着，css 嫌麻烦就引了一下 less，按官方给的  &lt;code&gt;&amp;lt;script src=&amp;quot;//cdnjs.cloudflare.com/ajax/libs/less.js/3.11.1/less.min.js&amp;quot; &amp;gt;&amp;lt;/script&amp;gt;&lt;/code&gt;  并没有生效。&lt;/p&gt;
+&lt;p&gt;一段示例代码：&lt;/p&gt;
+&lt;p&gt;1.html：&lt;/p&gt;
+&lt;figure class=&#34;highlight html&#34;&gt;&lt;figcaption data-lang=&#34;HTML&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token doctype&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;!&lt;/span&gt;&lt;span class=&#34;token doctype-tag&#34;&gt;DOCTYPE&lt;/span&gt; &lt;span class=&#34;token name&#34;&gt;html&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;&lt;/span&gt;html&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;&lt;/span&gt;head&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;&lt;/span&gt;link&lt;/span&gt; &lt;span class=&#34;token attr-name&#34;&gt;rel&lt;/span&gt;&lt;span class=&#34;token attr-value&#34;&gt;&lt;span class=&#34;token punctuation attr-equals&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&#34;&lt;/span&gt;stylesheet/less&lt;span class=&#34;token punctuation&#34;&gt;&#34;&lt;/span&gt;&lt;/span&gt; &lt;span class=&#34;token attr-name&#34;&gt;type&lt;/span&gt;&lt;span class=&#34;token attr-value&#34;&gt;&lt;span class=&#34;token punctuation attr-equals&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&#34;&lt;/span&gt;text/css&lt;span class=&#34;token punctuation&#34;&gt;&#34;&lt;/span&gt;&lt;/span&gt; &lt;span class=&#34;token attr-name&#34;&gt;href&lt;/span&gt;&lt;span class=&#34;token attr-value&#34;&gt;&lt;span class=&#34;token punctuation attr-equals&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&#34;&lt;/span&gt;1.less&lt;span class=&#34;token punctuation&#34;&gt;&#34;&lt;/span&gt;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;&lt;/span&gt;script&lt;/span&gt; &lt;span class=&#34;token attr-name&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;token attr-value&#34;&gt;&lt;span class=&#34;token punctuation attr-equals&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&#34;&lt;/span&gt;//cdnjs.cloudflare.com/ajax/libs/less.js/3.11.1/less.min.js&lt;span class=&#34;token punctuation&#34;&gt;&#34;&lt;/span&gt;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;token script&#34;&gt;&lt;/span&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;/&lt;/span&gt;script&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;/&lt;/span&gt;head&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;&lt;/span&gt;body&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;&amp;lt;!-- 奈何本人没文化，divspan 走天下 --&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&#34;token attr-name&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;token attr-value&#34;&gt;&lt;span class=&#34;token punctuation attr-equals&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&#34;&lt;/span&gt;container&lt;span class=&#34;token punctuation&#34;&gt;&#34;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;/&lt;/span&gt;body&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;/&lt;/span&gt;html&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;1.less:&lt;/p&gt;
+&lt;figure class=&#34;highlight less&#34;&gt;&lt;figcaption data-lang=&#34;less&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token selector&#34;&gt;.container&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token property&#34;&gt;height&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; 200px&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token property&#34;&gt;width&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; 200px&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token property&#34;&gt;background&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; aqua&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token property&#34;&gt;display&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; flex&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token property&#34;&gt;align-items&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; center&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token property&#34;&gt;justify-content&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; center&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token selector&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token property&#34;&gt;height&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; 100px&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token property&#34;&gt;width&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; 100px&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token property&#34;&gt;background&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; bisque&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;解决方案&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#解决方案&#34;&gt;#&lt;/a&gt; 解决方案&lt;/h2&gt;
+&lt;p&gt;于是搜到了这个东西：&lt;/p&gt;
+&lt;p&gt;由于浏览器端使用 Less 时，是使用 ajax 来拉取 .less 文件，如果直接在本机文件系统打开（即地址是 file:// 开头）或者是有跨域的情况下，会拉取不到 .less 文件，导致样式无法生效。因此，必须在 http (s) 协议下使用，即必须在服务器环境下使用。&lt;/p&gt;
+&lt;p&gt;所以也许要本地开一个静态文件服务器 emm？&lt;/p&gt;
+&lt;p&gt;尝试用&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL0phY2tzb25UaWFuL2FueXdoZXJl&#34;&gt; anywhere&lt;/span&gt;：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;AnyWhere 是一款随启随用的静态文件服务器，可以随时随地将你的当前目录变成一个静态文件服务器的根目录。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;npm&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; -g anywhere&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;anywhere&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;Running at http://192.168.10.9:8000/&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;Also running at https://192.168.10.9:8001/&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;就可以用了的样子 qwq&lt;/p&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>

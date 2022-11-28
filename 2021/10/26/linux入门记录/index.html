@@ -1,0 +1,604 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/blog/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="Eruの兔叽窝" href="https://eruihniyhbkbnf.github.io/blog/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Eruの兔叽窝" href="https://eruihniyhbkbnf.github.io/blog/atom.xml" />
+<link rel="alternate" type="application/json" title="Eruの兔叽窝" href="https://eruihniyhbkbnf.github.io/blog/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/blog/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="linux" />
+
+
+<link rel="canonical" href="https://eruihniyhbkbnf.github.io/blog/2021/10/26/linux%E5%85%A5%E9%97%A8%E8%AE%B0%E5%BD%95/">
+
+
+
+  <title>
+linux入门记录 |
+Eruの兔叽窝 = QwQ</title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">linux入门记录
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2021-10-26 16:43:22">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-10-26T16:43:22+08:00">2021-10-26</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/blog/" rel="start">Eruの兔叽窝</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicitspjpbj20zk0m81ky.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipexoj0moj20zk0m8kgu.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicitcxhpij20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipeun65urj20zk0m81ii.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipeyvx1d4j20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipex2cdtbj20zk0m8x6p.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/blog/">首页</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://eruihniyhbkbnf.github.io/blog/2021/10/26/linux%E5%85%A5%E9%97%A8%E8%AE%B0%E5%BD%95/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/blog/images/avatar.jpg">
+    <meta itemprop="name" content="ERUIHNIYHBKBNF">
+    <meta itemprop="description" content="QwQ, 嘤嘤嘤~">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Eruの兔叽窝">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="记录双系统装好ubuntu之后做了什么"><a class="markdownIt-Anchor" href="#记录双系统装好ubuntu之后做了什么">#</a> 记录双系统装好 ubuntu 之后做了什么</h1>
+<blockquote>
+<p>虚拟机没有灵魂？还是虚拟机香 qwq</p>
+</blockquote>
+<p><s>咕咕好久之后最终还是换成了虚拟机（逃）</s></p>
+<p>打算一点一点地把工作环境迁移到 linux 上，在此记录过程，Ubuntu20.04。</p>
+<p>纯 linux 萌新，对 linux 的了解仅限于搭过 mc 服务器的程度，欢迎围观咱蠢蠢的操作，嘤～</p>
+<h2 id="换源"><a class="markdownIt-Anchor" href="#换源">#</a> 换源</h2>
+<p>网上搜换源出来一堆看不懂的命令 QAQ</p>
+<p>好像在  <code>软件和更新</code>  这个应用程序里直接找就好了，听说 utsc 挺快的。</p>
+<h2 id="更换浏览器"><a class="markdownIt-Anchor" href="#更换浏览器">#</a> 更换浏览器</h2>
+<p>老 chrome 用户，可能用久了 chrome 就不太习惯 firefox 之类的了。</p>
+<p>拿到 chrome 的安装包，好像是  <code>.deb</code>  结尾的，cd 到那个位置就好了诶</p>
+<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> google-chrome***.deb</pre></td></tr></table></figure><p>之后的设定还挺智能的样子（不用担心东西被装到 C 盘真舒服 owo）</p>
+<p>大概知道了这些东西：</p>
+<p><code>.deb</code>  是某种安装包的样子，惊奇地发现 apt 还可以安装离线包（傻～）</p>
+<h2 id="体验感优化"><a class="markdownIt-Anchor" href="#体验感优化">#</a> 体验感优化</h2>
+<h3 id="屏幕缩放问题"><a class="markdownIt-Anchor" href="#屏幕缩放问题">#</a> 屏幕缩放问题</h3>
+<p>轻薄本小屏幕看着字太小好难受，想办法先放大一点叭 (&gt;_&lt;)</p>
+<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> gnome-tweaks</pre></td></tr></table></figure><p>之后就是有图形界面的一些设定了，功能好丰富的样子 QwQ</p>
+<p>大概知道了这些东西：</p>
+<p>apt 是个包管理器，之前用过 npm 感觉；比较类似…?</p>
+<p><code>sudo</code>  是在最高权限下执行指令，用  <code>su</code>  直接切换到管理员模式。</p>
+<h3 id="输入法"><a class="markdownIt-Anchor" href="#输入法">#</a> 输入法</h3>
+<p>ubuntu 自带的输入法 shigeshabiba)</p>
+<p>先打开设置 -&gt; 管理已安装的语言 -&gt; 键盘输入法系统 换成 fcitx</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9waW55aW4uc29nb3UuY29tL2xpbnV4L2hlbHAucGhw">丢一个搜狗输入法的的官方教程</span></p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> ./sogou***</pre></td></tr><tr><td data-num="2"></td><td><pre>fcitx-config-gtk3</pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment"># 设置输入法首选之类的，没有就重启</span></pre></td></tr></table></figure><p>顺带切换输入法可以用  <code>ctrl</code>  +  <code>space</code>  。</p>
+<h3 id="主题美化"><a class="markdownIt-Anchor" href="#主题美化">#</a> 主题美化</h3>
+<h2 id="科学"><a class="markdownIt-Anchor" href="#科学">#</a> 科学</h2>
+<blockquote>
+<p>没有科学还怎么网上冲浪 qwq</p>
+</blockquote>
+<p>试来试去找到最舒服的一篇教程： <span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8zNjkzNDQ2MzM=">Linux 下安装 &amp; 配置 Clash 以实现代理上网</span></p>
+<h3 id="安装clash"><a class="markdownIt-Anchor" href="#安装clash">#</a> 安装 clash</h3>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0RyZWFtYWNyby9jbGFzaC9yZWxlYXNlcw==">Github 地址</span> 一般是下载 clash-linux-amd64.tar.gz</p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">su</span></pre></td></tr><tr><td data-num="2"></td><td><pre>gunzip ***.gz</pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token function">chmod</span> +x clash***</pre></td></tr><tr><td data-num="4"></td><td><pre>./clash***</pre></td></tr></table></figure><p>会自动在  <code>~/.config/clash/config.yaml</code>  中生成  <code>config.yaml</code>  文件。</p>
+<p>导入配置：</p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token builtin class-name">cd</span> ~/.config/clash/</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">curl</span> <span class="token punctuation">[</span>订阅连接<span class="token punctuation">]</span> <span class="token operator">>></span> config.yaml <span class="token comment">#替换掉原来的文件</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment">#另一种姿势</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token function">wget</span> -P ~/.config/clash/ -O config.yaml <span class="token punctuation">[</span>订阅链接<span class="token punctuation">]</span></pre></td></tr></table></figure><p>打开系统设置 -&gt; 网络 -&gt; 网络代理，改为手动：</p>
+<pre><code class="language-text">HTTP代理 127.0.0.1 7890
+HTTPS代理 127.0.0.1 7890
+FTP代理 空
+Socks主机 127.0.0.1 7891
+忽略主机 localhost,127.0.0.0/8,::1
+</code></pre>
+<p>再运行 clash，访问 <span class="exturl" data-url="aHR0cHM6Ly9jbGFzaC5yYXpvcmQudG9wLw==">https://clash.razord.top/</span>，测试连接即可。</p>
+<h3 id="配置开机启动与自动更新订阅"><a class="markdownIt-Anchor" href="#配置开机启动与自动更新订阅">#</a> 配置开机启动与自动更新订阅</h3>
+<p>开机启动：</p>
+<p>习惯性地把 clash 的二进制文件移动到  <code>/opt/clash/</code>  目录下并重命名为  <code>clash</code>  ：</p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">mv</span> ./clash*** /opt/clash/clash</pre></td></tr></table></figure><p>创建 service 文件：</p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">vim</span> /etc/systemd/system/clash.service</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token comment"># 写入以下内容</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">[</span>Unit<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token assign-left variable">Description</span><span class="token operator">=</span>clash daemon</pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">[</span>Service<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token assign-left variable">Type</span><span class="token operator">=</span>simple</pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token assign-left variable">User</span><span class="token operator">=</span>root</pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token assign-left variable">ExecStart</span><span class="token operator">=</span>/opt/clash/clash -d /opt/clash/</pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token assign-left variable">Restart</span><span class="token operator">=</span>on-failure</pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token punctuation">[</span>Install<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token assign-left variable">WantedBy</span><span class="token operator">=</span>multi-user.target</pre></td></tr></table></figure><figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre>systemctl daemon-reload <span class="token comment">#重新加载 systemctl deamon</span></pre></td></tr><tr><td data-num="2"></td><td><pre>systemctl start clash.sevice <span class="token comment">#启动 clash</span></pre></td></tr><tr><td data-num="3"></td><td><pre>systemctl <span class="token builtin class-name">enable</span> clash.service <span class="token comment">#开机启动</span></pre></td></tr></table></figure><p>重启测试没什么问题。</p>
+<p>自动更新订阅：</p>
+<p>利用 cron 执行计划任务：</p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">crontab</span> -e</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token comment">#写入以下内容，前面的时间是 分 时</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token number">29</span> <span class="token number">21</span> * * * pgrep clash <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token function">kill</span> -s <span class="token number">9</span> </pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token number">30</span> <span class="token number">21</span> * * * <span class="token function">mv</span> ~/.config/clash/config.yaml ~/.config/clash/configbackup.yaml </pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token number">31</span> <span class="token number">21</span> * * * <span class="token function">wget</span> -P ~/.config/clash/ -O config.yaml <span class="token punctuation">[</span>订阅链接<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token number">32</span> <span class="token number">21</span> * * * <span class="token function">nohup</span> /opt/clash/clash -d /opt/clash/</pre></td></tr></table></figure><figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre>systemctl restart crond.service <span class="token comment">#重启 crontab，有的地方也叫 cron.service</span></pre></td></tr></table></figure><p>大概知道了这些东西：</p>
+<p><code>~</code>  大概是当前用户的根目录，里面有好多配置文件 qwq</p>
+<p>systemd（不懂 QAQ），总之好像可以用来做很多东西。</p>
+<p>crontab 可以用来配置定时任务。</p>
+<h2 id="网易云等qt应用缩放问题"><a class="markdownIt-Anchor" href="#网易云等qt应用缩放问题">#</a> 网易云等 QT 应用缩放问题</h2>
+<p>有 linux 版就很舒服，安装之后遇到了些小问题… 非常小的那种… 指字体非常小（躺）</p>
+<p>搜到了这个：</p>
+<blockquote>
+<p>Linux 下的高分屏在 Gnome、KDE 中有缩放因子一说，但是对 QT 程序（常用如 WPS、网易云音乐等）无效，这里只是简记修改 QT 程序的缩放方法。</p>
+</blockquote>
+<p>解决方法：</p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">vim</span> /etc/profile</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token comment">#在最后添加，测试一波感觉 2.25 倍看上去还算正常的样子 qwq</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token builtin class-name">export</span> <span class="token assign-left variable">QT_SCALE_FACTOR</span><span class="token operator">=</span><span class="token number">2.25</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment">#不用 vim 的另一种姿势</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token builtin class-name">echo</span> <span class="token string">"export QT_SCALE_FACTOR=2.25"</span> <span class="token operator">>></span> /etc/profile</pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment">#保存退出注销重新登录</span></pre></td></tr></table></figure><p>看起来大小正常了 qwq</p>
+<p>UPD: 搜狗输入法变得异常大。。这样全局作用于 QT 应用似乎不太好 emm</p>
+<p>可以在.desktop 里设置变量</p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">sudo</span> <span class="token function">vim</span> /usr/share/applications/netease-cloud-music.desktop <span class="token comment">#一般都是这个路径</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token comment">#在里面找到 Exec=*** 一行，等号后面加上这些</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token assign-left variable">Exec</span><span class="token operator">=</span>env <span class="token assign-left variable">QT_SCALE_FACTOR</span><span class="token operator">=</span><span class="token number">2.25</span> ***<span class="token comment">#后面内容不变</span></pre></td></tr></table></figure><p>保存，把  <code>/etc/profile</code>  里的东西改回去，看上去 ok</p>
+<h2 id="配置github免密ssh连接"><a class="markdownIt-Anchor" href="#配置github免密ssh连接">#</a> 配置 Github 免密 SSH 连接</h2>
+<p>基本根 Windows 一样叭，但是弄了两次，因为 root 跟普通用户好像不在一个地方存 SSH-Key</p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">#配置本地用户信息</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">git</span> config --global user.name <span class="token string">"your nickName“</pre></td></tr><tr><td data-num="3"></td><td><pre>git config --global user.email "</span>your email"</pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment">#生成公钥</span></pre></td></tr><tr><td data-num="5"></td><td><pre>ssh-keygen -t rsa</pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment">#查看公钥，这里不同用户好像要重新弄一边</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token function">cat</span> ~/.ssh/id_rsa.pub</pre></td></tr></table></figure><p>之后在 Github 的 Setting 里边添加这个公钥就好啦 QwQ</p>
+<h2 id="使用nvm安装管理多版本nodejs"><a class="markdownIt-Anchor" href="#使用nvm安装管理多版本nodejs">#</a> 使用 nvm 安装管理多版本 nodejs</h2>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cucnVub29iLmNvbS93M2Nub3RlL252bS1tYW5hZ2VyLW5vZGUtdmVyc2lvbnMuaHRtbA==">菜鸟教程</span></p>
+<h3 id="安装与配置nvm"><a class="markdownIt-Anchor" href="#安装与配置nvm">#</a> 安装与配置 nvm</h3>
+<p>Github 仓库地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL252bS1zaC9udm0=">https://github.com/nvm-sh/nvm</span></p>
+<p>按仓库的步骤来就好了唔：</p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token builtin class-name">cd</span> ~/</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">git</span> clone https://github.com/nvm-sh/nvm.git .nvm</pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token function">vim</span> ~/.bashrc</pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment">#添加环境变量</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token builtin class-name">export</span> <span class="token assign-left variable">NVM_DIR</span><span class="token operator">=</span><span class="token string">"<span class="token environment constant">$HOME</span>/.nvm"</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">[</span> -s <span class="token string">"<span class="token variable">$NVM_DIR</span>/nvm.sh"</span> <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>. <span class="token string">"<span class="token variable">$NVM_DIR</span>/nvm.sh"</span> <span class="token comment"># This loads nvm</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token comment">#保存退出，重载环境变量</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token builtin class-name">source</span> ~/.bashrc</pre></td></tr><tr><td data-num="9"></td><td><pre>nvm -v <span class="token comment">#就好像没什么问题了</span></pre></td></tr></table></figure><h3 id="管理node版本"><a class="markdownIt-Anchor" href="#管理node版本">#</a> 管理 node 版本</h3>
+<p>常用命令：</p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre>nvm list <span class="token comment">#查看已安装版本</span></pre></td></tr><tr><td data-num="2"></td><td><pre>nvm ls-remote --lts <span class="token comment">#查看远程 lts 版本</span></pre></td></tr><tr><td data-num="3"></td><td><pre>nvm <span class="token function">install</span> <span class="token number">12.21</span> <span class="token comment">#安装 v12.21 的 node</span></pre></td></tr><tr><td data-num="4"></td><td><pre>nvm use <span class="token number">12.21</span> <span class="token comment">#激活版本</span></pre></td></tr></table></figure><h2 id="安装多版本mysql"><a class="markdownIt-Anchor" href="#安装多版本mysql">#</a> 安装多版本 mysql</h2>
+<h3 id="单版本安装配置"><a class="markdownIt-Anchor" href="#单版本安装配置">#</a> 单版本安装配置</h3>
+<p>先装一个 8.0 版本：</p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">sudo</span> <span class="token function">apt</span> update</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> mysql-server</pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token function">sudo</span> systemctl status mysql <span class="token comment">#查看服务是否在运行</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token function">sudo</span> mysql <span class="token comment">#竟然可以不输密码直接进 qwq</span></pre></td></tr></table></figure><p>查看初始随机账户密码：</p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">sudo</span> <span class="token function">cat</span> /etc/mysql/debian.cnf</pre></td></tr></table></figure><p>还是改个 root 密码叭：</p>
+<blockquote>
+<p>MySql 从 8.0 开始修改密码有了变化，在 user 表加了字段 authentication_string，修改密码前先检查 authentication_string 是否为空。</p>
+</blockquote>
+<p>所以网上搜到的  <code>set authentication_string</code>  大概会报错 qwq</p>
+<pre><code class="language-mysql">use mysql;
+alter user 'root'@'localhost' identified with mysql_native_password by '123456';
+</code></pre>
+<p>之后  <code>mysql -uroot -p</code>  就可以登录了的样子。</p>
+<h2 id="minio安装并设为服务启动"><a class="markdownIt-Anchor" href="#minio安装并设为服务启动">#</a> minio 安装并设为服务启动</h2>
+<p>为什么是 minio？因为项目要用 QAQ</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4NDMxOTI3L2FydGljbGUvZGV0YWlscy8xMDczNzcxNjY=">MinIO 安装并将 MinIO 设置成服务启动</span></p>
+<h3 id="安装启动minio"><a class="markdownIt-Anchor" href="#安装启动minio">#</a> 安装启动 minio</h3>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">wget</span> https://dl.min.io/server/minio/release/linux-amd64/minio <span class="token comment">#拿到一个二进制文件</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">su</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token function">chmod</span> +x minio</pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token function">mv</span> minio /usr/local/bin</pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token function">mkdir</span> -p /data/minio</pre></td></tr><tr><td data-num="6"></td><td><pre>/usr/local/bin</pre></td></tr><tr><td data-num="7"></td><td><pre>./minio server /data/minio <span class="token comment">#后面的路径是数据目录</span></pre></td></tr></table></figure><h3 id="将minio设置为服务"><a class="markdownIt-Anchor" href="#将minio设置为服务">#</a> 将 minio 设置为服务</h3>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">#原文新建了一个 minio-user 用户，这边直接拿 root 会不会出事呀 qwq</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">sudo</span> <span class="token function">vim</span> /etc/default/minio</pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment">#新建文件并写入以下内容（记得改成自己的用户名密码）</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token assign-left variable">MINIO_ACCESS_KEY</span><span class="token operator">=</span><span class="token string">"minioadmin"</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token assign-left variable">MINIO_SECRET_KEY</span><span class="token operator">=</span><span class="token string">"minioadmin"</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token assign-left variable">MINIO_VOLUMES</span><span class="token operator">=</span><span class="token string">"/data/minio/"</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token assign-left variable">MINIO_OPTS</span><span class="token operator">=</span><span class="token string">"--address :9000"</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token function">sudo</span> <span class="token function">vim</span> /etc/systemd/system/minio.service</pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token comment">#新建文件并写入以下内容</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token punctuation">[</span>Unit<span class="token punctuation">]</span>	</pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token assign-left variable">Description</span><span class="token operator">=</span>Minio</pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token assign-left variable">Documentation</span><span class="token operator">=</span>https://docs.minio.io</pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token assign-left variable">Wants</span><span class="token operator">=</span>network-online.target</pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token assign-left variable">After</span><span class="token operator">=</span>network-online.target</pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token assign-left variable">AssertFileIsExecutable</span><span class="token operator">=</span>/usr/local/bin/minio</pre></td></tr><tr><td data-num="17"></td><td><pre> </pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token punctuation">[</span>Service<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="19"></td><td><pre><span class="token assign-left variable">WorkingDirectory</span><span class="token operator">=</span>/usr/local/</pre></td></tr><tr><td data-num="20"></td><td><pre> </pre></td></tr><tr><td data-num="21"></td><td><pre><span class="token assign-left variable">User</span><span class="token operator">=</span>root</pre></td></tr><tr><td data-num="22"></td><td><pre><span class="token assign-left variable">Group</span><span class="token operator">=</span>root</pre></td></tr><tr><td data-num="23"></td><td><pre> </pre></td></tr><tr><td data-num="24"></td><td><pre><span class="token assign-left variable">PermissionsStartOnly</span><span class="token operator">=</span>true</pre></td></tr><tr><td data-num="25"></td><td><pre> </pre></td></tr><tr><td data-num="26"></td><td><pre><span class="token assign-left variable">EnvironmentFile</span><span class="token operator">=</span>-/etc/default/minio</pre></td></tr><tr><td data-num="27"></td><td><pre><span class="token assign-left variable">ExecStartPre</span><span class="token operator">=</span>/bin/bash -c <span class="token string">"[ -n <span class="token entity" title="\&quot;">\"</span><span class="token variable">$&#123;MINIO_VOLUMES&#125;</span><span class="token entity" title="\&quot;">\"</span> ] || echo <span class="token entity" title="\&quot;">\"</span>Variable MINIO_VOLUMES not set in /etc/default/minio<span class="token entity" title="\&quot;">\"</span>"</span></pre></td></tr><tr><td data-num="28"></td><td><pre> </pre></td></tr><tr><td data-num="29"></td><td><pre><span class="token assign-left variable">ExecStart</span><span class="token operator">=</span>/usr/local/bin/minio server <span class="token variable">$MINIO_OPTS</span> <span class="token variable">$MINIO_VOLUMES</span></pre></td></tr><tr><td data-num="30"></td><td><pre> </pre></td></tr><tr><td data-num="31"></td><td><pre><span class="token assign-left variable">StandardOutput</span><span class="token operator">=</span>journal</pre></td></tr><tr><td data-num="32"></td><td><pre><span class="token assign-left variable">StandardError</span><span class="token operator">=</span>inherit</pre></td></tr><tr><td data-num="33"></td><td><pre> </pre></td></tr><tr><td data-num="34"></td><td><pre><span class="token comment"># Specifies the maximum file descriptor number that can be opened by this process</span></pre></td></tr><tr><td data-num="35"></td><td><pre><span class="token assign-left variable">LimitNOFILE</span><span class="token operator">=</span><span class="token number">65536</span></pre></td></tr><tr><td data-num="36"></td><td><pre> </pre></td></tr><tr><td data-num="37"></td><td><pre><span class="token comment"># Disable timeout logic and wait until process is stopped</span></pre></td></tr><tr><td data-num="38"></td><td><pre><span class="token assign-left variable">TimeoutStopSec</span><span class="token operator">=</span><span class="token number">0</span></pre></td></tr><tr><td data-num="39"></td><td><pre> </pre></td></tr><tr><td data-num="40"></td><td><pre><span class="token comment"># SIGTERM signal is used to stop Minio</span></pre></td></tr><tr><td data-num="41"></td><td><pre><span class="token assign-left variable">KillSignal</span><span class="token operator">=</span>SIGTERM</pre></td></tr><tr><td data-num="42"></td><td><pre> </pre></td></tr><tr><td data-num="43"></td><td><pre><span class="token assign-left variable">SendSIGKILL</span><span class="token operator">=</span>no</pre></td></tr><tr><td data-num="44"></td><td><pre> </pre></td></tr><tr><td data-num="45"></td><td><pre><span class="token assign-left variable">SuccessExitStatus</span><span class="token operator">=</span><span class="token number">0</span></pre></td></tr><tr><td data-num="46"></td><td><pre> </pre></td></tr><tr><td data-num="47"></td><td><pre><span class="token punctuation">[</span>Install<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="48"></td><td><pre><span class="token assign-left variable">WantedBy</span><span class="token operator">=</span>multi-user.target</pre></td></tr></table></figure><h3 id="启动测试"><a class="markdownIt-Anchor" href="#启动测试">#</a> 启动测试</h3>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre>systemctl <span class="token builtin class-name">enable</span> minio.service   </pre></td></tr><tr><td data-num="2"></td><td><pre>systemctl daemon-reload</pre></td></tr><tr><td data-num="3"></td><td><pre>systemctl start minio</pre></td></tr><tr><td data-num="4"></td><td><pre>systemctl status minio.service</pre></td></tr><tr><td data-num="5"></td><td><pre>systemctl stop minio</pre></td></tr></table></figure><h2 id="集成开发环境安装配置"><a class="markdownIt-Anchor" href="#集成开发环境安装配置">#</a> 集成开发环境安装配置</h2>
+<h3 id="vscode"><a class="markdownIt-Anchor" href="#vscode">#</a> vscode</h3>
+<h4 id="安装"><a class="markdownIt-Anchor" href="#安装">#</a> 安装</h4>
+<p>这个直接去官网下载 deb 包，然后  <code>apt install code***</code>  就好了诶。</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9jb2RlLnZpc3VhbHN0dWRpby5jb20vRG93bmxvYWQ=">https://code.visualstudio.com/Download</span></p>
+<p>或者直接装：</p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">sudo</span> <span class="token function">apt</span> update</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> code</pre></td></tr></table></figure><h4 id="配置c编译调试"><a class="markdownIt-Anchor" href="#配置c编译调试">#</a> 配置 C++ 编译调试</h4>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> gcc</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> g++</pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> gdb</pre></td></tr></table></figure><ul>
+<li>
+<p>安装 C/C++ 插件</p>
+</li>
+<li>
+<p>开个文件夹，写一个 Hello World</p>
+<ul>
+<li>
+<p>此处 include 出红色波浪线看这个：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDYyMTYxNy9hcnRpY2xlL2RldGFpbHMvMTA3ODE4NzAw">如何解决 vscode 检测到 #include 错误，请更新 includePath。</span></p>
+</li>
+<li>
+<p>进终端输入  <code>gcc -v -E -x c -</code>  ，把这里这几条路径复制出来：</p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">#include &lt;...> search starts here: 复制下面这几条</span></pre></td></tr><tr><td data-num="2"></td><td><pre> /usr/lib/gcc/x86_64-linux-gnu/9/include</pre></td></tr><tr><td data-num="3"></td><td><pre> /usr/local/include</pre></td></tr><tr><td data-num="4"></td><td><pre> /usr/include/x86_64-linux-gnu</pre></td></tr><tr><td data-num="5"></td><td><pre> /usr/include</pre></td></tr><tr><td data-num="6"></td><td><pre>End of search list.</pre></td></tr></table></figure></li>
+<li>
+<p>进 vscode， <code>ctrl + shift + p</code>  ，搜  <code>c/c++:Edit Configurations（JSON）</code></p>
+</li>
+<li>
+<p>在  <code>configurations.includePath</code>  数组里添加上面的几条路径，重启 vsc。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>.vscode</code>  文件夹新建两个文件粘进去：</p>
+<ul>
+<li>
+<p>tasks.json:</p>
+<figure class="highlight json"><figcaption data-lang="JSON"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"2.0.0"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token property">"tasks"</span><span class="token operator">:</span> <span class="token punctuation">[</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>      <span class="token property">"label"</span><span class="token operator">:</span> <span class="token string">"compile"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="6"></td><td><pre>      <span class="token property">"command"</span><span class="token operator">:</span> <span class="token string">"g++"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="7"></td><td><pre>      <span class="token property">"args"</span><span class="token operator">:</span> <span class="token punctuation">[</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        <span class="token string">"-g"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        <span class="token string">"$&#123;file&#125;"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="10"></td><td><pre>        <span class="token string">"-o"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="11"></td><td><pre>        <span class="token string">"$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;"</span></pre></td></tr><tr><td data-num="12"></td><td><pre>      <span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="13"></td><td><pre>      <span class="token property">"problemMatcher"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>        <span class="token property">"owner"</span><span class="token operator">:</span> <span class="token string">"cpp"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="15"></td><td><pre>        <span class="token property">"fileLocation"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"relative"</span><span class="token punctuation">,</span> <span class="token string">"$&#123;workspaceRoot&#125;"</span><span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="16"></td><td><pre>        <span class="token property">"pattern"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>          <span class="token property">"regexp"</span><span class="token operator">:</span> <span class="token string">"^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="18"></td><td><pre>          <span class="token property">"file"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="19"></td><td><pre>          <span class="token property">"line"</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="20"></td><td><pre>          <span class="token property">"column"</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="21"></td><td><pre>          <span class="token property">"severity"</span><span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="22"></td><td><pre>          <span class="token property">"message"</span><span class="token operator">:</span> <span class="token number">5</span></pre></td></tr><tr><td data-num="23"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="24"></td><td><pre>      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="25"></td><td><pre>      <span class="token property">"group"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>        <span class="token property">"kind"</span><span class="token operator">:</span> <span class="token string">"build"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="27"></td><td><pre>        <span class="token property">"isDefault"</span><span class="token operator">:</span> <span class="token boolean">true</span></pre></td></tr><tr><td data-num="28"></td><td><pre>      <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="29"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="30"></td><td><pre>  <span class="token punctuation">]</span></pre></td></tr><tr><td data-num="31"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>使用  <code>ctrl + shift + b</code>  进行编译。</p>
+</li>
+<li>
+<p>launch.json:</p>
+<figure class="highlight json"><figcaption data-lang="JSON"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"0.2.0"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token property">"configurations"</span><span class="token operator">:</span> <span class="token punctuation">[</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>      <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"C/C++"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="6"></td><td><pre>      <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"cppdbg"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="7"></td><td><pre>      <span class="token property">"request"</span><span class="token operator">:</span> <span class="token string">"launch"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="8"></td><td><pre>      <span class="token property">"program"</span><span class="token operator">:</span> <span class="token string">"$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="9"></td><td><pre>      <span class="token property">"args"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="10"></td><td><pre>      <span class="token property">"stopAtEntry"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="11"></td><td><pre>      <span class="token property">"cwd"</span><span class="token operator">:</span> <span class="token string">"$&#123;workspaceFolder&#125;"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="12"></td><td><pre>      <span class="token property">"environment"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="13"></td><td><pre>      <span class="token property">"externalConsole"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="14"></td><td><pre>      <span class="token property">"MIMode"</span><span class="token operator">:</span> <span class="token string">"gdb"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="15"></td><td><pre>      <span class="token property">"preLaunchTask"</span><span class="token operator">:</span> <span class="token string">"compile"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="16"></td><td><pre>      <span class="token property">"setupCommands"</span><span class="token operator">:</span> <span class="token punctuation">[</span></pre></td></tr><tr><td data-num="17"></td><td><pre>        <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>          <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"Enable pretty-printing for gdb"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="19"></td><td><pre>          <span class="token property">"text"</span><span class="token operator">:</span> <span class="token string">"-enable-pretty-printing"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="20"></td><td><pre>          <span class="token property">"ignoreFailures"</span><span class="token operator">:</span> <span class="token boolean">true</span></pre></td></tr><tr><td data-num="21"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="22"></td><td><pre>      <span class="token punctuation">]</span></pre></td></tr><tr><td data-num="23"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="24"></td><td><pre>  <span class="token punctuation">]</span></pre></td></tr><tr><td data-num="25"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>使用  <code>F5</code>  进行调试。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="以root启动vscode以收拾各种插件"><a class="markdownIt-Anchor" href="#以root启动vscode以收拾各种插件">#</a> 以 root 启动 vscode 以收拾各种插件</h4>
+<h3 id="idea"><a class="markdownIt-Anchor" href="#idea">#</a> IDEA</h3>
+<h4 id="安装-2"><a class="markdownIt-Anchor" href="#安装-2">#</a> 安装</h4>
+<p>下载对应版本压缩包：<span class="exturl" data-url="aHR0cHM6Ly93d3cuamV0YnJhaW5zLmNvbS9pZGVhL2Rvd25sb2FkLyNzZWN0aW9uPWxpbnV4">https://www.jetbrains.com/idea/download/#section=linux</span></p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">su</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">mkdir</span> /opt/idea</pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token function">cp</span> idea***.tar.gz /opt/idea/</pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token builtin class-name">cd</span> /opt/idea/</pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token function">tar</span> -zxvf idea***.tar.gz</pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token function">rm</span> idea***.tar.gz</pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token builtin class-name">cd</span> ./idea***/bin/</pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token comment">#这里最好切换回非 root 用户 qwq</span></pre></td></tr><tr><td data-num="9"></td><td><pre>./idea.sh <span class="token comment">#以后都是用这个来启动</span></pre></td></tr></table></figure><h4 id="创建快捷方式"><a class="markdownIt-Anchor" href="#创建快捷方式">#</a> 创建快捷方式</h4>
+<p>直接在应用内 tools 选项下创建快捷方式，不用新建  <code>.desktop</code>  文件。</p>
+<h4 id="安装配置jdk"><a class="markdownIt-Anchor" href="#安装配置jdk">#</a> 安装配置 jdk</h4>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> openjdk-11-jre-headless</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token comment"># 默认装在 /usr/lib/jvm 下</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token function">sudo</span> <span class="token function">vim</span> /etc/profie</pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment"># 添加以下内容</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token builtin class-name">export</span> <span class="token assign-left variable">JAVA_HOME</span><span class="token operator">=</span>/usr/bin/jvm/java-11-openjdk-amd64</pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token builtin class-name">export</span> <span class="token assign-left variable">JRE_HOME</span><span class="token operator">=</span><span class="token variable">$&#123;JAVA_HOME&#125;</span>/jre</pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token builtin class-name">export</span> <span class="token assign-left variable">CLASSPATH</span><span class="token operator">=</span>.:<span class="token variable">$&#123;JAVA_HOME&#125;</span>/lib:<span class="token variable">$&#123;JRE_HOME&#125;</span>/lib</pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token variable">$&#123;JAVA_HOME&#125;</span>/bin:<span class="token environment constant">$PATH</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token comment"># 执行以下内容立即生效</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token builtin class-name">source</span> /etc/profile</pre></td></tr></table></figure><p>​</p>
+
+      <div class="tags">
+          <a href="/blog/tags/linux/" rel="tag"><i class="ic i-tag"></i> linux</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2022-11-28 22:26:18" itemprop="dateModified" datetime="2022-11-28T22:26:18+08:00">2022-11-28</time>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>ERUIHNIYHBKBNF <i class="ic i-at"><em>@</em></i>Eruの兔叽窝
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://eruihniyhbkbnf.github.io/blog/2021/10/26/linux%E5%85%A5%E9%97%A8%E8%AE%B0%E5%BD%95/" title="linux入门记录">https://eruihniyhbkbnf.github.io/blog/2021/10/26/linux入门记录/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/blog/2021/10/12/py%E5%AE%9E%E7%8E%B0%E4%BD%8E%E9%85%8D%E7%89%88%E9%AA%8C%E8%AF%81%E7%A0%81%E8%AF%86%E5%88%AB/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giciusoyjnj219g0u0x56.jpg" title="py实现低配版验证码识别">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>py实现低配版验证码识别</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/blog/2022/01/16/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BD%BF%E7%94%A8less%E4%B8%8D%E7%94%9F%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipeu1usa7j20zk0m8b29.jpg" title="关于跨域——浏览器使用less不生效的问题解决">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>关于跨域——浏览器使用less不生效的问题解决</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%B0%E5%BD%95%E5%8F%8C%E7%B3%BB%E7%BB%9F%E8%A3%85%E5%A5%BDubuntu%E4%B9%8B%E5%90%8E%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88"><span class="toc-number">1.</span> <span class="toc-text"> 记录双系统装好 ubuntu 之后做了什么</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8D%A2%E6%BA%90"><span class="toc-number">1.1.</span> <span class="toc-text"> 换源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%8D%A2%E6%B5%8F%E8%A7%88%E5%99%A8"><span class="toc-number">1.2.</span> <span class="toc-text"> 更换浏览器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%93%E9%AA%8C%E6%84%9F%E4%BC%98%E5%8C%96"><span class="toc-number">1.3.</span> <span class="toc-text"> 体验感优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%8F%E5%B9%95%E7%BC%A9%E6%94%BE%E9%97%AE%E9%A2%98"><span class="toc-number">1.3.1.</span> <span class="toc-text"> 屏幕缩放问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E6%B3%95"><span class="toc-number">1.3.2.</span> <span class="toc-text"> 输入法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96"><span class="toc-number">1.3.3.</span> <span class="toc-text"> 主题美化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%91%E5%AD%A6"><span class="toc-number">1.4.</span> <span class="toc-text"> 科学</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85clash"><span class="toc-number">1.4.1.</span> <span class="toc-text"> 安装 clash</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%E4%B8%8E%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0%E8%AE%A2%E9%98%85"><span class="toc-number">1.4.2.</span> <span class="toc-text"> 配置开机启动与自动更新订阅</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E6%98%93%E4%BA%91%E7%AD%89qt%E5%BA%94%E7%94%A8%E7%BC%A9%E6%94%BE%E9%97%AE%E9%A2%98"><span class="toc-number">1.5.</span> <span class="toc-text"> 网易云等 QT 应用缩放问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEgithub%E5%85%8D%E5%AF%86ssh%E8%BF%9E%E6%8E%A5"><span class="toc-number">1.6.</span> <span class="toc-text"> 配置 Github 免密 SSH 连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8nvm%E5%AE%89%E8%A3%85%E7%AE%A1%E7%90%86%E5%A4%9A%E7%89%88%E6%9C%ACnodejs"><span class="toc-number">1.7.</span> <span class="toc-text"> 使用 nvm 安装管理多版本 nodejs</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AEnvm"><span class="toc-number">1.7.1.</span> <span class="toc-text"> 安装与配置 nvm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%A1%E7%90%86node%E7%89%88%E6%9C%AC"><span class="toc-number">1.7.2.</span> <span class="toc-text"> 管理 node 版本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%A4%9A%E7%89%88%E6%9C%ACmysql"><span class="toc-number">1.8.</span> <span class="toc-text"> 安装多版本 mysql</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E7%89%88%E6%9C%AC%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE"><span class="toc-number">1.8.1.</span> <span class="toc-text"> 单版本安装配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#minio%E5%AE%89%E8%A3%85%E5%B9%B6%E8%AE%BE%E4%B8%BA%E6%9C%8D%E5%8A%A1%E5%90%AF%E5%8A%A8"><span class="toc-number">1.9.</span> <span class="toc-text"> minio 安装并设为服务启动</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%90%AF%E5%8A%A8minio"><span class="toc-number">1.9.1.</span> <span class="toc-text"> 安装启动 minio</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86minio%E8%AE%BE%E7%BD%AE%E4%B8%BA%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.9.2.</span> <span class="toc-text"> 将 minio 设置为服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E6%B5%8B%E8%AF%95"><span class="toc-number">1.9.3.</span> <span class="toc-text"> 启动测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%86%E6%88%90%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE"><span class="toc-number">1.10.</span> <span class="toc-text"> 集成开发环境安装配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#vscode"><span class="toc-number">1.10.1.</span> <span class="toc-text"> vscode</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">1.10.1.1.</span> <span class="toc-text"> 安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEc%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95"><span class="toc-number">1.10.1.2.</span> <span class="toc-text"> 配置 C++ 编译调试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A5root%E5%90%AF%E5%8A%A8vscode%E4%BB%A5%E6%94%B6%E6%8B%BE%E5%90%84%E7%A7%8D%E6%8F%92%E4%BB%B6"><span class="toc-number">1.10.1.3.</span> <span class="toc-text"> 以 root 启动 vscode 以收拾各种插件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#idea"><span class="toc-number">1.10.2.</span> <span class="toc-text"> IDEA</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-2"><span class="toc-number">1.10.2.1.</span> <span class="toc-text"> 安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F"><span class="toc-number">1.10.2.2.</span> <span class="toc-text"> 创建快捷方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEjdk"><span class="toc-number">1.10.2.3.</span> <span class="toc-text"> 安装配置 jdk</span></a></li></ol></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="ERUIHNIYHBKBNF"
+      data-src="/blog/images/avatar.jpg">
+  <p class="name" itemprop="name">ERUIHNIYHBKBNF</p>
+  <div class="description" itemprop="description">嘤嘤嘤~</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/blog/archives/">
+        <span class="count">53</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/blog/tags/">
+        <span class="count">31</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL0VSVUlITklZSEJLQk5G" title="https:&#x2F;&#x2F;github.com&#x2F;ERUIHNIYHBKBNF"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/blog/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/blog/2021/10/12/py%E5%AE%9E%E7%8E%B0%E4%BD%8E%E9%85%8D%E7%89%88%E9%AA%8C%E8%AF%81%E7%A0%81%E8%AF%86%E5%88%AB/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/blog/2022/01/16/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BD%BF%E7%94%A8less%E4%B8%8D%E7%94%9F%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/06/27/SpringBoot%E9%A1%B9%E7%9B%AE%E5%88%9B%E5%BB%BA%E4%B8%8EController/" title="[SpringBoot笔记]项目创建与Controller使用">[SpringBoot笔记]项目创建与Controller使用</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/09/02/%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%BA%94%E7%94%A8%E4%B8%93%E9%A2%98/" title="Nowcoder线段树应用专题">Nowcoder线段树应用专题</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/05/04/%E4%BA%8C%E5%88%86%E5%9B%BE%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D/" title="[杂题] 二分图最大匹配">[杂题] 二分图最大匹配</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/01/21/C%E8%AF%AD%E6%B3%95%E6%89%A9%E5%B1%95II/" title="[C++笔记] C语法扩展II">[C++笔记] C语法扩展II</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/09/27/%E6%90%AD%E5%BB%BAmc%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%B0%E5%BD%95/" title="mc服务器搭建记录">mc服务器搭建记录</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2022/07/11/%E5%8C%BA%E5%9D%97%E9%93%BE%E7%AE%80%E5%8D%95%E4%BA%86%E8%A7%A3%E4%B8%80%E4%B8%8B/" title="区块链简单了解一下">区块链简单了解一下</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/01/18/%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/" title="[C++笔记] C++中的namespace">[C++笔记] C++中的namespace</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2020/12/23/%E5%86%99%E5%AF%B9%E6%8B%8D/" title="写对拍(｀･ω･´)ﾉ">写对拍(｀･ω･´)ﾉ</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/10/26/linux%E5%85%A5%E9%97%A8%E8%AE%B0%E5%BD%95/" title="linux入门记录">linux入门记录</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2020/10/15/%E5%88%B6%E4%BD%9C%E4%B8%80%E4%B8%AA%E6%B8%B8%E6%A0%87%E8%8F%9C%E5%8D%95/" title="[摸鱼] 制作一个游标菜单">[摸鱼] 制作一个游标菜单</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">ERUIHNIYHBKBNF @ Eruの兔叽窝</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2021/10/26/linux入门记录/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/blog/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

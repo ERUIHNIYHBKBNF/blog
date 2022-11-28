@@ -1,0 +1,649 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/blog/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="Eruの兔叽窝" href="https://eruihniyhbkbnf.github.io/blog/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Eruの兔叽窝" href="https://eruihniyhbkbnf.github.io/blog/atom.xml" />
+<link rel="alternate" type="application/json" title="Eruの兔叽窝" href="https://eruihniyhbkbnf.github.io/blog/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/blog/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="C++,C++笔记" />
+
+
+<link rel="canonical" href="https://eruihniyhbkbnf.github.io/blog/2021/02/10/%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/">
+
+
+
+  <title>
+[C++笔记] 运算符重载 |
+Eruの兔叽窝 = QwQ</title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">[C++笔记] 运算符重载
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2021-02-10 16:33:55">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-02-10T16:33:55+08:00">2021-02-10</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/blog/" rel="start">Eruの兔叽窝</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicis3attqj20zk0m8k7l.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipeyvx1d4j20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipeu1usa7j20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicm07ih54j20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclgrvbd6j20zk0m8qv5.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclflwv2aj20zk0m84qp.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/blog/">首页</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://eruihniyhbkbnf.github.io/blog/2021/02/10/%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/blog/images/avatar.jpg">
+    <meta itemprop="name" content="ERUIHNIYHBKBNF">
+    <meta itemprop="description" content="QwQ, 嘤嘤嘤~">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Eruの兔叽窝">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <p>唔… 这大概是 operator 的笔记叭… 不知道自己为啥要写前半段没用的东西 qwq</p>
+<h2 id="好像没用的部分"><a class="markdownIt-Anchor" href="#好像没用的部分">#</a> 好像没用的部分</h2>
+<h3 id="c运算符"><a class="markdownIt-Anchor" href="#c运算符">#</a> C++ 运算符</h3>
+<h4 id="运算符与函数"><a class="markdownIt-Anchor" href="#运算符与函数">#</a> 运算符与函数</h4>
+<p>运算符举例：</p>
+<ul>
+<li>string 类：  <code>+</code>  连接字符串。  <code>&quot;Hello&quot; + &quot; Chino!&quot;</code></li>
+<li>array/vector 类：  <code>[]</code>  访问元素。  <code>v[0] = 233;</code></li>
+<li>path 类：  <code>/</code>  连接路径元素。 <code>p = p / &quot;C&quot; / &quot;Users&quot; / &quot;Chino&quot;;</code></li>
+</ul>
+<p>运算符可以看作函数，不同处：</p>
+<ul>
+<li>语法区别，前中后缀什么什么的…</li>
+<li>不能定义新运算符。</li>
+<li>运算符作用域<strong>内置类型</strong>的行为不能修改，例如  <code>2 * 3</code>  结果不能是 1。</li>
+</ul>
+<h4 id="平面向量类"><a class="markdownIt-Anchor" href="#平面向量类">#</a> 平面向量类</h4>
+<p><s>开始重复造轮</s></p>
+<ul>
+<li>数据成员：x, y 或 array&lt;double, 2&gt; v</li>
+<li>运算方法：+, -, 数乘，点乘，长度，方向，==, !=,  ​&lt;,&gt;, &lt;=, &gt;= …</li>
+<li>TDD 测试驱动开发：
+<ul>
+<li>编写运行测试代码。</li>
+<li>改动，尽快让测试程序可运行。</li>
+<li>重构代码，优化设计。</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>测试代码：</li>
+</ol>
+<figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 创建对象</span></pre></td></tr><tr><td data-num="2"></td><td><pre>Vec2D v1<span class="token punctuation">&#123;</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> v2<span class="token punctuation">&#123;</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment">// 转为字符串输出</span></pre></td></tr><tr><td data-num="4"></td><td><pre>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"v1 = "</span> <span class="token operator">&lt;&lt;</span> v1<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"v2 = "</span> <span class="token operator">&lt;&lt;</span> v2<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment">// 向量加法</span></pre></td></tr><tr><td data-num="7"></td><td><pre>Vec2D v3 <span class="token operator">=</span> v1<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>v2<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>Vec2D v4 <span class="token operator">=</span> v3<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">10.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"v3 = "</span> <span class="token operator">&lt;&lt;</span> v3<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"v4 = "</span> <span class="token operator">&lt;&lt;</span> v4<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token comment">// 向量减法，点积，数乘</span></pre></td></tr><tr><td data-num="12"></td><td><pre>Vec2D v5 <span class="token operator">=</span> v2<span class="token punctuation">.</span><span class="token function">subtract</span><span class="token punctuation">(</span>v1<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token keyword">double</span> v6 <span class="token operator">=</span> v2<span class="token punctuation">.</span><span class="token function">dot</span><span class="token punctuation">(</span>v1<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>Vec2D v7 <span class="token operator">=</span> v3<span class="token punctuation">.</span><span class="token function">multiply</span><span class="token punctuation">(</span><span class="token number">2.1</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"v2 - v1 = "</span> <span class="token operator">&lt;&lt;</span> v5<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"v2 . v1 = "</span> <span class="token operator">&lt;&lt;</span> v6 <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"v3 * 2.1 = "</span> <span class="token operator">&lt;&lt;</span> v7<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token comment">// 取反</span></pre></td></tr><tr><td data-num="19"></td><td><pre>Vec2D v8 <span class="token operator">=</span> v2<span class="token punctuation">.</span><span class="token function">negative</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"-v2 = "</span> <span class="token operator">&lt;&lt;</span> v8<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="21"></td><td><pre><span class="token comment">// 自增，自减</span></pre></td></tr><tr><td data-num="22"></td><td><pre>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"++v8 = "</span> <span class="token operator">&lt;&lt;</span> v8<span class="token punctuation">.</span><span class="token function">increase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"--v2 = "</span> <span class="token operator">&lt;&lt;</span> v2<span class="token punctuation">.</span><span class="token function">increase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="24"></td><td><pre><span class="token comment">// 读取，修改</span></pre></td></tr><tr><td data-num="25"></td><td><pre>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"v1.x_ = "</span> <span class="token operator">&lt;&lt;</span> v1<span class="token punctuation">.</span><span class="token function">at</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"v1.y_ = "</span> <span class="token operator">&lt;&lt;</span> v1<span class="token punctuation">.</span><span class="token function">at</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="27"></td><td><pre><span class="token comment">// 长度与角度</span></pre></td></tr><tr><td data-num="28"></td><td><pre>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"v1.magnitude = "</span> <span class="token operator">&lt;&lt;</span> v1<span class="token punctuation">.</span><span class="token function">magnitude</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="29"></td><td><pre>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"v1.direction = "</span> <span class="token operator">&lt;&lt;</span> v1<span class="token punctuation">.</span><span class="token function">direction</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="30"></td><td><pre><span class="token comment">// 比较两向量</span></pre></td></tr><tr><td data-num="31"></td><td><pre>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"v1 ? v2 : "</span> <span class="token operator">&lt;&lt;</span> v1<span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>v2<span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span></pre></td></tr></table></figure><ol start="2">
+<li>编写平面向量类，实现测试功能。</li>
+</ol>
+<figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">class</span> <span class="token class-name">Vec2D</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">private</span><span class="token operator">:</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token keyword">double</span> x_<span class="token punctuation">,</span> y_<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">public</span><span class="token operator">:</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token function">Vec2D</span><span class="token punctuation">(</span><span class="token keyword">double</span> x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token keyword">double</span> y <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        x_ <span class="token operator">=</span> x<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        y_ <span class="token operator">=</span> y<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token operator">~</span><span class="token function">Vec2D</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token keyword">default</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    string <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>        <span class="token keyword">return</span> <span class="token function">string</span><span class="token punctuation">(</span><span class="token string">"("</span> <span class="token operator">+</span> <span class="token function">to_string</span><span class="token punctuation">(</span>x_<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">", "</span> <span class="token operator">+</span> <span class="token function">to_string</span><span class="token punctuation">(</span>y_<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">")"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    Vec2D <span class="token function">add</span><span class="token punctuation">(</span>Vec2D secondVec2D<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>        <span class="token keyword">return</span> <span class="token function">Vec2D</span><span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token operator">-></span> x_ <span class="token operator">+</span> secondVec2D<span class="token punctuation">.</span>x_<span class="token punctuation">,</span> <span class="token keyword">this</span> <span class="token operator">-></span> y_ <span class="token operator">+</span> secondVec2D<span class="token punctuation">.</span>y_<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    Vec2D <span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">double</span> num<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="22"></td><td><pre>        <span class="token keyword">return</span> <span class="token function">Vec2D</span><span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token operator">-></span> x_ <span class="token operator">+</span> num<span class="token punctuation">,</span> <span class="token keyword">this</span> <span class="token operator">-></span> y_ <span class="token operator">+</span> num<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="24"></td><td><pre>    Vec2D <span class="token function">subtract</span><span class="token punctuation">(</span>Vec2D secondVec2D<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="25"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>        <span class="token keyword">return</span> <span class="token function">Vec2D</span><span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token operator">-></span> x_ <span class="token operator">-</span> secondVec2D<span class="token punctuation">.</span>x_<span class="token punctuation">,</span> <span class="token keyword">this</span> <span class="token operator">-></span> y_ <span class="token operator">-</span> secondVec2D<span class="token punctuation">.</span>y_<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="27"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="28"></td><td><pre>    Vec2D <span class="token function">subtract</span><span class="token punctuation">(</span><span class="token keyword">double</span> num<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="29"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="30"></td><td><pre>        <span class="token keyword">return</span> <span class="token function">Vec2D</span><span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token operator">-></span> x_ <span class="token operator">-</span> num<span class="token punctuation">,</span> <span class="token keyword">this</span> <span class="token operator">-></span> y_ <span class="token operator">-</span> num<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="31"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="32"></td><td><pre>    <span class="token keyword">double</span> <span class="token function">dot</span><span class="token punctuation">(</span>Vec2D secondVec2D<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="33"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="34"></td><td><pre>        <span class="token keyword">return</span> x_ <span class="token operator">*</span> secondVec2D<span class="token punctuation">.</span>x_ <span class="token operator">+</span> y_ <span class="token operator">*</span> secondVec2D<span class="token punctuation">.</span>y_<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="35"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="36"></td><td><pre>    Vec2D <span class="token function">multiply</span><span class="token punctuation">(</span><span class="token keyword">double</span> multiplier<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="37"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="38"></td><td><pre>        <span class="token keyword">return</span> <span class="token function">Vec2D</span><span class="token punctuation">(</span>x_ <span class="token operator">*</span> multiplier<span class="token punctuation">,</span> y_ <span class="token operator">*</span> multiplier<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="39"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="40"></td><td><pre>    Vec2D <span class="token function">negative</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="41"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="42"></td><td><pre>        <span class="token keyword">return</span> <span class="token function">Vec2D</span><span class="token punctuation">(</span><span class="token operator">-</span>x_<span class="token punctuation">,</span> <span class="token operator">-</span>y_<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="43"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="44"></td><td><pre>    Vec2D<span class="token operator">&amp;</span> <span class="token function">increase</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="45"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="46"></td><td><pre>        x_<span class="token operator">++</span><span class="token punctuation">;</span> y_<span class="token operator">++</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="47"></td><td><pre>        <span class="token keyword">return</span> <span class="token operator">*</span><span class="token keyword">this</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="48"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="49"></td><td><pre>    Vec2D<span class="token operator">&amp;</span> <span class="token function">decrease</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="50"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="51"></td><td><pre>        x_<span class="token operator">--</span><span class="token punctuation">;</span> y_<span class="token operator">--</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="52"></td><td><pre>        <span class="token keyword">return</span> <span class="token operator">*</span><span class="token keyword">this</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="53"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="54"></td><td><pre>    <span class="token keyword">double</span><span class="token operator">&amp;</span> <span class="token function">at</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">int</span> index<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="55"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="56"></td><td><pre>        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token number">0</span> <span class="token operator">==</span>  index<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="57"></td><td><pre>            <span class="token keyword">return</span> x_<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="58"></td><td><pre>        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">==</span> index<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="59"></td><td><pre>            <span class="token keyword">return</span> y_<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="60"></td><td><pre>        <span class="token keyword">throw</span> <span class="token function">out_of_range</span><span class="token punctuation">(</span><span class="token string">"at() only accept 0 or 1 as parameter."</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 抛出异常</span></pre></td></tr><tr><td data-num="61"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="62"></td><td><pre>    <span class="token keyword">double</span> <span class="token function">magnitude</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="63"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="64"></td><td><pre>        <span class="token keyword">return</span> <span class="token function">sqrt</span><span class="token punctuation">(</span>x_ <span class="token operator">*</span> x_ <span class="token operator">+</span> y_ <span class="token operator">*</span> y_<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="65"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="66"></td><td><pre>    <span class="token keyword">double</span> <span class="token function">direction</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="67"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="68"></td><td><pre>        <span class="token keyword">return</span> <span class="token function">atan</span><span class="token punctuation">(</span>y_ <span class="token operator">/</span> x_<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="69"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="70"></td><td><pre>    <span class="token keyword">int</span> <span class="token function">compareTo</span><span class="token punctuation">(</span>Vec2D secondVec2D<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="71"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="72"></td><td><pre>        <span class="token keyword">double</span> m1 <span class="token operator">=</span> <span class="token keyword">this</span> <span class="token operator">-></span> <span class="token function">magnitude</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> m2 <span class="token operator">=</span> secondVec2D<span class="token punctuation">.</span><span class="token function">magnitude</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="73"></td><td><pre>        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">fabs</span><span class="token punctuation">(</span>m1 <span class="token operator">-</span> m2<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">1e-10</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="74"></td><td><pre>            <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="75"></td><td><pre>        <span class="token keyword">return</span> m1 <span class="token operator">></span> m2 <span class="token operator">?</span> <span class="token number">1</span> <span class="token operator">:</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="76"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="77"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h3 id="运算符重载"><a class="markdownIt-Anchor" href="#运算符重载">#</a> 运算符重载</h3>
+<p>可重载：</p>
+<ul>
+<li>
+<p>类型转换运算符：double, int, char, ……</p>
+</li>
+<li>
+<p>new/delete, new []/delete[]</p>
+</li>
+<li>
+<p>“”_suffix 用户自定义字面量运算符 (自 C++11 起)</p>
+</li>
+<li>
+<p>一般运算符。</p>
+</li>
+</ul>
+<p>不可重载：</p>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.</td>
+<td>类属关系运算符</td>
+</tr>
+<tr>
+<td>.*</td>
+<td>成员指针运算符</td>
+</tr>
+<tr>
+<td>::</td>
+<td>作用域运算符</td>
+</tr>
+<tr>
+<td>? :</td>
+<td>条件运算符</td>
+</tr>
+<tr>
+<td>#</td>
+<td>编译预处理符号</td>
+</tr>
+</tbody>
+</table>
+<h4 id="运算符函数"><a class="markdownIt-Anchor" href="#运算符函数">#</a> 运算符函数</h4>
+<p><code>v1 &lt; v2</code>  等价于  <code>v1.operator&lt;(v2)</code> ，定义（接上段）：</p>
+<figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">bool</span> Vec2D<span class="token operator">::</span><span class="token keyword">operator</span><span class="token operator">&lt;</span><span class="token punctuation">(</span>Vec2D <span class="token operator">&amp;</span> secondVec2D<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>	<span class="token keyword">return</span> <span class="token keyword">this</span> <span class="token operator">-></span> <span class="token function">compareTo</span><span class="token punctuation">(</span>secondVec2D<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h4 id="左值-右值-将亡值"><a class="markdownIt-Anchor" href="#左值-右值-将亡值">#</a> 左值、右值、将亡值</h4>
+<p>左值：指定一个函数或对象，是可以取地址的表达式。</p>
+<ul>
+<li>解引用表达式  <code>*p</code></li>
+<li>字符串字面量  <code>&quot;qwq&quot;</code></li>
+<li>前自增 / 自减  <code>++i</code></li>
+<li>赋值或复合运算符表达式  <code>x = y</code>  或  <code>m *= n</code></li>
+</ul>
+<p>纯右值：不与对象相关联（字面量）或求值结果是字面量的匿名临时对象。</p>
+<ul>
+<li>普通字面量： <code>'a'</code> ，  <code>233</code></li>
+<li>返回非引用的函数调用  <code>int f() &#123; return 1; &#125;</code></li>
+<li>后自增 / 自减  <code>i++</code></li>
+<li>算数 / 逻辑 / 关系表达式 / 取地址  <code>a + b</code>   <code>a &lt; b</code>   <code>a != b</code>   <code>&amp;a</code></li>
+</ul>
+<p>将亡值：将纯右值转化为右值引用的表达式。（傻…owo</p>
+<hr>
+<h2 id="大概有用的部分"><a class="markdownIt-Anchor" href="#大概有用的部分">#</a> 大概有用的部分</h2>
+<p>语法：  <code>返回类型 operator 运算符(参数) &#123; 函数体 &#125;</code></p>
+<h3 id="算术-"><a class="markdownIt-Anchor" href="#算术-">#</a> 算术 + - * /</h3>
+<ul>
+<li>返回值一般是右值。</li>
+<li>运算符函数的参数类型可以是引用，最好用 const 修饰。</li>
+</ul>
+<p>实例：</p>
+<figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">class</span> <span class="token class-name">Vec2D</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">private</span><span class="token operator">:</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token keyword">double</span> x_<span class="token punctuation">,</span> y_<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">public</span><span class="token operator">:</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token function">Vec2D</span><span class="token punctuation">(</span><span class="token keyword">double</span> x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token keyword">double</span> y <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        x_ <span class="token operator">=</span> x<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        y_ <span class="token operator">=</span> y<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token operator">~</span><span class="token function">Vec2D</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token keyword">default</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    string <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>        <span class="token keyword">return</span> <span class="token function">string</span><span class="token punctuation">(</span><span class="token string">"("</span> <span class="token operator">+</span> <span class="token function">to_string</span><span class="token punctuation">(</span>x_<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">", "</span> <span class="token operator">+</span> <span class="token function">to_string</span><span class="token punctuation">(</span>y_<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">")"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    Vec2D <span class="token keyword">operator</span> <span class="token operator">+</span><span class="token punctuation">(</span><span class="token keyword">const</span> Vec2D <span class="token operator">&amp;</span>secondVec2D<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>        <span class="token keyword">return</span> <span class="token function">vec2D</span><span class="token punctuation">(</span>x_ <span class="token operator">+</span> secondVec2D<span class="token punctuation">.</span>x_<span class="token punctuation">,</span> y_ <span class="token operator">+</span> secondVec2D<span class="token punctuation">.</span>y_<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token comment">// 不能 double::operator+(Vec2D)，只能友元</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    <span class="token keyword">friend</span> Vec2D <span class="token keyword">operator</span> <span class="token operator">*</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">double</span><span class="token operator">&amp;</span><span class="token punctuation">,</span> <span class="token keyword">const</span> Vec2D<span class="token operator">&amp;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="22"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>Vec2D <span class="token keyword">operator</span> <span class="token operator">*</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">double</span><span class="token operator">&amp;</span> num<span class="token punctuation">,</span> <span class="token keyword">const</span> Vec2D<span class="token operator">&amp;</span> vec<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="24"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="25"></td><td><pre>    <span class="token keyword">return</span> <span class="token function">Vec2D</span><span class="token punctuation">(</span>num <span class="token operator">*</span> vec<span class="token punctuation">.</span>x_<span class="token punctuation">,</span> num <span class="token operator">*</span> vec<span class="token punctuation">.</span>y_<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="26"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="27"></td><td><pre><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="28"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="29"></td><td><pre>    Vec2D v1<span class="token punctuation">&#123;</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> v2<span class="token punctuation">&#123;</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="30"></td><td><pre>    <span class="token comment">// 向量加法，乘法</span></pre></td></tr><tr><td data-num="31"></td><td><pre>    Vec2D v3 <span class="token operator">=</span> v1 <span class="token operator">+</span> v2<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="32"></td><td><pre>    Vec2D v4 <span class="token operator">=</span> <span class="token number">2.0</span> <span class="token operator">*</span> v1<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="33"></td><td><pre>    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"v3 = "</span> <span class="token operator">&lt;&lt;</span> v3<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="34"></td><td><pre>    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"v4 = "</span> <span class="token operator">&lt;&lt;</span> v4<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="35"></td><td><pre>    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="36"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h3 id="赋值-"><a class="markdownIt-Anchor" href="#赋值-">#</a> 赋值 += -= *= /= =</h3>
+<h4 id="-"><a class="markdownIt-Anchor" href="#-">#</a> += -= *= /=</h4>
+<ul>
+<li>
+<p>采用  <code>this</code>  改变自身值。</p>
+</li>
+<li>
+<p>operator 返回值类型一般写成引用。</p>
+</li>
+</ul>
+<p>实例：（接上段）</p>
+<figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">public</span><span class="token operator">:</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token comment">// 这里不加 & amp; 的话，像 (v1 += v2) += v2; 之类的操作会炸掉 qwq</span></pre></td></tr><tr><td data-num="3"></td><td><pre>	Vec2D<span class="token operator">&amp;</span> <span class="token keyword">operator</span> <span class="token operator">+=</span> <span class="token punctuation">(</span><span class="token keyword">const</span> Vec2D <span class="token operator">&amp;</span>secondVec2D<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>        <span class="token operator">*</span><span class="token keyword">this</span> <span class="token operator">=</span> <span class="token keyword">this</span> <span class="token operator">-></span> <span class="token function">add</span><span class="token punctuation">(</span>secondVec2D<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>        <span class="token keyword">return</span> <span class="token operator">*</span><span class="token keyword">this</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    Vec2D v1<span class="token punctuation">&#123;</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> v2<span class="token punctuation">&#123;</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    v1 <span class="token operator">+=</span> v2<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"v1 = "</span> <span class="token operator">&lt;&lt;</span> v1<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token comment">// 7, 11</span></pre></td></tr><tr><td data-num="13"></td><td><pre>   	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h4 id=""><a class="markdownIt-Anchor" href="#">#</a> =</h4>
+<ul>
+<li>默认进行一对一浅拷贝。</li>
+<li>需要深拷贝时，重载赋值  <code>=</code>  运算符。</li>
+</ul>
+<h3 id="比较"><a class="markdownIt-Anchor" href="#比较">#</a> 比较 &gt; == &lt; &gt;= &lt;= !=</h3>
+<ul>
+<li>重载 &lt; 常用于 STL 里的各种操作。</li>
+<li>使用友元。</li>
+</ul>
+<h3 id="下标访问"><a class="markdownIt-Anchor" href="#下标访问">#</a> 下标访问 [ ]</h3>
+<p>并没有什么意料之外的：</p>
+<figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">class</span> <span class="token class-name">Vec2D</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">private</span><span class="token operator">:</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token keyword">double</span> x_<span class="token punctuation">,</span> y_<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">public</span><span class="token operator">:</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token keyword">double</span><span class="token operator">&amp;</span> <span class="token keyword">operator</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">int</span> <span class="token operator">&amp;</span>index<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        <span class="token keyword">if</span> <span class="token punctuation">(</span>index <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre>            <span class="token keyword">return</span> x_<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>        <span class="token keyword">if</span> <span class="token punctuation">(</span>index <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="11"></td><td><pre>            <span class="token keyword">return</span> y_<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>        <span class="token keyword">else</span></pre></td></tr><tr><td data-num="13"></td><td><pre>            <span class="token keyword">throw</span> <span class="token function">out_of_range</span><span class="token punctuation">(</span><span class="token string">"at() only accept 0 or 1 as parameter."</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>    Vec2D v1<span class="token punctuation">&#123;</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    v1<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"v1.x_ = "</span> <span class="token operator">&lt;&lt;</span> v1<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token comment">// 4</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="22"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><ul>
+<li>假设 @为某单目运算符，编译器遇到  <code>@obj</code>  时， 是否传参取决于  <code>operator @ ()</code>  是成员函数  <code>operator @ ()</code>  还是友元函数  <code>operator @ (Type &amp;) //可能需要引用</code>  。</li>
+</ul>
+<h4 id="--2"><a class="markdownIt-Anchor" href="#--2">#</a> -</h4>
+<figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre>Vec2D Vec2D<span class="token operator">::</span><span class="token keyword">operator</span> <span class="token operator">-</span> <span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>	<span class="token keyword">return</span> <span class="token function">Vec2D</span><span class="token punctuation">(</span><span class="token operator">-</span>x_<span class="token punctuation">,</span> <span class="token operator">-</span>y_<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 临时匿名对象</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h3 id="自增自减"><a class="markdownIt-Anchor" href="#自增自减">#</a> 自增 / 自减 ++/–</h3>
+<ul>
+<li>
+<p>前缀返回值为左值</p>
+</li>
+<li>
+<p>后缀返回值为右值</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>类内定义</th>
+<th>类外定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>++a</td>
+<td>T&amp; T::operator ++ ();</td>
+<td>T&amp; operator ++ (T&amp; a);</td>
+</tr>
+<tr>
+<td>a++</td>
+<td>T T::operator ++ (int dummy);</td>
+<td>T T::operator ++ (T&amp; a, int dummy);</td>
+</tr>
+</tbody>
+</table>
+<p><code>dummy</code>  占位符，用于区分前置与后置，调用时并不会传递参数。</p>
+<p>实例：</p>
+<figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">class</span> <span class="token class-name">Vec2D</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">private</span><span class="token operator">:</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token keyword">double</span> x_<span class="token punctuation">,</span> y_<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">public</span><span class="token operator">:</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token function">Vec2D</span><span class="token punctuation">(</span><span class="token keyword">double</span> x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token keyword">double</span> y <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        x_ <span class="token operator">=</span> x<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        y_ <span class="token operator">=</span> y<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token operator">~</span><span class="token function">Vec2D</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token keyword">default</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    string <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>        <span class="token keyword">return</span> <span class="token function">string</span><span class="token punctuation">(</span><span class="token string">"("</span> <span class="token operator">+</span> <span class="token function">to_string</span><span class="token punctuation">(</span>x_<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">", "</span> <span class="token operator">+</span> <span class="token function">to_string</span><span class="token punctuation">(</span>y_<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">")"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    Vec2D<span class="token operator">&amp;</span> <span class="token keyword">operator</span> <span class="token operator">++</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>        <span class="token operator">++</span>x_<span class="token punctuation">;</span> <span class="token operator">++</span>y_<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>        <span class="token keyword">return</span> <span class="token operator">*</span><span class="token keyword">this</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    Vec2D <span class="token keyword">operator</span> <span class="token operator">++</span><span class="token punctuation">(</span><span class="token keyword">int</span> dummy<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="22"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>        Vec2D tmp <span class="token operator">=</span> <span class="token function">Vec2D</span><span class="token punctuation">(</span>x_<span class="token punctuation">,</span> y_<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="24"></td><td><pre>        x_<span class="token operator">++</span><span class="token punctuation">;</span> y_<span class="token operator">++</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="25"></td><td><pre>        <span class="token keyword">return</span> tmp<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="27"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="28"></td><td><pre><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="29"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="30"></td><td><pre>    Vec2D v1<span class="token punctuation">&#123;</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="31"></td><td><pre>    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"v1++ = "</span> <span class="token operator">&lt;&lt;</span> v1<span class="token operator">++</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token comment">// 3, 5</span></pre></td></tr><tr><td data-num="32"></td><td><pre>    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"++v1 = "</span> <span class="token operator">&lt;&lt;</span> <span class="token punctuation">(</span><span class="token operator">++</span>v1<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token comment">// 5, 7</span></pre></td></tr><tr><td data-num="33"></td><td><pre>    <span class="token punctuation">(</span><span class="token operator">++</span>v1<span class="token punctuation">)</span><span class="token operator">++</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="34"></td><td><pre>    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"v1 = "</span> <span class="token operator">&lt;&lt;</span> v1<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token comment">// 7, 9</span></pre></td></tr><tr><td data-num="35"></td><td><pre>    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="36"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h3 id="流插入提取运算符"><a class="markdownIt-Anchor" href="#流插入提取运算符">#</a> 流插入 / 提取运算符 &gt;&gt;/&lt;&lt;</h3>
+<ul>
+<li>是二元运算符，第一个操作数是 cin 或 cout</li>
+<li>因为要把自定义对象作为第二个操作数～～（不会吧不会吧不会真的有人想把代码写得像💩一样难看吧）~~，所以只采用友元。</li>
+</ul>
+<p>实例：</p>
+<figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">class</span> <span class="token class-name">Vec2D</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">private</span><span class="token operator">:</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token keyword">double</span> x_<span class="token punctuation">,</span> y_<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token keyword">public</span><span class="token operator">:</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token function">Vec2D</span><span class="token punctuation">(</span><span class="token keyword">double</span> x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token keyword">double</span> y <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>        x_ <span class="token operator">=</span> x<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>        y_ <span class="token operator">=</span> y<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token operator">~</span><span class="token function">Vec2D</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token keyword">default</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token keyword">friend</span> ostream<span class="token operator">&amp;</span> <span class="token keyword">operator</span> <span class="token operator">&lt;&lt;</span> <span class="token punctuation">(</span>ostream<span class="token operator">&amp;</span><span class="token punctuation">,</span> <span class="token keyword">const</span> Vec2D<span class="token operator">&amp;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token keyword">friend</span> istream<span class="token operator">&amp;</span> <span class="token keyword">operator</span> <span class="token operator">>></span> <span class="token punctuation">(</span>istream<span class="token operator">&amp;</span><span class="token punctuation">,</span> Vec2D<span class="token operator">&amp;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>ostream<span class="token operator">&amp;</span> <span class="token keyword">operator</span> <span class="token operator">&lt;&lt;</span> <span class="token punctuation">(</span>ostream <span class="token operator">&amp;</span>os<span class="token punctuation">,</span> <span class="token keyword">const</span> Vec2D<span class="token operator">&amp;</span> v<span class="token punctuation">)</span> <span class="token comment">// 返回 ostream&amp; 以连续使用流插入运算符</span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token keyword">return</span> os <span class="token operator">&lt;&lt;</span> <span class="token string">"("</span> <span class="token operator">&lt;&lt;</span> v<span class="token punctuation">.</span>x_ <span class="token operator">&lt;&lt;</span> <span class="token string">", "</span> <span class="token operator">&lt;&lt;</span> v<span class="token punctuation">.</span>y_ <span class="token operator">&lt;&lt;</span> <span class="token string">")"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>istream<span class="token operator">&amp;</span> <span class="token keyword">operator</span> <span class="token operator">>></span> <span class="token punctuation">(</span>istream <span class="token operator">&amp;</span>is<span class="token punctuation">,</span> Vec2D<span class="token operator">&amp;</span> v<span class="token punctuation">)</span> <span class="token comment">// 别带 const</span></pre></td></tr><tr><td data-num="22"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>    <span class="token keyword">return</span> is <span class="token operator">>></span> v<span class="token punctuation">.</span>x_ <span class="token operator">>></span> v<span class="token punctuation">.</span>y_<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="24"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="25"></td><td><pre><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="26"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="27"></td><td><pre>    Vec2D v1<span class="token punctuation">,</span> v2<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="28"></td><td><pre>    cin <span class="token operator">>></span> v1 <span class="token operator">>></span> v2<span class="token punctuation">;</span> <span class="token comment">// 1 2 3 4</span></pre></td></tr><tr><td data-num="29"></td><td><pre>    cout <span class="token operator">&lt;&lt;</span> v1 <span class="token operator">&lt;&lt;</span> <span class="token string">" qwq "</span> <span class="token operator">&lt;&lt;</span> v2 <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token comment">// (1, 2) qwq (3, 4)</span></pre></td></tr><tr><td data-num="30"></td><td><pre>    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="31"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h3 id="对象转换-static_casttype"><a class="markdownIt-Anchor" href="#对象转换-static_casttype">#</a> 对象转换 static_cast&lt;Type&gt;()</h3>
+<ul>
+<li>
+<p>语法  <code>operator Type() &#123; return value; &#125;</code></p>
+</li>
+<li>
+<p>没有返回值类型。(ctor, dtor 也没有)</p>
+</li>
+<li>
+<p>包括隐式类型转换与强制类型转换。</p>
+</li>
+</ul>
+<h3 id="ex"><a class="markdownIt-Anchor" href="#ex">#</a> ex</h3>
+<ul>
+<li>不允许操作基础数据类型，参数至少应有一个自定义类的对象。</li>
+<li>以友元函数重载，可以更灵活地指定次序。（部分运算符如 [ ] 不能以友元重载）</li>
+</ul>
+
+      <div class="tags">
+          <a href="/blog/tags/C/" rel="tag"><i class="ic i-tag"></i> C++</a>
+          <a href="/blog/tags/C-%E7%AC%94%E8%AE%B0/" rel="tag"><i class="ic i-tag"></i> C++笔记</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2022-11-28 22:26:18" itemprop="dateModified" datetime="2022-11-28T22:26:18+08:00">2022-11-28</time>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>ERUIHNIYHBKBNF <i class="ic i-at"><em>@</em></i>Eruの兔叽窝
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://eruihniyhbkbnf.github.io/blog/2021/02/10/%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/" title="[C++笔记] 运算符重载">https://eruihniyhbkbnf.github.io/blog/2021/02/10/运算符重载/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/blog/2021/02/08/%E7%94%A8OpenCV%E5%92%8CPython%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicmnywqgpj20zk0m8dwx.jpg" title="Python-ML中一些数据处理方式">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>Python-ML中一些数据处理方式</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/blog/2021/02/10/%E6%A8%A1%E6%9D%BF%E5%9F%BA%E7%A1%80/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giciundwu5j20zk0m8n9e.jpg" title="[C++笔记] C++中的模板">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>[C++笔记] C++中的模板</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A5%BD%E5%83%8F%E6%B2%A1%E7%94%A8%E7%9A%84%E9%83%A8%E5%88%86"><span class="toc-number">1.</span> <span class="toc-text"> 好像没用的部分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#c%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.1.</span> <span class="toc-text"> C++ 运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.1.</span> <span class="toc-text"> 运算符与函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B3%E9%9D%A2%E5%90%91%E9%87%8F%E7%B1%BB"><span class="toc-number">1.1.2.</span> <span class="toc-text"> 平面向量类</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD"><span class="toc-number">1.2.</span> <span class="toc-text"> 运算符重载</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6%E5%87%BD%E6%95%B0"><span class="toc-number">1.2.1.</span> <span class="toc-text"> 运算符函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%A6%E5%80%BC-%E5%8F%B3%E5%80%BC-%E5%B0%86%E4%BA%A1%E5%80%BC"><span class="toc-number">1.2.2.</span> <span class="toc-text"> 左值、右值、将亡值</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%A7%E6%A6%82%E6%9C%89%E7%94%A8%E7%9A%84%E9%83%A8%E5%88%86"><span class="toc-number">2.</span> <span class="toc-text"> 大概有用的部分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%9C%AF-"><span class="toc-number">2.1.</span> <span class="toc-text"> 算术 + - * &#x2F;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B5%8B%E5%80%BC-"><span class="toc-number">2.2.</span> <span class="toc-text"> 赋值 +&#x3D; -&#x3D; *&#x3D; &#x2F;&#x3D; &#x3D;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#-"><span class="toc-number">2.2.1.</span> <span class="toc-text"> +&#x3D; -&#x3D; *&#x3D; &#x2F;&#x3D;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">2.2.2.</span> <span class="toc-text"> &#x3D;</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83"><span class="toc-number">2.3.</span> <span class="toc-text"> 比较 &gt; &#x3D;&#x3D; &lt; &gt;&#x3D; &lt;&#x3D; !&#x3D;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E6%A0%87%E8%AE%BF%E9%97%AE"><span class="toc-number">2.4.</span> <span class="toc-text"> 下标访问 [ ]</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#--2"><span class="toc-number">2.4.1.</span> <span class="toc-text"> -</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%A2%9E%E8%87%AA%E5%87%8F"><span class="toc-number">2.5.</span> <span class="toc-text"> 自增 &#x2F; 自减 ++&#x2F;–</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%81%E6%8F%92%E5%85%A5%E6%8F%90%E5%8F%96%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">2.6.</span> <span class="toc-text"> 流插入 &#x2F; 提取运算符 &gt;&gt;&#x2F;&lt;&lt;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E8%BD%AC%E6%8D%A2-static_casttype"><span class="toc-number">2.7.</span> <span class="toc-text"> 对象转换 static_cast&lt;Type&gt;()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ex"><span class="toc-number">2.8.</span> <span class="toc-text"> ex</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="ERUIHNIYHBKBNF"
+      data-src="/blog/images/avatar.jpg">
+  <p class="name" itemprop="name">ERUIHNIYHBKBNF</p>
+  <div class="description" itemprop="description">嘤嘤嘤~</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/blog/archives/">
+        <span class="count">53</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/blog/tags/">
+        <span class="count">31</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL0VSVUlITklZSEJLQk5G" title="https:&#x2F;&#x2F;github.com&#x2F;ERUIHNIYHBKBNF"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/blog/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/blog/2021/02/08/%E7%94%A8OpenCV%E5%92%8CPython%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/blog/2021/02/10/%E6%A8%A1%E6%9D%BF%E5%9F%BA%E7%A1%80/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/01/23/CodeforcesRound696/" title="[杂题] Codeforces Round #696 C,D题">[杂题] Codeforces Round #696 C,D题</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/07/19/%E8%AE%B0%E5%BD%95%E5%8E%86%E5%8F%B2%E6%80%A7%E7%9A%84%E4%B8%80%E5%88%BB/" title="[锟斤拷]记录历史性的一刻！">[锟斤拷]记录历史性的一刻！</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2020/08/16/%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E7%BA%BF%E6%AE%B5%E6%A0%91/" title="[模板] 可持久化线段树">[模板] 可持久化线段树</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2022/05/12/typeorm-No-metadata-for-User-was-found-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" title="文件路径问题 typeorm &#39;No metadata for User was found&#39; 解决">文件路径问题 typeorm 'No metadata for User was found' 解决</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/10/12/py%E5%AE%9E%E7%8E%B0%E4%BD%8E%E9%85%8D%E7%89%88%E9%AA%8C%E8%AF%81%E7%A0%81%E8%AF%86%E5%88%AB/" title="py实现低配版验证码识别">py实现低配版验证码识别</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2022/08/23/%E7%BE%8E%E5%8C%96github%E9%A6%96%E9%A1%B5%E5%98%A4%EF%BD%9E/" title="美化github首页嘤～">美化github首页嘤～</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2020/10/15/%E7%94%A8%E5%86%B0%E8%8C%B6%E5%A7%AC%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E8%BF%B7%E5%AE%AB/" title="[摸鱼] 用冰茶姬生成随机迷宫">[摸鱼] 用冰茶姬生成随机迷宫</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/01/21/C%E8%AF%AD%E6%B3%95%E6%89%A9%E5%B1%95/" title="[C++笔记] C语法扩展">[C++笔记] C语法扩展</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/03/30/%E9%99%8C%E4%B8%8A%E8%8A%B1%E5%BC%80/" title="[模板]陌上花开（三维偏序，CDQ分治）">[模板]陌上花开（三维偏序，CDQ分治）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/07/16/%E4%B8%80%E4%BA%9B%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%AE%97%E6%B3%95%E6%9D%BF%E5%AD%90/" title="[模板] 一些字符串算法板子">[模板] 一些字符串算法板子</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">ERUIHNIYHBKBNF @ Eruの兔叽窝</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2021/02/10/运算符重载/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/blog/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

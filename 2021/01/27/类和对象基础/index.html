@@ -1,0 +1,593 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/blog/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="Eruの兔叽窝" href="https://eruihniyhbkbnf.github.io/blog/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Eruの兔叽窝" href="https://eruihniyhbkbnf.github.io/blog/atom.xml" />
+<link rel="alternate" type="application/json" title="Eruの兔叽窝" href="https://eruihniyhbkbnf.github.io/blog/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/blog/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="C++,C++笔记" />
+
+
+<link rel="canonical" href="https://eruihniyhbkbnf.github.io/blog/2021/01/27/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80/">
+
+
+
+  <title>
+[C++笔记] 类和对象基础 |
+Eruの兔叽窝 = QwQ</title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">[C++笔记] 类和对象基础
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2021-01-27 08:26:29">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-01-27T08:26:29+08:00">2021-01-27</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/blog/" rel="start">Eruの兔叽窝</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicm0n457cj20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipesx5fdwj20zk0m81kx.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipeyonbf9j20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclx6phq6j20zk0m8e36.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclwrdwyaj20zk0m8are.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclgrvbd6j20zk0m8qv5.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/blog/">首页</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://eruihniyhbkbnf.github.io/blog/2021/01/27/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/blog/images/avatar.jpg">
+    <meta itemprop="name" content="ERUIHNIYHBKBNF">
+    <meta itemprop="description" content="QwQ, 嘤嘤嘤~">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Eruの兔叽窝">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <p>先背单词：</p>
+<ul>
+<li>
+<p>Object-Oriented Programming (OOP) 面向对象编程</p>
+</li>
+<li>
+<p>Abstraction  [æb’strækʃən]  (抽象)</p>
+</li>
+<li>
+<p>Polymorphism [ˌpɒlɪ’mɔ:fɪzəm] (多态)</p>
+</li>
+<li>
+<p>Inheritance  [ɪn’herɪt (ə) ns]  (继承)</p>
+</li>
+<li>
+<p>Encapsulation [ɛnˈkæpsəˌleɪʃən] (封装)</p>
+</li>
+</ul>
+<p><s>因为显得很牛逼</s></p>
+<h2 id="类"><a class="markdownIt-Anchor" href="#类">#</a> 类</h2>
+<p>构成：</p>
+<ul>
+<li>由变量定义的<strong>数据域</strong></li>
+<li>由函数定义的<strong>行为</strong>
+<ul>
+<li>两类特殊函数：构造函数 (ctor)，析构函数 (dtor)</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>类是一种数据类型，几乎取代 C 中的 struct</p>
+</blockquote>
+<p>不同：默认访问属性，struct 为 public，class 为 private</p>
+<h3 id="构造函数ctor"><a class="markdownIt-Anchor" href="#构造函数ctor">#</a> 构造函数 ctor</h3>
+<p>声明在类中的构造函数，特点：</p>
+<ul>
+<li>创建对象时自动调用</li>
+<li>与类同名</li>
+<li>无返回值（void 也不带）</li>
+<li>可重载</li>
+</ul>
+<p>不声明构造函数时，编译器会自动创建一个无参的空函数体 “<strong>默认构造函数</strong>”。</p>
+<p>C++11 中这样强制编译器生成默认构造函数：</p>
+<figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre>类名<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token keyword">default</span><span class="token punctuation">;</span></pre></td></tr></table></figure><blockquote>
+<p>单参数的构造函数可能实现隐式类型转换。</p>
+</blockquote>
+<h3 id="对象"><a class="markdownIt-Anchor" href="#对象">#</a> 对象</h3>
+<p>创建时时推荐使用 C++11 列表初始化便于进行窄化检查。</p>
+<p>通过对象访问运算符  <code>.</code>  访问对象中的数据和函数。</p>
+<blockquote>
+<p><strong>对象</strong>的数据成员称<strong>实例变量</strong>，函数成员称<strong>实例函数</strong></p>
+</blockquote>
+<p>实例：</p>
+<figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">class</span> <span class="token class-name">Circle</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">public</span><span class="token operator">:</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token keyword">double</span> r<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token function">Circle</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// ctor</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        r <span class="token operator">=</span> <span class="token number">1.0</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token function">Circle</span><span class="token punctuation">(</span><span class="token keyword">double</span> radius<span class="token punctuation">)</span> <span class="token comment">//ctor 重载</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>        r <span class="token operator">=</span> radius<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token comment">/* 等价写法 1</pre></td></tr><tr><td data-num="16"></td><td><pre>    Circle (double radius = 1.0)</pre></td></tr><tr><td data-num="17"></td><td><pre>    &#123;</pre></td></tr><tr><td data-num="18"></td><td><pre>        r = radius;</pre></td></tr><tr><td data-num="19"></td><td><pre>    &#125;</pre></td></tr><tr><td data-num="20"></td><td><pre>    */</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    <span class="token comment">/* 等价写法 2</pre></td></tr><tr><td data-num="22"></td><td><pre>    double r = 1.0;</pre></td></tr><tr><td data-num="23"></td><td><pre>    Circle () = default;</pre></td></tr><tr><td data-num="24"></td><td><pre>    Circle (double r)</pre></td></tr><tr><td data-num="25"></td><td><pre>    &#123;</pre></td></tr><tr><td data-num="26"></td><td><pre>    	this -> r = r;</pre></td></tr><tr><td data-num="27"></td><td><pre>    &#125;</pre></td></tr><tr><td data-num="28"></td><td><pre>    */</span></pre></td></tr><tr><td data-num="29"></td><td><pre>    <span class="token keyword">double</span> <span class="token function">area</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="30"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="31"></td><td><pre>        <span class="token keyword">return</span> r <span class="token operator">*</span> r <span class="token operator">*</span> <span class="token number">3.14</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="32"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="33"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="34"></td><td><pre><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="35"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="36"></td><td><pre>    Circle c1<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="37"></td><td><pre>    Circle c2<span class="token punctuation">&#123;</span><span class="token number">2.0</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="38"></td><td><pre>    cout <span class="token operator">&lt;&lt;</span> c1<span class="token punctuation">.</span><span class="token function">area</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> <span class="token string">' '</span> <span class="token operator">&lt;&lt;</span> c2<span class="token punctuation">.</span><span class="token function">area</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token comment">// 3.14 12.56</span></pre></td></tr><tr><td data-num="39"></td><td><pre>    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="40"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h2 id="对象拷贝和匿名对象和类的蜜汁定义"><a class="markdownIt-Anchor" href="#对象拷贝和匿名对象和类的蜜汁定义">#</a> 对象拷贝和匿名对象和类的蜜汁定义</h2>
+<h3 id="对象拷贝"><a class="markdownIt-Anchor" href="#对象拷贝">#</a> 对象拷贝</h3>
+<p>​	默认情况下，对象拷贝时，每个数据域都会被拷贝。</p>
+<h3 id="匿名对象"><a class="markdownIt-Anchor" href="#匿名对象">#</a> 匿名对象</h3>
+<p>​	一次性使用的对象。<strong>无法找回</strong></p>
+<p>例如：</p>
+<figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">auto</span> c <span class="token operator">=</span> Circle<span class="token punctuation">&#123;</span><span class="token number">2.33</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token operator">--</span><span class="token operator">--</span></pre></td></tr><tr><td data-num="3"></td><td><pre>Circle c2<span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>c2 <span class="token operator">=</span> Circle<span class="token punctuation">&#123;</span><span class="token number">2.33</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token operator">--</span><span class="token operator">--</span></pre></td></tr><tr><td data-num="6"></td><td><pre>cout <span class="token operator">&lt;&lt;</span> Circle<span class="token punctuation">&#123;</span><span class="token number">2.33</span><span class="token punctuation">&#125;</span><span class="token punctuation">.</span><span class="token function">area</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span></pre></td></tr></table></figure><h3 id="局部类"><a class="markdownIt-Anchor" href="#局部类">#</a> 局部类</h3>
+<p>​	在函数中声明的类，作用域仅该函数内。</p>
+<h3 id="嵌套类"><a class="markdownIt-Anchor" href="#嵌套类">#</a> 嵌套类</h3>
+<p>​	类中声明类，C++ 不常用，<s>jvav 你会吗？</s></p>
+<h2 id="类声明与定义分离"><a class="markdownIt-Anchor" href="#类声明与定义分离">#</a> 类声明与定义分离</h2>
+<p>内联：函数<strong>在 类声明 中 实现</strong>，则自动成为内联函数。</p>
+<p>二元作用域解析运算符：  <code>::</code>  ，简称 “域分隔符”</p>
+<p>实例：</p>
+<figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">class</span> <span class="token class-name">Circle</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token keyword">double</span> r<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">public</span><span class="token operator">:</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token function">Circle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token function">Circle</span><span class="token punctuation">(</span><span class="token keyword">double</span> radius<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token keyword">double</span> <span class="token function">area</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token class-name">Circle</span><span class="token operator">::</span><span class="token function">Circle</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    r <span class="token operator">=</span> <span class="token number">1.0</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token class-name">Circle</span><span class="token operator">::</span><span class="token function">Circle</span><span class="token punctuation">(</span><span class="token keyword">double</span> radius<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    r <span class="token operator">=</span> radius<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="19"></td><td><pre><span class="token keyword">double</span> <span class="token class-name">Circle</span><span class="token operator">::</span><span class="token function">area</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="20"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    <span class="token keyword">return</span> <span class="token number">3.14</span> <span class="token operator">*</span> r <span class="token operator">*</span> r<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="22"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="23"></td><td><pre><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="24"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="25"></td><td><pre>    Circle c1<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>    Circle c2<span class="token punctuation">&#123;</span><span class="token number">2.0</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="27"></td><td><pre>    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> c1<span class="token punctuation">.</span><span class="token function">area</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> <span class="token string">' '</span> <span class="token operator">&lt;&lt;</span> c2<span class="token punctuation">.</span><span class="token function">area</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="28"></td><td><pre>    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="29"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p><em>多文件鸽了，，以后有机会<s>也不会来</s>补坑。咱太菜了 QAQ</em></p>
+<h2 id="对象指针相关"><a class="markdownIt-Anchor" href="#对象指针相关">#</a> 对象指针相关</h2>
+<h3 id="动态对象创建"><a class="markdownIt-Anchor" href="#动态对象创建">#</a> 动态对象创建</h3>
+<p>好像没什么新鲜的。</p>
+<p><s>没有对象？自己 new 一个。</s></p>
+<h3 id="对象数组"><a class="markdownIt-Anchor" href="#对象数组">#</a> 对象数组</h3>
+<p>也没啥新鲜的，<strong>声明数组时不要使用 auto</strong>。</p>
+<p>实例：</p>
+<figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">class</span> <span class="token class-name">Circle</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">public</span><span class="token operator">:</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token keyword">double</span> r<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token function">Circle</span><span class="token punctuation">(</span><span class="token keyword">double</span> radius <span class="token operator">=</span> <span class="token number">1.0</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        r <span class="token operator">=</span> radius<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token keyword">double</span> <span class="token function">area</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>        <span class="token keyword">return</span> r <span class="token operator">*</span> r <span class="token operator">*</span> <span class="token number">3.14</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>    Circle<span class="token operator">*</span> ptr <span class="token operator">=</span> <span class="token keyword">new</span> Circle<span class="token punctuation">&#123;</span><span class="token number">2.0</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    cout <span class="token operator">&lt;&lt;</span> <span class="token punctuation">(</span><span class="token operator">*</span>ptr<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">area</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token comment">//. 优先级高于 *</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    cout <span class="token operator">&lt;&lt;</span> ptr <span class="token operator">-></span> <span class="token function">area</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    <span class="token keyword">auto</span> cptr <span class="token operator">=</span> <span class="token keyword">new</span> Circle<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">2.0</span><span class="token punctuation">,</span> <span class="token number">3.0</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="22"></td><td><pre>    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">3</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="23"></td><td><pre>        cout <span class="token operator">&lt;&lt;</span> cptr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">area</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="24"></td><td><pre>    <span class="token keyword">delete</span> ptr<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="25"></td><td><pre>    <span class="token keyword">delete</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> cptr<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>    ptr <span class="token operator">=</span> cptr <span class="token operator">=</span> <span class="token keyword">nullptr</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="27"></td><td><pre>    <span class="token keyword">delete</span> ptr<span class="token punctuation">;</span> <span class="token comment">// C++11 允许删除空指针</span></pre></td></tr><tr><td data-num="28"></td><td><pre>    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="29"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h3 id="对象与函数"><a class="markdownIt-Anchor" href="#对象与函数">#</a> 对象与函数</h3>
+<blockquote>
+<p>对象可作为函数的参数及返回值。</p>
+</blockquote>
+<p>实例鸽了，，不过返回值是对象的函数好像挺秀的 比如可以直接使用成员函数 <code> fun().area()</code></p>
+<p>传参时，<strong>能传引用就尽量不要传指针</strong>。</p>
+<h2 id="封装与抽象"><a class="markdownIt-Anchor" href="#封装与抽象">#</a> 封装与抽象</h2>
+<h3 id="数据域封装"><a class="markdownIt-Anchor" href="#数据域封装">#</a> 数据域封装</h3>
+<blockquote>
+<p>将数据域的访问权限置于 private 下，避免外部修改该数据。</p>
+</blockquote>
+<p>对数据域进行操作时时，需要调用<strong> public 域中</strong>成员函数中的访问器 (getter) 与修改器 (setter) 之类的。</p>
+<h3 id="成员作用域"><a class="markdownIt-Anchor" href="#成员作用域">#</a> 成员作用域</h3>
+<ul>
+<li>
+<p>数据成员可被类内所有函数访问</p>
+</li>
+<li>
+<p>数据域与函数可按任意顺序声明</p>
+</li>
+</ul>
+<p>函数参数与数据域同名时，依照就近原则，屏蔽同名数据域。</p>
+<h3 id="关键字this"><a class="markdownIt-Anchor" href="#关键字this">#</a> 关键字 this</h3>
+<p>利用<strong> this 指针</strong>进行访问被屏蔽的数据域。</p>
+<ul>
+<li>特殊的内建指针</li>
+<li>指向 调用当前函数 的 对象</li>
+</ul>
+<p>例：</p>
+<figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">class</span> <span class="token class-name">Circle</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">public</span><span class="token operator">:</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    Circle <span class="token function">setR</span><span class="token punctuation">(</span><span class="token keyword">double</span> r<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        <span class="token keyword">this</span> <span class="token operator">-></span> r <span class="token operator">=</span> r<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        <span class="token keyword">return</span> <span class="token operator">*</span><span class="token keyword">this</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token keyword">double</span> <span class="token function">area</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>        <span class="token keyword">return</span> r <span class="token operator">*</span> r <span class="token operator">*</span> <span class="token number">3.14</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token keyword">private</span><span class="token operator">:</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token keyword">double</span> r<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="19"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    Circle c<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    cout <span class="token operator">&lt;&lt;</span> c<span class="token punctuation">.</span><span class="token function">setR</span><span class="token punctuation">(</span><span class="token number">2.00</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">area</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token comment">//c.setR () 返回值是一个 Circle 对象 (其实就是对象 c)</span></pre></td></tr><tr><td data-num="22"></td><td><pre>    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="23"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h2 id="类数据成员的初始化-c11"><a class="markdownIt-Anchor" href="#类数据成员的初始化-c11">#</a> 类数据成员的初始化 - C++11</h2>
+<blockquote>
+<p>C++ 的初始化真是脑子进水了。 ——Mike Lui</p>
+</blockquote>
+<p><strong>除非你清楚自己在干什么，不然尽可能使用最直接的初始化方式，以下内容仅作测试</strong></p>
+<p>大部分与基本类型初始化相同，下列出<strong>不能在类中</strong>进行初始化的方式：</p>
+<figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">int</span> <span class="token function">n</span><span class="token punctuation">(</span><span class="token number">233</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 不允许使用小括号</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span> <span class="token comment">// 数组成员不能自动推断大小</span></pre></td></tr></table></figure><p>继续复读：<strong>声明数组时不要使用 auto</strong>。</p>
+<p>在构造函数体中不能初始化类的成员。<em>理解就是，会先初始化，再执行构造函数</em></p>
+<p>在构造函数体执行之前，类中的成员必须完成初始化。</p>
+<h3 id="构造函数初始化"><a class="markdownIt-Anchor" href="#构造函数初始化">#</a> 构造函数初始化</h3>
+<p><s>听说这部分是个没用的东西</s></p>
+<p>构造函数初始化列表：</p>
+<figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">ClassName</span> <span class="token punctuation">(</span>parameterlist<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre>	<span class="token operator">:</span> dataField1<span class="token punctuation">&#123;</span>value1<span class="token punctuation">&#125;</span><span class="token punctuation">,</span> dataField2<span class="token punctuation">&#123;</span>value2<span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#123;</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>例：  <code>Circle() : r&#123;1&#125; &#123;......&#125;</code></p>
+<p>若类的数据是一个对象类型，称之为<strong>内嵌对象</strong>， <strong>内嵌对象必须在 被嵌对象的构造函数体执行前 就构造完成</strong>。<em>此处理解为，对象初始化前，会首先初始化其内嵌对象。</em></p>
+<p>实例：</p>
+<figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">class</span> <span class="token class-name">Time</span> <span class="token punctuation">&#123;</span> <span class="token comment">/* Code omitted */</span> <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">class</span> <span class="token class-name">Action</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">public</span><span class="token operator">:</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token function">Action</span><span class="token punctuation">(</span><span class="token keyword">int</span> hour<span class="token punctuation">,</span> <span class="token keyword">int</span> minute<span class="token punctuation">,</span> <span class="token keyword">int</span> second<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    time <span class="token operator">=</span> <span class="token function">Time</span><span class="token punctuation">(</span>hour<span class="token punctuation">,</span> minute<span class="token punctuation">,</span> second<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//time 对象应该在构造函数体之前构造完成</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">private</span><span class="token operator">:</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  Time time<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span> </pre></td></tr><tr><td data-num="11"></td><td><pre>Action <span class="token function">a</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">59</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h3 id="默认构造函数"><a class="markdownIt-Anchor" href="#默认构造函数">#</a> 默认构造函数</h3>
+<p>可以无参调用的构造函数，包括：</p>
+<ul>
+<li>空参数列表的构造函数</li>
+<li>所有参数都有默认值的构造函数</li>
+</ul>
+<p>若对象类型成员 / 内嵌对象成员没有被显式初始化，则无参构造函数会自动调用。</p>
+<p>无构造函数时，<strong>一般编译器会自动生成默认构造函数</strong>。</p>
+<p><code>ClassName() = default;</code>  强制生成构造函数</p>
+<p><code>ClassName() = delete;</code>  强制不生成构造函数</p>
+<h3 id="执行次序与优先级"><a class="markdownIt-Anchor" href="#执行次序与优先级">#</a> 执行次序与优先级</h3>
+<p>执行次序： 就地初始化 -&gt; ctor 初始化列表 -&gt; ctor 函数体中为成员赋值（严格来说第三条不算初始化）</p>
+<p>优先级：ctor 函数体中为成员赋值 -&gt; ctor 初始化列表 -&gt;  就地初始化 <em>（其实就是反过来）</em></p>
+<p>同时具有就地初始化和构造函数初始化列表时，<strong>就地初始化语句会被忽略不执行</strong>。</p>
+<p>实例：</p>
+<figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">class</span> <span class="token class-name">Circle</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">private</span><span class="token operator">:</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token keyword">double</span> r<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token keyword">public</span><span class="token operator">:</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token function">Circle</span><span class="token punctuation">(</span><span class="token keyword">double</span> r <span class="token operator">=</span> <span class="token number">1.0</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>        <span class="token keyword">this</span> <span class="token operator">-></span> r <span class="token operator">=</span> r<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token keyword">class</span> <span class="token class-name">Square</span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token keyword">private</span><span class="token operator">:</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token keyword">double</span> a<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token keyword">public</span><span class="token operator">:</span></pre></td></tr><tr><td data-num="18"></td><td><pre>    <span class="token function">Square</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token keyword">delete</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token function">Square</span><span class="token punctuation">(</span><span class="token keyword">double</span> a<span class="token punctuation">)</span><span class="token operator">:</span> a<span class="token punctuation">&#123;</span>a<span class="token punctuation">&#125;</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span> <span class="token comment">// 构造函数初始化列表，其中第 2 个 a 是数据域中的 a，1 和 3 是参数。</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token comment">// 更精细的语法高亮就能看出来啦 qwq</span></pre></td></tr><tr><td data-num="21"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="22"></td><td><pre><span class="token keyword">class</span> <span class="token class-name">Combo</span></pre></td></tr><tr><td data-num="23"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="24"></td><td><pre><span class="token keyword">private</span><span class="token operator">:</span></pre></td></tr><tr><td data-num="25"></td><td><pre>    Circle c<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>    Square s<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="27"></td><td><pre><span class="token keyword">public</span><span class="token operator">:</span></pre></td></tr><tr><td data-num="28"></td><td><pre>    <span class="token function">Combo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> s<span class="token punctuation">&#123;</span><span class="token number">1.0</span><span class="token punctuation">&#125;</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="29"></td><td><pre>    <span class="token comment">/*</pre></td></tr><tr><td data-num="30"></td><td><pre>    若改成</pre></td></tr><tr><td data-num="31"></td><td><pre>    Combo ()</pre></td></tr><tr><td data-num="32"></td><td><pre>    &#123;</pre></td></tr><tr><td data-num="33"></td><td><pre>    	s &#123;1.0&#125;</pre></td></tr><tr><td data-num="34"></td><td><pre>    &#125;</pre></td></tr><tr><td data-num="35"></td><td><pre>    会报错，因为要求内嵌对象要在 构造函数执行之前 进行初始化</pre></td></tr><tr><td data-num="36"></td><td><pre>    */</span></pre></td></tr><tr><td data-num="37"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="38"></td><td><pre><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="39"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="40"></td><td><pre>    Combo o<span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="41"></td><td><pre>    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="42"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>后篇：<a href="https://eruihniyhbkbnf.github.io/blog/2021/02/03/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1%E8%BF%9B%E9%98%B6/">[C++ 笔记] 类和对象进阶</a></p>
+
+      <div class="tags">
+          <a href="/blog/tags/C/" rel="tag"><i class="ic i-tag"></i> C++</a>
+          <a href="/blog/tags/C-%E7%AC%94%E8%AE%B0/" rel="tag"><i class="ic i-tag"></i> C++笔记</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2022-11-28 22:26:18" itemprop="dateModified" datetime="2022-11-28T22:26:18+08:00">2022-11-28</time>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>ERUIHNIYHBKBNF <i class="ic i-at"><em>@</em></i>Eruの兔叽窝
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://eruihniyhbkbnf.github.io/blog/2021/01/27/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80/" title="[C++笔记] 类和对象基础">https://eruihniyhbkbnf.github.io/blog/2021/01/27/类和对象基础/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/blog/2021/01/23/CodeforcesRound696/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipey84bjtj20zk0m8hdt.jpg" title="[杂题] Codeforces Round #696 C,D题">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>[杂题] Codeforces Round #696 C,D题</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/blog/2021/01/27/string%E4%B8%8Earray%E7%B1%BB/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giciuja1j1j20zk0m8kjl.jpg" title="[C++笔记] string类与array类">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>[C++笔记] string类与array类</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB"><span class="toc-number">1.</span> <span class="toc-text"> 类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0ctor"><span class="toc-number">1.1.</span> <span class="toc-text"> 构造函数 ctor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.2.</span> <span class="toc-text"> 对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E6%8B%B7%E8%B4%9D%E5%92%8C%E5%8C%BF%E5%90%8D%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB%E7%9A%84%E8%9C%9C%E6%B1%81%E5%AE%9A%E4%B9%89"><span class="toc-number">2.</span> <span class="toc-text"> 对象拷贝和匿名对象和类的蜜汁定义</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E6%8B%B7%E8%B4%9D"><span class="toc-number">2.1.</span> <span class="toc-text"> 对象拷贝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%BF%E5%90%8D%E5%AF%B9%E8%B1%A1"><span class="toc-number">2.2.</span> <span class="toc-text"> 匿名对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%80%E9%83%A8%E7%B1%BB"><span class="toc-number">2.3.</span> <span class="toc-text"> 局部类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B5%8C%E5%A5%97%E7%B1%BB"><span class="toc-number">2.4.</span> <span class="toc-text"> 嵌套类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E5%A3%B0%E6%98%8E%E4%B8%8E%E5%AE%9A%E4%B9%89%E5%88%86%E7%A6%BB"><span class="toc-number">3.</span> <span class="toc-text"> 类声明与定义分离</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E6%8C%87%E9%92%88%E7%9B%B8%E5%85%B3"><span class="toc-number">4.</span> <span class="toc-text"> 对象指针相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA"><span class="toc-number">4.1.</span> <span class="toc-text"> 动态对象创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E6%95%B0%E7%BB%84"><span class="toc-number">4.2.</span> <span class="toc-text"> 对象数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%87%BD%E6%95%B0"><span class="toc-number">4.3.</span> <span class="toc-text"> 对象与函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%81%E8%A3%85%E4%B8%8E%E6%8A%BD%E8%B1%A1"><span class="toc-number">5.</span> <span class="toc-text"> 封装与抽象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%9F%9F%E5%B0%81%E8%A3%85"><span class="toc-number">5.1.</span> <span class="toc-text"> 数据域封装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%90%E5%91%98%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">5.2.</span> <span class="toc-text"> 成员作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97this"><span class="toc-number">5.3.</span> <span class="toc-text"> 关键字 this</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E6%95%B0%E6%8D%AE%E6%88%90%E5%91%98%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96-c11"><span class="toc-number">6.</span> <span class="toc-text"> 类数据成员的初始化 - C++11</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">6.1.</span> <span class="toc-text"> 构造函数初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="toc-number">6.2.</span> <span class="toc-text"> 默认构造函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E6%AC%A1%E5%BA%8F%E4%B8%8E%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-number">6.3.</span> <span class="toc-text"> 执行次序与优先级</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="ERUIHNIYHBKBNF"
+      data-src="/blog/images/avatar.jpg">
+  <p class="name" itemprop="name">ERUIHNIYHBKBNF</p>
+  <div class="description" itemprop="description">嘤嘤嘤~</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/blog/archives/">
+        <span class="count">53</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/blog/tags/">
+        <span class="count">31</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL0VSVUlITklZSEJLQk5G" title="https:&#x2F;&#x2F;github.com&#x2F;ERUIHNIYHBKBNF"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/blog/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/blog/2021/01/23/CodeforcesRound696/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/blog/2021/01/27/string%E4%B8%8Earray%E7%B1%BB/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2020/08/06/Hello/" title="Hello!">Hello!</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/09/27/%E6%90%AD%E5%BB%BAmc%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%B0%E5%BD%95/" title="mc服务器搭建记录">mc服务器搭建记录</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2020/12/23/%E5%86%99%E5%AF%B9%E6%8B%8D/" title="写对拍(｀･ω･´)ﾉ">写对拍(｀･ω･´)ﾉ</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/08/11/sass%E4%B8%80%E4%B8%AA%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/" title="sass一个入门笔记">sass一个入门笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/01/21/C%E8%AF%AD%E6%B3%95%E6%89%A9%E5%B1%95/" title="[C++笔记] C语法扩展">[C++笔记] C语法扩展</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/01/21/C%E8%AF%AD%E6%B3%95%E6%89%A9%E5%B1%95II/" title="[C++笔记] C语法扩展II">[C++笔记] C语法扩展II</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2022/08/23/%E7%BE%8E%E5%8C%96github%E9%A6%96%E9%A1%B5%E5%98%A4%EF%BD%9E/" title="美化github首页嘤～">美化github首页嘤～</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/02/10/%E6%A8%A1%E6%9D%BF%E5%9F%BA%E7%A1%80/" title="[C++笔记] C++中的模板">[C++笔记] C++中的模板</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2020/10/15/%E7%94%A8%E5%86%B0%E8%8C%B6%E5%A7%AC%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E8%BF%B7%E5%AE%AB/" title="[摸鱼] 用冰茶姬生成随机迷宫">[摸鱼] 用冰茶姬生成随机迷宫</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2022/11/04/Node-C-addons%E5%88%9D%E6%8E%A2/" title="Node C++ addons初探">Node C++ addons初探</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">ERUIHNIYHBKBNF @ Eruの兔叽窝</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2021/01/27/类和对象基础/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/blog/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

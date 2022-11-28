@@ -1,0 +1,503 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/blog/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="Eruの兔叽窝" href="https://eruihniyhbkbnf.github.io/blog/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Eruの兔叽窝" href="https://eruihniyhbkbnf.github.io/blog/atom.xml" />
+<link rel="alternate" type="application/json" title="Eruの兔叽窝" href="https://eruihniyhbkbnf.github.io/blog/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/blog/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="杂项,QT" />
+
+
+<link rel="canonical" href="https://eruihniyhbkbnf.github.io/blog/2021/07/12/QT%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/">
+
+
+
+  <title>
+QT入门笔记 |
+Eruの兔叽窝 = QwQ</title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">QT入门笔记
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2021-07-13 07:49:54">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-07-13T07:49:54+08:00">2021-07-13</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/blog/" rel="start">Eruの兔叽窝</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclfb3vzhj20zk0m8wny.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipet8c1a2j20zk0m8kct.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicitf0kl1j20zk0m87fe.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipeyhsblkj20zk0m81kx.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipevarprfj20zk0m8npd.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipeun65urj20zk0m81ii.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/blog/">首页</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://eruihniyhbkbnf.github.io/blog/2021/07/12/QT%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/blog/images/avatar.jpg">
+    <meta itemprop="name" content="ERUIHNIYHBKBNF">
+    <meta itemprop="description" content="QwQ, 嘤嘤嘤~">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Eruの兔叽窝">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <p><s>入门，跑路，不会再碰第二次了</s></p>
+<h3 id="基础操作"><a class="markdownIt-Anchor" href="#基础操作">#</a> 基础操作</h3>
+<h4 id="一些快捷键"><a class="markdownIt-Anchor" href="#一些快捷键">#</a> 一些快捷键</h4>
+<pre><code>快捷键
+注释ctrl + l
+运行ctrl + r
+编译ctrl +b
+字体缩放ctrl + 鼠标滚轮
+查找 ctrl +f
+整行移动 ctrl + shift + ↑或者↓
+帮助文档 F1
+自动对齐 ctrl + i
+同名之间的.h和.cpp切换 F4
+</code></pre>
+<h4 id="帮助文档使用"><a class="markdownIt-Anchor" href="#帮助文档使用">#</a> 帮助文档使用</h4>
+<p>摸了好久才发现<strong>帮助文档就在 QTCreator 里面</strong> QAQ，正确姿势就是在文档里直接搜相关组件。</p>
+<p>比如 QPushButton：</p>
+<figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre>QPushButton Class</pre></td></tr><tr><td data-num="2"></td><td><pre>The QPushButton widget provides a command button<span class="token punctuation">.</span> More<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre>Header<span class="token operator">:</span> <span class="token comment">// 所要包含的头文件</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;QPushButton></span> </span></pre></td></tr><tr><td data-num="6"></td><td><pre>qmake<span class="token operator">:</span></pre></td></tr><tr><td data-num="7"></td><td><pre>QT <span class="token operator">+=</span> widgets <span class="token comment">// 配置文件里要加上这东西</span></pre></td></tr><tr><td data-num="8"></td><td><pre>Inherits<span class="token operator">:</span> <span class="token comment">// 父类</span></pre></td></tr><tr><td data-num="9"></td><td><pre>QAbstractButton</pre></td></tr><tr><td data-num="10"></td><td><pre>Inherited By<span class="token operator">:</span> <span class="token comment">// 子类</span></pre></td></tr><tr><td data-num="11"></td><td><pre>QCommandLinkButton</pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre>List of all members<span class="token punctuation">,</span> including inherited members</pre></td></tr><tr><td data-num="14"></td><td><pre>Obsolete members</pre></td></tr></table></figure><h4 id="项目基础结构"><a class="markdownIt-Anchor" href="#项目基础结构">#</a> 项目基础结构</h4>
+<p>构成：一个.pro 基本配置，一个.ui 设计 ui，一个 main.cpp，一堆 h 和 cpp。</p>
+<p>main.cpp</p>
+<figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"mainwindow.h"</span></span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;QApplication></span></span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    QApplication <span class="token function">a</span><span class="token punctuation">(</span>argc<span class="token punctuation">,</span> argv<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token comment">// 创建一个窗口对象</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    MainWindow <span class="token operator">*</span>w <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">MainWindow</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token comment">// 窗口重置</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token keyword">int</span> height <span class="token operator">=</span> <span class="token number">600</span><span class="token punctuation">,</span> width <span class="token operator">=</span> <span class="token number">400</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    w <span class="token operator">-></span> <span class="token function">resize</span><span class="token punctuation">(</span>height<span class="token punctuation">,</span> width<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token comment">// 固定窗口大小 w -> setFixedSize ();</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    w <span class="token operator">-></span> <span class="token function">setWindowTitle</span><span class="token punctuation">(</span><span class="token string">"qwqwq"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre></pre></td></tr><tr><td data-num="18"></td><td><pre>    <span class="token comment">// 显示窗口</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    w <span class="token operator">-></span> <span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token keyword">return</span> a<span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="21"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>mainwindow.cpp</p>
+<figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"mainwindow.h"</span></span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"ui_mainwindow.h"</span></span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;QPushButton></span></span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token class-name">MainWindow</span><span class="token operator">::</span><span class="token function">MainWindow</span><span class="token punctuation">(</span>QWidget <span class="token operator">*</span>parent<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token operator">:</span> <span class="token function">QMainWindow</span><span class="token punctuation">(</span>parent<span class="token punctuation">)</span> <span class="token comment">// 注意继承关系，有的地方可能需要手改</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token punctuation">,</span> <span class="token function">ui</span><span class="token punctuation">(</span><span class="token keyword">new</span> Ui<span class="token operator">::</span>MainWindow<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token comment">// 创建一个按钮</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    QPushButton <span class="token operator">*</span>btn <span class="token operator">=</span> <span class="token keyword">new</span> QPushButton<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token comment">//btn -> show (); // 顶层窗口形式弹出</span></pre></td></tr><tr><td data-num="13"></td><td><pre></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token comment">// 使 btn 对象依赖在 mainwindow 窗口中</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    btn <span class="token operator">-></span> <span class="token function">setParent</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre></pre></td></tr><tr><td data-num="17"></td><td><pre>    <span class="token comment">// 设置大小</span></pre></td></tr><tr><td data-num="18"></td><td><pre>    btn <span class="token operator">-></span> <span class="token function">resize</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token comment">// 显示文本</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    btn <span class="token operator">-></span> <span class="token function">setText</span><span class="token punctuation">(</span><span class="token string">"qwq"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="22"></td><td><pre></pre></td></tr><tr><td data-num="23"></td><td><pre>    <span class="token comment">// 创建另一个按钮，重载函数参数：文本，父亲</span></pre></td></tr><tr><td data-num="24"></td><td><pre>    QPushButton <span class="token operator">*</span>btn2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">QPushButton</span><span class="token punctuation">(</span><span class="token string">"text"</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="25"></td><td><pre></pre></td></tr><tr><td data-num="26"></td><td><pre>    <span class="token comment">// 调整位置，跟 css 的 top 和 left 挺像..? 或者传一个 QPoint 对象</span></pre></td></tr><tr><td data-num="27"></td><td><pre>    btn2 <span class="token operator">-></span> <span class="token function">move</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="28"></td><td><pre></pre></td></tr><tr><td data-num="29"></td><td><pre>    <span class="token comment">//ui->setupUi (this); // 这句自己生成的，先注释掉 qwq</span></pre></td></tr><tr><td data-num="30"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="31"></td><td><pre></pre></td></tr><tr><td data-num="32"></td><td><pre><span class="token class-name">MainWindow</span><span class="token operator">::</span><span class="token operator">~</span><span class="token function">MainWindow</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="33"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="34"></td><td><pre>    <span class="token keyword">delete</span> ui<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="35"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h4 id="对象树"><a class="markdownIt-Anchor" href="#对象树">#</a> 对象树</h4>
+<p>通过 <code>setParent()</code>  会使对象之间连接为对象树，父对象析构时，会把整颗子树的对象析构掉。（<strong>这里所说的对象树跟继承树不一样</strong>），但一个神奇的地方是，<strong>析构时的顺序</strong>：执行当前对象的析构函数 -&gt; 寻找当前对象有没有儿子 -&gt; 执行儿子析构函数 -》 … -&gt; 释放儿子 -&gt; … -&gt; 释放当前对象。也就是说<strong> QObject 的后代不用管内存释放</strong>，一定程度上简化了内存回收机制。</p>
+<p><s>什么？你跟一个竞赛选手讲内存释放？</s></p>
+<h3 id="qt的灵魂信号和槽"><a class="markdownIt-Anchor" href="#qt的灵魂信号和槽">#</a> QT 的灵魂 —— 信号和槽</h3>
+<h4 id="建立连接"><a class="markdownIt-Anchor" href="#建立连接">#</a> 建立连接</h4>
+<p>建立连接的语法：</p>
+<p><code>connect(信号发送者，发送的信号（函数的地址），信号接收者，处理的槽函数);</code></p>
+<p>实例：点按钮，关闭窗口：</p>
+<figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token class-name">MainWindow</span><span class="token operator">::</span><span class="token function">MainWindow</span><span class="token punctuation">(</span>QWidget <span class="token operator">*</span>parent<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token operator">:</span> <span class="token function">QMainWindow</span><span class="token punctuation">(</span>parent<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token punctuation">,</span> <span class="token function">ui</span><span class="token punctuation">(</span><span class="token keyword">new</span> Ui<span class="token operator">::</span>MainWindow<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token comment">// 创建按钮</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    QPushButton <span class="token operator">*</span>btn <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">QPushButton</span><span class="token punctuation">(</span><span class="token string">"关闭窗口"</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token comment">// 建立连接：四个参数：信号发送者，发送的信号（函数的地址），信号接收者，处理的槽函数</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token function">connect</span><span class="token punctuation">(</span>btn<span class="token punctuation">,</span> <span class="token operator">&amp;</span>QPushButton<span class="token operator">::</span>clicked<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>MainWindow<span class="token operator">::</span>close<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>断开  <code>disconnect(*, *, *, *);</code></p>
+<h4 id="自定义信号和槽"><a class="markdownIt-Anchor" href="#自定义信号和槽">#</a> 自定义信号和槽</h4>
+<p>新建 Hoto 类和 Kafuu 类，派生自 QObject。（直接用 QT 生成就好）</p>
+<p>Hoto.h:</p>
+<figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifndef</span> <span class="token expression">HOTO_H</span></span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token expression">HOTO_H</span></span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;QObject></span></span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">class</span> <span class="token class-name">Hoto</span> <span class="token operator">:</span> <span class="token base-clause"><span class="token keyword">public</span> <span class="token class-name">QObject</span></span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    Q_OBJECT</pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token keyword">public</span><span class="token operator">:</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token keyword">explicit</span> <span class="token function">Hoto</span><span class="token punctuation">(</span>QObject <span class="token operator">*</span>parent <span class="token operator">=</span> <span class="token keyword">nullptr</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre>signals<span class="token operator">:</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token comment">/** 自定义信号写在这里</pre></td></tr><tr><td data-num="14"></td><td><pre>     *  返回值是 void，只需要声明，不需要实现</pre></td></tr><tr><td data-num="15"></td><td><pre>     *  可以有参数，可以重载</pre></td></tr><tr><td data-num="16"></td><td><pre>     **/</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    <span class="token keyword">void</span> <span class="token function">mofumofu</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre></pre></td></tr><tr><td data-num="20"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span> <span class="token comment">// HOTO_H</span></span></pre></td></tr></table></figure><p>Kafuu.h:</p>
+<figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifndef</span> <span class="token expression">KAFUU_H</span></span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token expression">KAFUU_H</span></span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;QObject></span></span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">class</span> <span class="token class-name">Kafuu</span> <span class="token operator">:</span> <span class="token base-clause"><span class="token keyword">public</span> <span class="token class-name">QObject</span></span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    Q_OBJECT</pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token keyword">public</span><span class="token operator">:</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token keyword">explicit</span> <span class="token function">Kafuu</span><span class="token punctuation">(</span>QObject <span class="token operator">*</span>parent <span class="token operator">=</span> <span class="token keyword">nullptr</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token comment">/** 槽函数</pre></td></tr><tr><td data-num="12"></td><td><pre>     *  返回值 void，需要声明和实现</pre></td></tr><tr><td data-num="13"></td><td><pre>     *  可以有参数，可以重载</pre></td></tr><tr><td data-num="14"></td><td><pre>     **/</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token keyword">void</span> <span class="token function">pushAway</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre></pre></td></tr><tr><td data-num="17"></td><td><pre>signals<span class="token operator">:</span></pre></td></tr><tr><td data-num="18"></td><td><pre></pre></td></tr><tr><td data-num="19"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre></pre></td></tr><tr><td data-num="21"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span> <span class="token comment">// KAFUU_H</span></span></pre></td></tr></table></figure><p>Kafuu.cpp:</p>
+<figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"kafuu.h"</span></span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;Qdebug></span></span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token class-name">Kafuu</span><span class="token operator">::</span><span class="token function">Kafuu</span><span class="token punctuation">(</span>QObject <span class="token operator">*</span>parent<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">QObject</span><span class="token punctuation">(</span>parent<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token keyword">void</span> <span class="token class-name">Kafuu</span><span class="token operator">::</span><span class="token function">pushAway</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token comment">// 输出到控制台</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token function">qDebug</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> <span class="token string">"Cocoa was pushed away by Chino when mofumofuing.\n"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>MainWindow.cpp:</p>
+<figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"mainwindow.h"</span></span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"ui_mainwindow.h"</span></span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;QPushButton></span></span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token class-name">MainWindow</span><span class="token operator">::</span><span class="token function">MainWindow</span><span class="token punctuation">(</span>QWidget <span class="token operator">*</span>parent<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token operator">:</span> <span class="token function">QMainWindow</span><span class="token punctuation">(</span>parent<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token punctuation">,</span> <span class="token function">ui</span><span class="token punctuation">(</span><span class="token keyword">new</span> Ui<span class="token operator">::</span>MainWindow<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    ui <span class="token operator">-></span> <span class="token function">setupUi</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    Hoto <span class="token operator">*</span>cocoa <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">Hoto</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    Kafuu <span class="token operator">*</span>chino <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">Kafuu</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token function">connect</span><span class="token punctuation">(</span>cocoa<span class="token punctuation">,</span> <span class="token operator">&amp;</span>Hoto<span class="token operator">::</span>mofumofu<span class="token punctuation">,</span> chino<span class="token punctuation">,</span> <span class="token operator">&amp;</span>Kafuu<span class="token operator">::</span>pushAway<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token comment">// 使用 emit 触发事件（不用 emit 也行...?</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    emit cocoa <span class="token operator">-></span> <span class="token function">mofumofu</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="16"></td><td><pre></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token class-name">MainWindow</span><span class="token operator">::</span><span class="token operator">~</span><span class="token function">MainWindow</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token keyword">delete</span> ui<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>总之运行之后控制台打印了 &quot;Cocoa was pushed away by Chino when mofumofuing.&quot;</p>
+<p>ex：存在重载时，connect 使用函数指针。</p>
+<figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 假设有个带参 QString 的 pushAway</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">void</span> <span class="token punctuation">(</span>Kafuu<span class="token operator">::</span> <span class="token operator">*</span>push<span class="token punctuation">)</span><span class="token punctuation">(</span>QString<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token operator">&amp;</span>Kafuu<span class="token operator">::</span>pushAway<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token function">connect</span><span class="token punctuation">(</span>cocoa<span class="token punctuation">,</span> <span class="token operator">&amp;</span>cocoa<span class="token operator">::</span>mofumofu<span class="token punctuation">,</span> chino<span class="token punctuation">,</span> push<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p><strong>顺带一提</strong>， <code>QString</code>  转 <code>char*</code> ， <code>qstr.toUtf8().data()</code></p>
+<p><strong>顺带一提信号也可以连接信号</strong></p>
+<h3 id="窗口相关"><a class="markdownIt-Anchor" href="#窗口相关">#</a> 窗口相关</h3>
+<p>鸽了，，有事看文档 qwq</p>
+<p>有个好用的东西是 Qbrush：</p>
+<figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">void</span> <span class="token class-name">MainWindow</span><span class="token operator">::</span><span class="token function">paintEvent</span><span class="token punctuation">(</span>QPaintEvent <span class="token operator">*</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    QPainter <span class="token function">painter</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token comment">// 画线</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    painter<span class="token punctuation">.</span><span class="token function">drawLine</span><span class="token punctuation">(</span><span class="token function">QPoint</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">QPoint</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token comment">// 设置填充色</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    QBrush <span class="token function">brush</span><span class="token punctuation">(</span>Qt<span class="token operator">::</span>blue<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    painter<span class="token punctuation">.</span><span class="token function">setBrush</span><span class="token punctuation">(</span>brush<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token comment">// 画矩形：左上角坐标 宽度 高度（画出来是蓝色填充）</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    painter<span class="token punctuation">.</span><span class="token function">drawRect</span><span class="token punctuation">(</span><span class="token function">QRect</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p><s>因为做完课设就会一直咕咕咕下去所以直接把这篇推上去了</s></p>
+<p>贴个仓库：<span class="exturl" data-url="aHR0cHM6Ly9naXRlZS5jb20vc2V0LXVwLWEtZ3JvdXAvbWluaV9tYXpl">https://gitee.com/set-up-a-group/mini_maze</span></p>
+
+      <div class="tags">
+          <a href="/blog/tags/%E6%9D%82%E9%A1%B9/" rel="tag"><i class="ic i-tag"></i> 杂项</a>
+          <a href="/blog/tags/QT/" rel="tag"><i class="ic i-tag"></i> QT</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2022-11-28 22:26:18" itemprop="dateModified" datetime="2022-11-28T22:26:18+08:00">2022-11-28</time>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>ERUIHNIYHBKBNF <i class="ic i-at"><em>@</em></i>Eruの兔叽窝
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://eruihniyhbkbnf.github.io/blog/2021/07/12/QT%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/" title="QT入门笔记">https://eruihniyhbkbnf.github.io/blog/2021/07/12/QT入门笔记/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/blog/2021/06/27/SpringBoot%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%E4%B8%8E%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclffsa1cj20zk0m811l.jpg" title="[SpringBoot笔记]数据库操作与事务管理">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>[SpringBoot笔记]数据库操作与事务管理</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/blog/2021/07/16/%E4%B8%80%E4%BA%9B%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%AE%97%E6%B3%95%E6%9D%BF%E5%AD%90/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipeubcbajj20zk0m8h1h.jpg" title="[模板] 一些字符串算法板子">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>[模板] 一些字符串算法板子</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text"> 基础操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-number">1.1.</span> <span class="toc-text"> 一些快捷键</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3%E4%BD%BF%E7%94%A8"><span class="toc-number">1.2.</span> <span class="toc-text"> 帮助文档使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84"><span class="toc-number">1.3.</span> <span class="toc-text"> 项目基础结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E6%A0%91"><span class="toc-number">1.4.</span> <span class="toc-text"> 对象树</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#qt%E7%9A%84%E7%81%B5%E9%AD%82%E4%BF%A1%E5%8F%B7%E5%92%8C%E6%A7%BD"><span class="toc-number">2.</span> <span class="toc-text"> QT 的灵魂 —— 信号和槽</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E8%BF%9E%E6%8E%A5"><span class="toc-number">2.1.</span> <span class="toc-text"> 建立连接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BF%A1%E5%8F%B7%E5%92%8C%E6%A7%BD"><span class="toc-number">2.2.</span> <span class="toc-text"> 自定义信号和槽</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AA%97%E5%8F%A3%E7%9B%B8%E5%85%B3"><span class="toc-number">3.</span> <span class="toc-text"> 窗口相关</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="ERUIHNIYHBKBNF"
+      data-src="/blog/images/avatar.jpg">
+  <p class="name" itemprop="name">ERUIHNIYHBKBNF</p>
+  <div class="description" itemprop="description">嘤嘤嘤~</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/blog/archives/">
+        <span class="count">53</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/blog/tags/">
+        <span class="count">31</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL0VSVUlITklZSEJLQk5G" title="https:&#x2F;&#x2F;github.com&#x2F;ERUIHNIYHBKBNF"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/blog/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/blog/2021/06/27/SpringBoot%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%E4%B8%8E%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/blog/2021/07/16/%E4%B8%80%E4%BA%9B%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%AE%97%E6%B3%95%E6%9D%BF%E5%AD%90/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2022/11/28/%E5%8C%BA%E5%9D%97%E9%93%BE-Hyperledger-Fabric%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/" title="[区块链] Hyperledger Fabric实验环境搭建记录">[区块链] Hyperledger Fabric实验环境搭建记录</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/01/27/string%E4%B8%8Earray%E7%B1%BB/" title="[C++笔记] string类与array类">[C++笔记] string类与array类</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/05/04/%E4%BA%8C%E5%88%86%E5%9B%BE%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D/" title="[杂题] 二分图最大匹配">[杂题] 二分图最大匹配</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/02/16/%E8%AE%A4%E8%AF%86%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" title="认识监督学习">认识监督学习</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/02/10/%E6%A8%A1%E6%9D%BF%E5%9F%BA%E7%A1%80/" title="[C++笔记] C++中的模板">[C++笔记] C++中的模板</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2022/02/08/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95%E2%80%94%E2%80%94react%E4%BB%BF%E5%86%99%E4%BD%8E%E9%85%8D%E6%8E%98%E9%87%91%E5%AE%A2%E6%88%B7%E7%AB%AF/" title="项目开发记录——react仿写低配掘金客户端">项目开发记录——react仿写低配掘金客户端</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2020/08/13/%E6%A0%91%E5%89%96%20+%20%E7%BA%BF%E6%AE%B5%E6%A0%91/" title="[杂题] 树剖 + 线段树">[杂题] 树剖 + 线段树</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/02/16/kNN%E7%AE%97%E6%B3%95/" title="摸一摸k-NN算法">摸一摸k-NN算法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/01/18/%E5%88%9D%E6%8E%A2BeautifulSoup%E5%BA%93/" title="[爬虫笔记] 初探BeautifulSoup库">[爬虫笔记] 初探BeautifulSoup库</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2022/03/18/LCS%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97/" title="[模板]LCS最长公共子序列">[模板]LCS最长公共子序列</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">ERUIHNIYHBKBNF @ Eruの兔叽窝</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2021/07/12/QT入门笔记/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/blog/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

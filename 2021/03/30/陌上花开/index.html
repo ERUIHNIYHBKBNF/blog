@@ -1,0 +1,488 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/blog/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="Eruの兔叽窝" href="https://eruihniyhbkbnf.github.io/blog/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Eruの兔叽窝" href="https://eruihniyhbkbnf.github.io/blog/atom.xml" />
+<link rel="alternate" type="application/json" title="Eruの兔叽窝" href="https://eruihniyhbkbnf.github.io/blog/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/blog/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="acm,模板,CDQ分治" />
+
+
+<link rel="canonical" href="https://eruihniyhbkbnf.github.io/blog/2021/03/30/%E9%99%8C%E4%B8%8A%E8%8A%B1%E5%BC%80/">
+
+
+
+  <title>
+[模板]陌上花开（三维偏序，CDQ分治） |
+Eruの兔叽窝 = QwQ</title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">[模板]陌上花开（三维偏序，CDQ分治）
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2021-03-30 19:22:47">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-03-30T19:22:47+08:00">2021-03-30</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/blog/" rel="start">Eruの兔叽窝</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giciub8ja1j20zk0m81ky.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicliierfjj20zk0m8npd.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giph47e9vtj20zk0m8x6l.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giciszlczyj20zk0m816d.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipewkhf1zj20zk0m81kx.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipetfk5zwj20zk0m8e81.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/blog/">首页</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://eruihniyhbkbnf.github.io/blog/2021/03/30/%E9%99%8C%E4%B8%8A%E8%8A%B1%E5%BC%80/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/blog/images/avatar.jpg">
+    <meta itemprop="name" content="ERUIHNIYHBKBNF">
+    <meta itemprop="description" content="QwQ, 嘤嘤嘤~">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Eruの兔叽窝">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <blockquote>
+<p>陌上花开，可缓缓归矣 —— 吴越王</p>
+</blockquote>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cubHVvZ3UuY29tLmNuL3Byb2JsZW0vUDM4MTA=">P3810 【模板】三维偏序（陌上花开）</span></p>
+<h2 id="二维偏序-归并排序求逆序对"><a class="markdownIt-Anchor" href="#二维偏序-归并排序求逆序对">#</a> 二维偏序 - 归并排序求逆序对</h2>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cubHVvZ3UuY29tLmNuL3Byb2JsZW0vUDE5MDg=">P1908 逆序对</span></p>
+<p>直接扔个板子好了：</p>
+<figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstdio></span></span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token expression"><span class="token function">rep</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>s<span class="token punctuation">,</span>t<span class="token punctuation">)</span> <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span>s<span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>t<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span></span></span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token expression"><span class="token function">mid</span> <span class="token punctuation">(</span>l<span class="token operator">+</span>r<span class="token punctuation">)</span><span class="token operator">>></span><span class="token number">1</span></span></span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">using</span> ll <span class="token operator">=</span> <span class="token keyword">long</span> <span class="token keyword">long</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token keyword">const</span> <span class="token keyword">int</span> MAXN <span class="token operator">=</span> <span class="token number">5e5</span> <span class="token operator">+</span> <span class="token number">233</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">int</span> n<span class="token punctuation">,</span> a<span class="token punctuation">[</span>MAXN<span class="token punctuation">]</span><span class="token punctuation">,</span> t<span class="token punctuation">[</span>MAXN<span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>ll ans<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token keyword">void</span> <span class="token function">mergeSort</span><span class="token punctuation">(</span><span class="token keyword">int</span> l<span class="token punctuation">,</span> <span class="token keyword">int</span> r<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>l <span class="token operator">==</span> r<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre>        <span class="token keyword">return</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token keyword">int</span> m <span class="token operator">=</span> mid<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token function">mergeSort</span><span class="token punctuation">(</span>l<span class="token punctuation">,</span> m<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token function">mergeSort</span><span class="token punctuation">(</span>m <span class="token operator">+</span> <span class="token number">1</span> <span class="token punctuation">,</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    <span class="token keyword">int</span> p <span class="token operator">=</span> l<span class="token punctuation">,</span> q <span class="token operator">=</span> m <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> s <span class="token operator">=</span> l<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>    <span class="token keyword">while</span> <span class="token punctuation">(</span>p <span class="token operator">&lt;=</span> m <span class="token operator">&amp;&amp;</span> q <span class="token operator">&lt;=</span> r<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="19"></td><td><pre>        <span class="token keyword">if</span> <span class="token punctuation">(</span>a<span class="token punctuation">[</span>p<span class="token punctuation">]</span> <span class="token operator">></span> a<span class="token punctuation">[</span>q<span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="20"></td><td><pre>        <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>            t<span class="token punctuation">[</span>s<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> a<span class="token punctuation">[</span>q<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="22"></td><td><pre>            ans <span class="token operator">+=</span> m <span class="token operator">-</span> p <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="24"></td><td><pre>        <span class="token keyword">else</span></pre></td></tr><tr><td data-num="25"></td><td><pre>            t<span class="token punctuation">[</span>s<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> a<span class="token punctuation">[</span>p<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>    <span class="token keyword">while</span> <span class="token punctuation">(</span>p <span class="token operator">&lt;=</span> m<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="27"></td><td><pre>        t<span class="token punctuation">[</span>s<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> a<span class="token punctuation">[</span>p<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="28"></td><td><pre>    <span class="token keyword">while</span> <span class="token punctuation">(</span>q <span class="token operator">&lt;=</span> r<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="29"></td><td><pre>        t<span class="token punctuation">[</span>s<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> a<span class="token punctuation">[</span>q<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="30"></td><td><pre>    <span class="token function">rep</span> <span class="token punctuation">(</span>i<span class="token punctuation">,</span> l<span class="token punctuation">,</span> r<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="31"></td><td><pre>        a<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> t<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="32"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="33"></td><td><pre><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="34"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="35"></td><td><pre>    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="36"></td><td><pre>    <span class="token function">rep</span> <span class="token punctuation">(</span>i<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="37"></td><td><pre>        <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="38"></td><td><pre>    <span class="token function">mergeSort</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="39"></td><td><pre>    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%lld\n"</span><span class="token punctuation">,</span> ans<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="40"></td><td><pre>	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="41"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h2 id="三维偏序-cdq分治bit"><a class="markdownIt-Anchor" href="#三维偏序-cdq分治bit">#</a> 三维偏序 - CDQ 分治 + BIT</h2>
+<h3 id="cdq分治"><a class="markdownIt-Anchor" href="#cdq分治">#</a> CDQ 分治</h3>
+<p>一种思想，就分治嘛…（跟线段树啊，归并排序啊什么的都有点像 emm）</p>
+<p>Fake Code:</p>
+<figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">void</span> <span class="token function">cdq</span><span class="token punctuation">(</span><span class="token keyword">int</span> l<span class="token punctuation">,</span> <span class="token keyword">int</span> r<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>l <span class="token operator">==</span> r<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token keyword">int</span> m <span class="token operator">=</span> <span class="token punctuation">(</span>l <span class="token operator">+</span> r<span class="token punctuation">)</span> <span class="token operator">>></span> <span class="token number">1</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token function">cdq</span><span class="token punctuation">(</span>l<span class="token punctuation">,</span> m<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token function">cdq</span><span class="token punctuation">(</span>m <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token comment">/**</pre></td></tr><tr><td data-num="7"></td><td><pre>    * 做些什么合并左右区间</pre></td></tr><tr><td data-num="8"></td><td><pre>    */</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token keyword">return</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h3 id="陌上花开"><a class="markdownIt-Anchor" href="#陌上花开">#</a> 陌上花开</h3>
+<h4 id="题目描述"><a class="markdownIt-Anchor" href="#题目描述">#</a> 题目描述</h4>
+<p>三维偏序经典问题：</p>
+<p>竟然找不到原题面了真可惜 qwq，，<s>算法竞赛选手不配学语文呜呜呜咱最会爬了 QAQ</s></p>
+<p>题目大意：</p>
+<p>有一堆花，每朵花有三个属性 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>b</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>c</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">a_i, b_i, c_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 。</p>
+<p>对于每一朵花 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathnormal">i</span></span></span></span> ，认为它比另一朵花 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span></span></span></span> 漂亮，当且仅当 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>a</mi><mi>j</mi></msub><mo>≤</mo><msub><mi>a</mi><mi>i</mi></msub><mspace width="1em"/><mi mathvariant="normal">&amp;</mi><mi mathvariant="normal">&amp;</mi><mspace width="1em"/><msub><mi>b</mi><mi>j</mi></msub><mo>≤</mo><msub><mi>b</mi><mi>i</mi></msub><mspace width="1em"/><mi mathvariant="normal">&amp;</mi><mi mathvariant="normal">&amp;</mi><mspace width="1em"/><msub><mi>c</mi><mi>j</mi></msub><mo>≤</mo><msub><mi>c</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">a_j \leq a_i \quad \&amp;\&amp; \quad b_j \leq b_i \quad \&amp;\&amp; \quad c_j \leq c_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.922078em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:1em;"></span><span class="mord">&amp;</span><span class="mord">&amp;</span><span class="mspace" style="margin-right:1em;"></span><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:1em;"></span><span class="mord">&amp;</span><span class="mord">&amp;</span><span class="mspace" style="margin-right:1em;"></span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 。</p>
+<p>每朵花 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathnormal">i</span></span></span></span> 有一个等级，一朵花的等级是它的美丽 能超过的花的数量。</p>
+<p>求每个等级的花有多少。</p>
+<h4 id="输入输出格式"><a class="markdownIt-Anchor" href="#输入输出格式">#</a> 输入输出格式</h4>
+<p>输入 n, k 表示花朵数和最大属性值，接下来每行是一朵花的 a, b, c 三个属性。</p>
+<p>n 范围 1e5， k 范围 2e5。</p>
+<p>分行输出 0 ~ n - 1 等级花朵个数。</p>
+<h4 id="思路"><a class="markdownIt-Anchor" href="#思路">#</a> 思路</h4>
+<p>先按 a 排序，再拿这组数据对 b 做归并排序， 合并的时候用树状数组维护一下 c，查询记录答案即可。</p>
+<p>由于多次处理重复元素会出事，提前进行一下去重，记录重复次数什么的 emm</p>
+<h4 id="代码"><a class="markdownIt-Anchor" href="#代码">#</a> 代码</h4>
+<figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstdio></span></span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;algorithm></span></span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token expression"><span class="token function">rep</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>s<span class="token punctuation">,</span>t<span class="token punctuation">)</span> <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span>s<span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>t<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span></span></span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token expression"><span class="token function">mid</span> <span class="token punctuation">(</span>l<span class="token operator">+</span>r<span class="token punctuation">)</span><span class="token operator">>></span><span class="token number">1</span></span></span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token keyword">const</span> <span class="token keyword">int</span> MAXN <span class="token operator">=</span> <span class="token number">1e5</span> <span class="token operator">+</span> <span class="token number">233</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">int</span> n<span class="token punctuation">,</span> k<span class="token punctuation">,</span> N<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token keyword">struct</span> <span class="token class-name">node</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>	<span class="token keyword">int</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>	<span class="token keyword">int</span> cnt<span class="token punctuation">,</span> ans<span class="token punctuation">;</span> <span class="token comment">// 重复次数，等级（不含相同的花）</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token punctuation">&#125;</span> arr<span class="token punctuation">[</span>MAXN<span class="token punctuation">]</span><span class="token punctuation">,</span> tmparr<span class="token punctuation">[</span>MAXN<span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token keyword">int</span> tre<span class="token punctuation">[</span>MAXN <span class="token operator">&lt;&lt;</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> ans<span class="token punctuation">[</span>MAXN<span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token keyword">bool</span> <span class="token keyword">operator</span> <span class="token operator">==</span> <span class="token punctuation">(</span>node<span class="token operator">&amp;</span> xx<span class="token punctuation">,</span> node<span class="token operator">&amp;</span> yy<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>	<span class="token keyword">return</span> <span class="token punctuation">(</span>yy<span class="token punctuation">.</span>a <span class="token operator">==</span> xx<span class="token punctuation">.</span>a<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>yy<span class="token punctuation">.</span>b <span class="token operator">==</span> xx<span class="token punctuation">.</span>b<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>yy<span class="token punctuation">.</span>c <span class="token operator">==</span> xx<span class="token punctuation">.</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="19"></td><td><pre><span class="token keyword">int</span> <span class="token function">lb</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="20"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>	<span class="token keyword">return</span> x <span class="token operator">&amp;</span> <span class="token punctuation">(</span><span class="token operator">-</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="22"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="23"></td><td><pre><span class="token keyword">void</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> v<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="24"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="25"></td><td><pre>	<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span> x <span class="token operator">&lt;=</span> k<span class="token punctuation">;</span> x <span class="token operator">+=</span> <span class="token function">lb</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="26"></td><td><pre>		tre<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">+=</span> v<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="27"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="28"></td><td><pre><span class="token keyword">int</span> <span class="token function">query</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="29"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="30"></td><td><pre>	<span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="31"></td><td><pre>	<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span> x<span class="token punctuation">;</span> x <span class="token operator">-=</span> <span class="token function">lb</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="32"></td><td><pre>		sum <span class="token operator">+=</span> tre<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="33"></td><td><pre>	<span class="token keyword">return</span> sum<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="34"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="35"></td><td><pre><span class="token keyword">bool</span> <span class="token function">cmp1</span><span class="token punctuation">(</span>node<span class="token operator">&amp;</span> xx<span class="token punctuation">,</span> node<span class="token operator">&amp;</span> yy<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="36"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="37"></td><td><pre>	<span class="token keyword">return</span> xx<span class="token punctuation">.</span>a <span class="token operator">!=</span> yy<span class="token punctuation">.</span>a <span class="token operator">?</span> xx<span class="token punctuation">.</span>a <span class="token operator">&lt;</span> yy<span class="token punctuation">.</span>a <span class="token operator">:</span> xx<span class="token punctuation">.</span>b <span class="token operator">!=</span> yy<span class="token punctuation">.</span>b <span class="token operator">?</span> xx<span class="token punctuation">.</span>b <span class="token operator">&lt;</span> yy<span class="token punctuation">.</span>b <span class="token operator">:</span> xx<span class="token punctuation">.</span>c <span class="token operator">&lt;</span> yy<span class="token punctuation">.</span>c<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="38"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="39"></td><td><pre><span class="token keyword">void</span> <span class="token function">cdq</span><span class="token punctuation">(</span><span class="token keyword">int</span> l<span class="token punctuation">,</span> <span class="token keyword">int</span> r<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="40"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="41"></td><td><pre>	<span class="token keyword">if</span> <span class="token punctuation">(</span>l <span class="token operator">==</span> r<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="42"></td><td><pre>	<span class="token keyword">int</span> m <span class="token operator">=</span> mid<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="43"></td><td><pre>	<span class="token function">cdq</span><span class="token punctuation">(</span>l<span class="token punctuation">,</span> m<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="44"></td><td><pre>	<span class="token function">cdq</span><span class="token punctuation">(</span>m <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="45"></td><td><pre>	<span class="token keyword">int</span> p <span class="token operator">=</span> l<span class="token punctuation">,</span> q <span class="token operator">=</span> m <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> s <span class="token operator">=</span> l<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="46"></td><td><pre>	<span class="token keyword">while</span> <span class="token punctuation">(</span>p <span class="token operator">&lt;=</span> m <span class="token operator">&amp;&amp;</span> q <span class="token operator">&lt;=</span> r<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="47"></td><td><pre>	<span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="48"></td><td><pre>		<span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>p<span class="token punctuation">]</span><span class="token punctuation">.</span>b <span class="token operator">&lt;=</span> arr<span class="token punctuation">[</span>q<span class="token punctuation">]</span><span class="token punctuation">.</span>b<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="49"></td><td><pre>		<span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="50"></td><td><pre>			<span class="token function">add</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>p<span class="token punctuation">]</span><span class="token punctuation">.</span>c<span class="token punctuation">,</span> arr<span class="token punctuation">[</span>p<span class="token punctuation">]</span><span class="token punctuation">.</span>cnt<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//b 条件符合，把 c 扔进树状数组里统计</span></pre></td></tr><tr><td data-num="51"></td><td><pre>			tmparr<span class="token punctuation">[</span>s<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>p<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="52"></td><td><pre>		<span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="53"></td><td><pre>		<span class="token keyword">else</span></pre></td></tr><tr><td data-num="54"></td><td><pre>		<span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="55"></td><td><pre>			arr<span class="token punctuation">[</span>q<span class="token punctuation">]</span><span class="token punctuation">.</span>ans <span class="token operator">+=</span> <span class="token function">query</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>q<span class="token punctuation">]</span><span class="token punctuation">.</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//b 条件符合，从树状数组里查询 c</span></pre></td></tr><tr><td data-num="56"></td><td><pre>			tmparr<span class="token punctuation">[</span>s<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>q<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="57"></td><td><pre>		<span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="58"></td><td><pre>	<span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="59"></td><td><pre>	<span class="token keyword">while</span> <span class="token punctuation">(</span>q <span class="token operator">&lt;=</span> r<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="60"></td><td><pre>	<span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="61"></td><td><pre>		arr<span class="token punctuation">[</span>q<span class="token punctuation">]</span><span class="token punctuation">.</span>ans <span class="token operator">+=</span> <span class="token function">query</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>q<span class="token punctuation">]</span><span class="token punctuation">.</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="62"></td><td><pre>		tmparr<span class="token punctuation">[</span>s<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>q<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="63"></td><td><pre>	<span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="64"></td><td><pre>	<span class="token function">rep</span> <span class="token punctuation">(</span>i<span class="token punctuation">,</span> l<span class="token punctuation">,</span> p <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="65"></td><td><pre>		<span class="token function">add</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>c<span class="token punctuation">,</span> <span class="token operator">-</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>cnt<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 记得清空树状数组</span></pre></td></tr><tr><td data-num="66"></td><td><pre>	<span class="token keyword">while</span> <span class="token punctuation">(</span>p <span class="token operator">&lt;=</span> m<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="67"></td><td><pre>		tmparr<span class="token punctuation">[</span>s<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>p<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="68"></td><td><pre>	<span class="token function">rep</span> <span class="token punctuation">(</span>i<span class="token punctuation">,</span> l<span class="token punctuation">,</span> r<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="69"></td><td><pre>		arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> tmparr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="70"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="71"></td><td><pre><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="72"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="73"></td><td><pre>	<span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">,</span> <span class="token operator">&amp;</span>k<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="74"></td><td><pre>	<span class="token function">rep</span> <span class="token punctuation">(</span>i<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="75"></td><td><pre>		<span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d%d%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>tmparr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>a<span class="token punctuation">,</span> <span class="token operator">&amp;</span>tmparr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>b<span class="token punctuation">,</span> <span class="token operator">&amp;</span>tmparr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="76"></td><td><pre>	<span class="token function">sort</span><span class="token punctuation">(</span>tmparr <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> tmparr <span class="token operator">+</span> n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> cmp1<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="77"></td><td><pre>    <span class="token comment">// 去重</span></pre></td></tr><tr><td data-num="78"></td><td><pre>	<span class="token function">rep</span> <span class="token punctuation">(</span>i<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="79"></td><td><pre>	<span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="80"></td><td><pre>		<span class="token keyword">int</span> j <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="81"></td><td><pre>		<span class="token keyword">while</span> <span class="token punctuation">(</span>tmparr<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> tmparr<span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> j <span class="token operator">&lt;=</span> n<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="82"></td><td><pre>			j<span class="token operator">++</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="83"></td><td><pre>		arr<span class="token punctuation">[</span><span class="token operator">++</span>N<span class="token punctuation">]</span> <span class="token operator">=</span> tmparr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="84"></td><td><pre>		arr<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">.</span>cnt <span class="token operator">=</span> j <span class="token operator">-</span> i<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="85"></td><td><pre>		i <span class="token operator">=</span> j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// 这里炸掉一次 qwq</span></pre></td></tr><tr><td data-num="86"></td><td><pre>	<span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="87"></td><td><pre>	<span class="token function">cdq</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> N<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 这里炸掉一次，是 N 不是 n，qwq</span></pre></td></tr><tr><td data-num="88"></td><td><pre>	<span class="token function">rep</span> <span class="token punctuation">(</span>i<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> N<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="89"></td><td><pre>        <span class="token comment">//ans [等级] += 重复次数，记录每个等级花朵个数</span></pre></td></tr><tr><td data-num="90"></td><td><pre>    	<span class="token comment">// 相同的花，每一朵都比其它相同的要漂亮，所以每一朵的等级都要加上 cnt - 1</span></pre></td></tr><tr><td data-num="91"></td><td><pre>		ans<span class="token punctuation">[</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>ans <span class="token operator">+</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>cnt <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>cnt<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="92"></td><td><pre>	<span class="token function">rep</span> <span class="token punctuation">(</span>i<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="93"></td><td><pre>		<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> ans<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="94"></td><td><pre>	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="95"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure>
+      <div class="tags">
+          <a href="/blog/tags/acm/" rel="tag"><i class="ic i-tag"></i> acm</a>
+          <a href="/blog/tags/%E6%A8%A1%E6%9D%BF/" rel="tag"><i class="ic i-tag"></i> 模板</a>
+          <a href="/blog/tags/CDQ%E5%88%86%E6%B2%BB/" rel="tag"><i class="ic i-tag"></i> CDQ分治</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2022-11-28 22:26:18" itemprop="dateModified" datetime="2022-11-28T22:26:18+08:00">2022-11-28</time>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>ERUIHNIYHBKBNF <i class="ic i-at"><em>@</em></i>Eruの兔叽窝
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://eruihniyhbkbnf.github.io/blog/2021/03/30/%E9%99%8C%E4%B8%8A%E8%8A%B1%E5%BC%80/" title="[模板]陌上花开（三维偏序，CDQ分治）">https://eruihniyhbkbnf.github.io/blog/2021/03/30/陌上花开/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/blog/2021/03/12/STL%E5%9F%BA%E7%A1%80/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipevo9j1jj20zk0m8e81.jpg" title="[C++笔记] STL基础">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>[C++笔记] STL基础</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/blog/2021/05/04/%E4%BA%8C%E5%88%86%E5%9B%BE%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipev1x5e4j20zk0m8b29.jpg" title="[杂题] 二分图最大匹配">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>[杂题] 二分图最大匹配</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E5%81%8F%E5%BA%8F-%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E6%B1%82%E9%80%86%E5%BA%8F%E5%AF%B9"><span class="toc-number">1.</span> <span class="toc-text"> 二维偏序 - 归并排序求逆序对</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E7%BB%B4%E5%81%8F%E5%BA%8F-cdq%E5%88%86%E6%B2%BBbit"><span class="toc-number">2.</span> <span class="toc-text"> 三维偏序 - CDQ 分治 + BIT</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#cdq%E5%88%86%E6%B2%BB"><span class="toc-number">2.1.</span> <span class="toc-text"> CDQ 分治</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%8C%E4%B8%8A%E8%8A%B1%E5%BC%80"><span class="toc-number">2.2.</span> <span class="toc-text"> 陌上花开</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="toc-number">2.2.1.</span> <span class="toc-text"> 题目描述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="toc-number">2.2.2.</span> <span class="toc-text"> 输入输出格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-number">2.2.3.</span> <span class="toc-text"> 思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-number">2.2.4.</span> <span class="toc-text"> 代码</span></a></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="ERUIHNIYHBKBNF"
+      data-src="/blog/images/avatar.jpg">
+  <p class="name" itemprop="name">ERUIHNIYHBKBNF</p>
+  <div class="description" itemprop="description">嘤嘤嘤~</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/blog/archives/">
+        <span class="count">53</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/blog/tags/">
+        <span class="count">31</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL0VSVUlITklZSEJLQk5G" title="https:&#x2F;&#x2F;github.com&#x2F;ERUIHNIYHBKBNF"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/blog/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/blog/2021/03/12/STL%E5%9F%BA%E7%A1%80/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/blog/2021/05/04/%E4%BA%8C%E5%88%86%E5%9B%BE%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/02/16/kNN%E7%AE%97%E6%B3%95/" title="摸一摸k-NN算法">摸一摸k-NN算法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/07/12/QT%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/" title="QT入门笔记">QT入门笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/09/26/%E7%BA%BF%E6%AE%B5%E6%A0%91%E6%9D%82%E9%A2%9820210926/" title="[杂题] 线段树一些题目">[杂题] 线段树一些题目</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2020/10/15/%E7%94%A8%E5%86%B0%E8%8C%B6%E5%A7%AC%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E8%BF%B7%E5%AE%AB/" title="[摸鱼] 用冰茶姬生成随机迷宫">[摸鱼] 用冰茶姬生成随机迷宫</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2020/12/23/%E5%86%99%E5%AF%B9%E6%8B%8D/" title="写对拍(｀･ω･´)ﾉ">写对拍(｀･ω･´)ﾉ</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2020/08/07/%E7%94%9F%E6%88%90%E6%A0%91%20&%20LCA/" title="[杂题] 生成树 &amp; LCA">[杂题] 生成树 & LCA</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2022/05/12/typeorm-No-metadata-for-User-was-found-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" title="文件路径问题 typeorm &#39;No metadata for User was found&#39; 解决">文件路径问题 typeorm 'No metadata for User was found' 解决</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2020/10/26/%E4%BA%8C%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C%E5%B7%AE%E5%88%86/" title="[杂题] 二维前缀和&#x2F;差分">[杂题] 二维前缀和/差分</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/01/27/string%E4%B8%8Earray%E7%B1%BB/" title="[C++笔记] string类与array类">[C++笔记] string类与array类</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2020/10/28/%E8%BF%B7%E5%AE%AB%E6%B8%B8%E6%88%8F%E7%9A%84%E4%BC%98%E5%8C%96/" title="[摸鱼] 迷宫游戏的优化">[摸鱼] 迷宫游戏的优化</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">ERUIHNIYHBKBNF @ Eruの兔叽窝</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2021/03/30/陌上花开/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,copy_tex: true,
+    katex: true,fancybox: true,copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/blog/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

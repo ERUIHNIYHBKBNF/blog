@@ -1,0 +1,535 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/blog/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="Eruの兔叽窝" href="https://eruihniyhbkbnf.github.io/blog/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Eruの兔叽窝" href="https://eruihniyhbkbnf.github.io/blog/atom.xml" />
+<link rel="alternate" type="application/json" title="Eruの兔叽窝" href="https://eruihniyhbkbnf.github.io/blog/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/blog/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="C++,C++笔记" />
+
+
+<link rel="canonical" href="https://eruihniyhbkbnf.github.io/blog/2021/03/12/STL%E5%9F%BA%E7%A1%80/">
+
+
+
+  <title>
+[C++笔记] STL基础 |
+Eruの兔叽窝 = QwQ</title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">[C++笔记] STL基础
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2021-03-12 10:25:16">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-03-12T10:25:16+08:00">2021-03-12</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/blog/" rel="start">Eruの兔叽窝</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclhfehz7j20zk0m8u0x.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclflwv2aj20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giciuja1j1j20zk0m8kjl.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giciryrr3rj20zk0m8nhk.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipewr8iypj20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclimtf7dj20zk0m8qav.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/blog/">首页</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://eruihniyhbkbnf.github.io/blog/2021/03/12/STL%E5%9F%BA%E7%A1%80/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/blog/images/avatar.jpg">
+    <meta itemprop="name" content="ERUIHNIYHBKBNF">
+    <meta itemprop="description" content="QwQ, 嘤嘤嘤~">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Eruの兔叽窝">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <p>早就想补这部分东西了 (｀･ω･´)ﾉ  <s>所以拖到了现在 也就是正式学习的时候 QAQ</s></p>
+<h2 id="stl组成"><a class="markdownIt-Anchor" href="#stl组成">#</a> STL 组成</h2>
+<ul>
+<li>Container 容器
+<ul>
+<li>用于保存一组数据，数据个体称元素。</li>
+<li>分类
+<ul>
+<li>顺序容器：线性数据结构，多个元素的有序集合，有头有尾有前有后：  <code>vector, list(链表), deque</code></li>
+<li>关联容器：可快速对应元素的非线性数据结构，可存储键值对：  <code>set, multiset, map, multimap</code></li>
+<li>容器适配器：顺序容器的受限版本：  <code>stack, queue, priority_queue</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Iterator 迭代器
+<ul>
+<li>用于遍历容器中的元素，例如数组指针。</li>
+<li>实现：将 *, -&gt;, ++ 等指针相关操作重载的类模板。</li>
+<li>每个容器都有专有的迭代器。</li>
+</ul>
+</li>
+<li>Algorithm 算法
+<ul>
+<li>独立于容器。</li>
+</ul>
+</li>
+<li>Function Objects 函数对象</li>
+<li>Memory Allocation 空间分配器</li>
+</ul>
+<h2 id="stl容器"><a class="markdownIt-Anchor" href="#stl容器">#</a> STL 容器</h2>
+<p>也许有用的表格：</p>
+<img data-src="https://s3.ax1x.com/2021/02/10/y005PH.png" width="750px">
+<img data-src="https://s3.ax1x.com/2021/02/10/y00hIe.png" width="750px">
+<img data-src="https://s3.ax1x.com/2021/02/10/y00faD.png" width="750px">
+<h2 id="stl迭代器"><a class="markdownIt-Anchor" href="#stl迭代器">#</a> STL 迭代器</h2>
+<ul>
+<li>用于访问和处理一级容器（包含顺序容器与关联容器）中的元素。</li>
+<li>一级中的某些函数也与迭代器有关： <code>begin(), end() ...</code></li>
+</ul>
+<p>实例：</p>
+<figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">&#123;</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">v</span><span class="token punctuation">(</span>a <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> a <span class="token operator">+</span> <span class="token number">4</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 神奇的初始化方式 [begin, end)</span></pre></td></tr><tr><td data-num="3"></td><td><pre>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token operator">::</span>iterator p1<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">for</span> <span class="token punctuation">(</span>p1 <span class="token operator">=</span> v<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> p1 <span class="token operator">!=</span> v<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> p1<span class="token operator">++</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    cout <span class="token operator">&lt;&lt;</span> <span class="token operator">*</span>p1 <span class="token operator">&lt;&lt;</span> <span class="token string">' '</span><span class="token punctuation">;</span> <span class="token comment">// 1 2 3 4</span></pre></td></tr><tr><td data-num="6"></td><td><pre>cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>p1 <span class="token operator">-=</span> <span class="token number">2</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>cout <span class="token operator">&lt;&lt;</span> <span class="token operator">*</span>p1 <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token comment">// 3</span></pre></td></tr><tr><td data-num="9"></td><td><pre>cout <span class="token operator">&lt;&lt;</span> p1<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token comment">// 1</span></pre></td></tr><tr><td data-num="10"></td><td><pre>p1<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">233</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>cout <span class="token operator">&lt;&lt;</span> v<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token comment">// 233</span></pre></td></tr></table></figure><h3 id="迭代器类型"><a class="markdownIt-Anchor" href="#迭代器类型">#</a> 迭代器类型</h3>
+<p>分成五类：</p>
+<ul>
+<li>读写：
+<ul>
+<li>Input iterators 输入，可读取</li>
+<li>Output iterators 输出，可修改</li>
+</ul>
+</li>
+<li>变化方式：
+<ul>
+<li>Forward iterators 前向，单步向前移动</li>
+<li>Bidirectional  iterators 双向，单步前后移动</li>
+<li>Random access  iterators 随机，任意跳转</li>
+</ul>
+</li>
+</ul>
+<p>也许有用的表格：</p>
+<img data-src="https://s3.ax1x.com/2021/02/10/y06yxH.png" width="750px">
+<h2 id="ex"><a class="markdownIt-Anchor" href="#ex">#</a> ex</h2>
+<h4 id="顺序容器"><a class="markdownIt-Anchor" href="#顺序容器">#</a> 顺序容器</h4>
+<p>双向迭代器：  <code>list</code></p>
+<p>随机迭代器： <code>vector, deque</code></p>
+<p>也许有用的表格：</p>
+<img data-src="https://s3.ax1x.com/2021/03/11/6NM44x.png" width="500px">
+<h3 id="关联容器"><a class="markdownIt-Anchor" href="#关联容器">#</a> 关联容器</h3>
+<p>双向迭代器：  <code>set, multiset, map, multimap</code></p>
+<ul>
+<li>使用 key 快速存取元素～～（但是总是被人说常数爆炸）~~</li>
+<li>元素按规则排序，默认使用  <code>&lt;</code>  排序。</li>
+</ul>
+<p>也许有用的表格（和崔毅东老师帅气的额头）：</p>
+<img data-src="https://s3.ax1x.com/2021/03/12/6NbzkV.png" width="750px">
+<p>set:</p>
+<figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre>set <span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> greater<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token operator">></span> s<span class="token punctuation">&#123;</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span> <span class="token comment">//greater 反向</span></pre></td></tr><tr><td data-num="2"></td><td><pre>set<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token operator">::</span>iterator p<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">for</span> <span class="token punctuation">(</span>p <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> p <span class="token operator">!=</span> s<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> p<span class="token operator">++</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    cout <span class="token operator">&lt;&lt;</span> <span class="token operator">*</span>p <span class="token operator">&lt;&lt;</span> <span class="token string">' '</span><span class="token punctuation">;</span> <span class="token comment">//4 3 2 1</span></pre></td></tr><tr><td data-num="5"></td><td><pre>s<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>p <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token keyword">if</span> <span class="token punctuation">(</span>p <span class="token operator">==</span> s<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Not Found\n"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token keyword">else</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Found\n"</span><span class="token punctuation">;</span> <span class="token comment">// &lt;=</span></pre></td></tr><tr><td data-num="11"></td><td><pre>s<span class="token punctuation">.</span><span class="token function">erase</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>p <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token keyword">if</span> <span class="token punctuation">(</span>p <span class="token operator">==</span> s<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Not Found\n"</span><span class="token punctuation">;</span> <span class="token comment">// &lt;=</span></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token keyword">else</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Found\n"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token keyword">for</span> <span class="token punctuation">(</span>p <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> p <span class="token operator">!=</span> s<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> p<span class="token operator">++</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="18"></td><td><pre>    cout <span class="token operator">&lt;&lt;</span> <span class="token operator">*</span>p <span class="token operator">&lt;&lt;</span> <span class="token string">' '</span><span class="token punctuation">;</span> <span class="token comment">//5 3 2 1</span></pre></td></tr></table></figure><p>map:</p>
+<figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre>map<span class="token operator">&lt;</span>string<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">></span> m<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>m<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token class-name">map</span><span class="token operator">&lt;</span>string<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">></span><span class="token operator">::</span><span class="token function">value_type</span><span class="token punctuation">(</span><span class="token string">"qwq"</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>m<span class="token punctuation">[</span><span class="token string">"owo"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>cout <span class="token operator">&lt;&lt;</span> m<span class="token punctuation">[</span><span class="token string">"qwq"</span><span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span><span class="token string">' '</span><span class="token operator">&lt;&lt;</span> m<span class="token punctuation">[</span><span class="token string">"owo"</span><span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token comment">//1 2</span></pre></td></tr><tr><td data-num="5"></td><td><pre>map<span class="token operator">&lt;</span>string<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">></span><span class="token operator">::</span>iterator p<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">for</span> <span class="token punctuation">(</span>p <span class="token operator">=</span> m<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> p <span class="token operator">!=</span> m<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> p<span class="token operator">++</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    cout <span class="token operator">&lt;&lt;</span> p <span class="token operator">-></span> first <span class="token operator">&lt;&lt;</span> <span class="token string">':'</span> <span class="token operator">&lt;&lt;</span> p <span class="token operator">-></span> second <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token comment">//owo:2 qwq:1</span></pre></td></tr><tr><td data-num="8"></td><td><pre>m<span class="token punctuation">.</span><span class="token function">erase</span><span class="token punctuation">(</span><span class="token string">"qwq"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>p <span class="token operator">=</span> m<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token string">"qwq"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token keyword">if</span> <span class="token punctuation">(</span>p <span class="token operator">==</span> m<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"QAQ"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token comment">// &lt;=</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token keyword">else</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"OwO"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span></pre></td></tr></table></figure><p>在 Menci 看不见的地方膜 Menci： <span class="exturl" data-url="aHR0cHM6Ly9vaS5tZW4uY2kvc3RsLWluLW9pLw==">https://oi.men.ci/stl-in-oi/</span></p>
+
+      <div class="tags">
+          <a href="/blog/tags/C/" rel="tag"><i class="ic i-tag"></i> C++</a>
+          <a href="/blog/tags/C-%E7%AC%94%E8%AE%B0/" rel="tag"><i class="ic i-tag"></i> C++笔记</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2022-11-28 22:26:18" itemprop="dateModified" datetime="2022-11-28T22:26:18+08:00">2022-11-28</time>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>ERUIHNIYHBKBNF <i class="ic i-at"><em>@</em></i>Eruの兔叽窝
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://eruihniyhbkbnf.github.io/blog/2021/03/12/STL%E5%9F%BA%E7%A1%80/" title="[C++笔记] STL基础">https://eruihniyhbkbnf.github.io/blog/2021/03/12/STL基础/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/blog/2021/02/16/kNN%E7%AE%97%E6%B3%95/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclil3m4ej20zk0m8tn8.jpg" title="摸一摸k-NN算法">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>摸一摸k-NN算法</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/blog/2021/03/30/%E9%99%8C%E4%B8%8A%E8%8A%B1%E5%BC%80/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipeuv80yoj20zk0m8kjl.jpg" title="[模板]陌上花开（三维偏序，CDQ分治）">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>[模板]陌上花开（三维偏序，CDQ分治）</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#stl%E7%BB%84%E6%88%90"><span class="toc-number">1.</span> <span class="toc-text"> STL 组成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#stl%E5%AE%B9%E5%99%A8"><span class="toc-number">2.</span> <span class="toc-text"> STL 容器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#stl%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="toc-number">3.</span> <span class="toc-text"> STL 迭代器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%AD%E4%BB%A3%E5%99%A8%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.1.</span> <span class="toc-text"> 迭代器类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ex"><span class="toc-number">4.</span> <span class="toc-text"> ex</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E5%AE%B9%E5%99%A8"><span class="toc-number">4.0.1.</span> <span class="toc-text"> 顺序容器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E8%81%94%E5%AE%B9%E5%99%A8"><span class="toc-number">4.1.</span> <span class="toc-text"> 关联容器</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="ERUIHNIYHBKBNF"
+      data-src="/blog/images/avatar.jpg">
+  <p class="name" itemprop="name">ERUIHNIYHBKBNF</p>
+  <div class="description" itemprop="description">嘤嘤嘤~</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/blog/archives/">
+        <span class="count">53</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/blog/tags/">
+        <span class="count">31</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL0VSVUlITklZSEJLQk5G" title="https:&#x2F;&#x2F;github.com&#x2F;ERUIHNIYHBKBNF"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/blog/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/blog/2021/02/16/kNN%E7%AE%97%E6%B3%95/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/blog/2021/03/30/%E9%99%8C%E4%B8%8A%E8%8A%B1%E5%BC%80/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/02/08/%E7%94%A8OpenCV%E5%92%8CPython%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE/" title="Python-ML中一些数据处理方式">Python-ML中一些数据处理方式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2020/10/28/%E8%BF%B7%E5%AE%AB%E6%B8%B8%E6%88%8F%E7%9A%84%E4%BC%98%E5%8C%96/" title="[摸鱼] 迷宫游戏的优化">[摸鱼] 迷宫游戏的优化</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/10/12/py%E5%AE%9E%E7%8E%B0%E4%BD%8E%E9%85%8D%E7%89%88%E9%AA%8C%E8%AF%81%E7%A0%81%E8%AF%86%E5%88%AB/" title="py实现低配版验证码识别">py实现低配版验证码识别</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/02/10/%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/" title="[C++笔记] 运算符重载">[C++笔记] 运算符重载</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/05/04/%E4%BA%8C%E5%88%86%E5%9B%BE%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D/" title="[杂题] 二分图最大匹配">[杂题] 二分图最大匹配</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/09/27/%E6%90%AD%E5%BB%BAmc%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%B0%E5%BD%95/" title="mc服务器搭建记录">mc服务器搭建记录</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/09/02/%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%BA%94%E7%94%A8%E4%B8%93%E9%A2%98/" title="Nowcoder线段树应用专题">Nowcoder线段树应用专题</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2020/08/06/Hello/" title="Hello!">Hello!</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/09/26/%E7%BA%BF%E6%AE%B5%E6%A0%91%E6%9D%82%E9%A2%9820210926/" title="[杂题] 线段树一些题目">[杂题] 线段树一些题目</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/03/30/%E9%99%8C%E4%B8%8A%E8%8A%B1%E5%BC%80/" title="[模板]陌上花开（三维偏序，CDQ分治）">[模板]陌上花开（三维偏序，CDQ分治）</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">ERUIHNIYHBKBNF @ Eruの兔叽窝</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2021/03/12/STL基础/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/blog/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

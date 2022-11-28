@@ -1,0 +1,539 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/blog/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="Eruの兔叽窝" href="https://eruihniyhbkbnf.github.io/blog/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Eruの兔叽窝" href="https://eruihniyhbkbnf.github.io/blog/atom.xml" />
+<link rel="alternate" type="application/json" title="Eruの兔叽窝" href="https://eruihniyhbkbnf.github.io/blog/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/blog/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="前端,sass" />
+
+
+<link rel="canonical" href="https://eruihniyhbkbnf.github.io/blog/2021/08/11/sass%E4%B8%80%E4%B8%AA%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/">
+
+
+
+  <title>
+sass一个入门笔记 |
+Eruの兔叽窝 = QwQ</title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">sass一个入门笔记
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2021-08-11 20:46:19">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-08-11T20:46:19+08:00">2021-08-11</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/blog/" rel="start">Eruの兔叽窝</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclxfdlttj20zk0m8npd.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipeun65urj20zk0m81ii.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclhfehz7j20zk0m8u0x.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipetlbztpj20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicitspjpbj20zk0m81ky.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipey84bjtj20zk0m8hdt.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/blog/">首页</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://eruihniyhbkbnf.github.io/blog/2021/08/11/sass%E4%B8%80%E4%B8%AA%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/blog/images/avatar.jpg">
+    <meta itemprop="name" content="ERUIHNIYHBKBNF">
+    <meta itemprop="description" content="QwQ, 嘤嘤嘤~">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Eruの兔叽窝">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <blockquote>
+<p>写 css 懒癌发作学一手 sass，果然懒才是第一生产力 QwQ</p>
+</blockquote>
+<h2 id="sass与scss与less"><a class="markdownIt-Anchor" href="#sass与scss与less">#</a> sass 与 scss 与 less</h2>
+<p>​	sass 与 scss 可以看作同一种东西，，sass 需要遵守严格的语法标住，scss 包含 sass 并且语法格式与 css 非常相似（所以一般写 <code>lang=&quot;scss&quot;</code>  而不是 <code>lang=&quot;sass&quot;</code>  吗 qwq），并且好像统称 sass 的样子。</p>
+<p>​	 与 less，都是 css 的预编译处理语言，不同的是 less 是基于 js 在客户端进行处理，sass 是基于 ruby 在服务器处理。</p>
+<h2 id="vue项目引入sass"><a class="markdownIt-Anchor" href="#vue项目引入sass">#</a> Vue 项目引入 sass</h2>
+<p>因为版本问题各种报错 QAQ</p>
+<p>最终是这么搞的：</p>
+<pre><code class="language-text">cnpm install sass-loader@9.0.0 -d
+cnpm install node-sass@4.14.1 -d
+</code></pre>
+<p>然后 vue 里面这么写：</p>
+<pre><code class="language-vue">&lt;style lang=&quot;scss&quot; scoped&gt;
+
+&lt;/style&gt;
+</code></pre>
+<p>里面按 sass 语法去写就可以了的样子 qwq</p>
+<p>一个测试是可行的：</p>
+<figure class="highlight scss"><figcaption data-lang="Sass (Scss)"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token selector">&lt;style lang="scss" scoped></pre></td></tr><tr><td data-num="2"></td><td><pre>.hello </span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token property"><span class="token variable">$height</span></span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token property">height</span><span class="token punctuation">:</span> <span class="token variable">$height</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token property">background-color</span><span class="token punctuation">:</span> aqua<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>&lt;/style></pre></td></tr></table></figure><h2 id="基本语法"><a class="markdownIt-Anchor" href="#基本语法">#</a> 基本语法</h2>
+<h3 id="变量使用"><a class="markdownIt-Anchor" href="#变量使用">#</a> 变量使用</h3>
+<ul>
+<li>用  <code>$</code>  表示变量</li>
+<li>可以包含很多东西</li>
+<li>不区分中划线和下划线</li>
+<li>仅原生 css 支持的注释会被编译</li>
+</ul>
+<figure class="highlight scss"><figcaption data-lang="Sass (Scss)"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token property"><span class="token variable">$color-red</span></span><span class="token punctuation">:</span> red<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token property"><span class="token variable">$border-style</span></span><span class="token punctuation">:</span> 5px solid <span class="token variable">$color-red</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token property"><span class="token variable">$color-red</span></span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span> <span class="token comment">// 变量重新声明</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token selector">.hello </span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token property"><span class="token variable">$height</span></span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token property">height</span><span class="token punctuation">:</span> <span class="token variable">$height</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token variable">$color_red</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token property">border</span><span class="token punctuation">:</span> <span class="token variable">$border_style</span><span class="token punctuation">;</span> <span class="token comment">/* 注释 */</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token comment">// 编译后</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token selector">.hello </span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>  <span class="token property">height</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>  <span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>  <span class="token property">background-color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>  <span class="token property">border</span><span class="token punctuation">:</span> 5px solid red<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>  <span class="token comment">/* 注释 */</span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><ul>
+<li>使用  <code>!default</code>  防止重新声明</li>
+</ul>
+<figure class="highlight scss"><figcaption data-lang="Sass (Scss)"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token property"><span class="token variable">$color-red</span></span><span class="token punctuation">:</span> red<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token property"><span class="token variable">$border-style</span></span><span class="token punctuation">:</span> 5px solid <span class="token variable">$color-red</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token property"><span class="token variable">$color-red</span></span><span class="token punctuation">:</span> blue <span class="token statement keyword">!default</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token selector">.hello </span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token variable">$color_red</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token property">border</span><span class="token punctuation">:</span> <span class="token variable">$border_style</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token comment">// 编译后</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token selector">.hello </span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token property">background-color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token property">border</span><span class="token punctuation">:</span> 5px solid red<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><ul>
+<li>大段样式的复用使用混合器</li>
+</ul>
+<h3 id="嵌套规则"><a class="markdownIt-Anchor" href="#嵌套规则">#</a> 嵌套规则</h3>
+<h4 id="嵌套选择器"><a class="markdownIt-Anchor" href="#嵌套选择器">#</a> 嵌套选择器</h4>
+<ul>
+<li>默认每套一层都是一层子元素</li>
+</ul>
+<figure class="highlight scss"><figcaption data-lang="Sass (Scss)"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token selector">.hello </span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token property">height</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token property">background-color</span><span class="token punctuation">:</span> aqua<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token property">border</span><span class="token punctuation">:</span> 5px solid red<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token selector">.test </span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token property">background-color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token comment">// 编译后</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token selector">.hello </span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token property">height</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>  <span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>  <span class="token property">background-color</span><span class="token punctuation">:</span> aqua<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>  <span class="token property">border</span><span class="token punctuation">:</span> 5px solid red<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token selector">.hello .test </span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>  <span class="token property">background-color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><ul>
+<li><code>&amp;</code>  父选择器</li>
+<li>群组选择器也没什么意外</li>
+</ul>
+<figure class="highlight scss"><figcaption data-lang="Sass (Scss)"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token selector">a, p </span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token selector"><span class="token parent important">&amp;</span>:hover </span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token property">color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token comment">// 编译后</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token selector">a, p </span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token selector">a:hover, p:hover </span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token property">color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h4 id="嵌套属性"><a class="markdownIt-Anchor" href="#嵌套属性">#</a> 嵌套属性</h4>
+<p>也许比缩写更清晰一些。</p>
+<figure class="highlight scss"><figcaption data-lang="Sass (Scss)"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token selector">.hello </span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token selector">border: </span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token property">style</span><span class="token punctuation">:</span> solid<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token property">width</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token comment">// 编译后</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token selector">.hello </span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token property">border-style</span><span class="token punctuation">:</span> solid<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token property">border-width</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token property">border-color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h2 id="导入sass文件"><a class="markdownIt-Anchor" href="#导入sass文件">#</a> 导入 sass 文件</h2>
+<ul>
+<li>不同于 css 执行到 <code>@import</code>  才会去下载资源，sass 在生成 css 时就会整合成一个文件。</li>
+<li>约定以下划线开头的.scss 文件仅用于 import，并不会编译生成单独的 css 文件。</li>
+</ul>
+<p>假设有文件_hello.scss</p>
+<p>引入该文件（比如在相同文件夹下）：</p>
+<figure class="highlight scss"><figcaption data-lang="Sass (Scss)"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">@import</span> <span class="token string">"./hello"</span><span class="token punctuation">;</span> <span class="token comment">// 这里路径书写还挺智能的</span></pre></td></tr></table></figure><ul>
+<li>在某处导入文件相当于原封不动搬过来</li>
+</ul>
+<h2 id="混合器"><a class="markdownIt-Anchor" href="#混合器">#</a> 混合器</h2>
+<h3 id="基础用法"><a class="markdownIt-Anchor" href="#基础用法">#</a> 基础用法</h3>
+<ul>
+<li>使用  <code>@mixin</code>  包含一大段样式。</li>
+</ul>
+<figure class="highlight scss"><figcaption data-lang="Sass (Scss)"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">@mixin</span> <span class="token selector">round-border </span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token selector">border: </span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token property">style</span><span class="token punctuation">:</span> solid<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token property">width</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token property">radius</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token selector">.hello </span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token property">background-color</span><span class="token punctuation">:</span> aqua<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>  <span class="token keyword">@include</span> round-border<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token comment">// 编译后</span></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token selector">.hello </span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>  <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>  <span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>  <span class="token property">background-color</span><span class="token punctuation">:</span> aqua<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>  <span class="token property">border-style</span><span class="token punctuation">:</span> solid<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>  <span class="token property">border-width</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="22"></td><td><pre>  <span class="token property">border-color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>  <span class="token property">border-radius</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="24"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h3 id="带参数的混合器"><a class="markdownIt-Anchor" href="#带参数的混合器">#</a> 带参数的混合器</h3>
+<ul>
+<li>像函数一样使用参数，包括默认值（可以引用其它参数）等</li>
+<li>可以通过 <code>$name: value</code>  传参，不必按顺序，别漏参数</li>
+</ul>
+<figure class="highlight scss"><figcaption data-lang="Sass (Scss)"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">@mixin</span> <span class="token function">round-border</span><span class="token punctuation">(</span><span class="token property"><span class="token variable">$border-color</span></span><span class="token punctuation">:</span> red<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token selector">border: </span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token property">style</span><span class="token punctuation">:</span> solid<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token property">width</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token variable">$border-color</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token property">radius</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token selector">.hello </span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token property">background-color</span><span class="token punctuation">:</span> aqua<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>  <span class="token keyword">@include</span> <span class="token function">round-border</span><span class="token punctuation">(</span>blue<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>  <span class="token selector">.test </span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token keyword">@include</span> <span class="token function">round-border</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token comment">// 编译后</span></pre></td></tr><tr><td data-num="19"></td><td><pre><span class="token selector">.hello </span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>  <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>  <span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="22"></td><td><pre>  <span class="token property">background-color</span><span class="token punctuation">:</span> aqua<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>  <span class="token property">border-style</span><span class="token punctuation">:</span> solid<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="24"></td><td><pre>  <span class="token property">border-width</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="25"></td><td><pre>  <span class="token property">border-color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>  <span class="token property">border-radius</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="27"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="28"></td><td><pre><span class="token selector">.hello .test </span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="29"></td><td><pre>  <span class="token property">border-style</span><span class="token punctuation">:</span> solid<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="30"></td><td><pre>  <span class="token property">border-width</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="31"></td><td><pre>  <span class="token property">border-color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="32"></td><td><pre>  <span class="token property">border-radius</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="33"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h2 id="选择器继承"><a class="markdownIt-Anchor" href="#选择器继承">#</a> 选择器继承</h2>
+<h3 id="基础用法-2"><a class="markdownIt-Anchor" href="#基础用法-2">#</a> 基础用法</h3>
+<ul>
+<li>使用 <code>@extend</code>  继承选择器，只会继承选择器所命中元素的样式
+<ul>
+<li>例如  <code>@extend qwq.owo</code>  并不会分别继承  <code>.qwq</code>  和  <code>.owo</code>  下的样式</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight scss"><figcaption data-lang="Sass (Scss)"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token selector">.father </span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token selector">border: </span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token property">style</span><span class="token punctuation">:</span> solid<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token property">width</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token property">radius</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token selector">.hello </span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token property">background-color</span><span class="token punctuation">:</span> aqua<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>  <span class="token comment">// 看下面编译规则，下边这两行换一下也不会怎么样 emm</span></pre></td></tr><tr><td data-num="14"></td><td><pre>  <span class="token keyword">@extend</span> .father<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>  <span class="token property">border-color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token comment">// 编译后（竟然是组合选择器 qwq）</span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token selector">.father, .hello </span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>  <span class="token property">border-style</span><span class="token punctuation">:</span> solid<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>  <span class="token property">border-width</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>  <span class="token property">border-color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="22"></td><td><pre>  <span class="token property">border-radius</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="23"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="24"></td><td><pre></pre></td></tr><tr><td data-num="25"></td><td><pre><span class="token selector">.hello </span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>  <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="27"></td><td><pre>  <span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="28"></td><td><pre>  <span class="token property">background-color</span><span class="token punctuation">:</span> aqua<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="29"></td><td><pre>  <span class="token property">border-color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="30"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h3 id="神奇用法"><a class="markdownIt-Anchor" href="#神奇用法">#</a> 神奇用法</h3>
+<ul>
+<li>任何 css 规则都可以被继承</li>
+</ul>
+<figure class="highlight scss"><figcaption data-lang="Sass (Scss)"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 禁用链接样式</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token selector">.disabled </span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token property">color</span><span class="token punctuation">:</span> gray<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token keyword">@extend</span> a<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><ul>
+<li>一般 <code>@extend</code>  比  <code>@mixin</code>  生成的 css 更小，因为只涉及选择器的重复。</li>
+</ul>
+<p>咕～</p>
+
+      <div class="tags">
+          <a href="/blog/tags/%E5%89%8D%E7%AB%AF/" rel="tag"><i class="ic i-tag"></i> 前端</a>
+          <a href="/blog/tags/sass/" rel="tag"><i class="ic i-tag"></i> sass</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2022-11-28 22:26:18" itemprop="dateModified" datetime="2022-11-28T22:26:18+08:00">2022-11-28</time>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>ERUIHNIYHBKBNF <i class="ic i-at"><em>@</em></i>Eruの兔叽窝
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://eruihniyhbkbnf.github.io/blog/2021/08/11/sass%E4%B8%80%E4%B8%AA%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/" title="sass一个入门笔记">https://eruihniyhbkbnf.github.io/blog/2021/08/11/sass一个入门笔记/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/blog/2021/07/19/%E8%AE%B0%E5%BD%95%E5%8E%86%E5%8F%B2%E6%80%A7%E7%9A%84%E4%B8%80%E5%88%BB/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipey84bjtj20zk0m8hdt.jpg" title="[锟斤拷]记录历史性的一刻！">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>[锟斤拷]记录历史性的一刻！</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/blog/2021/08/17/%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83%E5%92%8C%E7%9F%A9%E9%98%B5%E6%B1%82%E9%80%86/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipet8c1a2j20zk0m8kct.jpg" title="[模板]高斯消元和矩阵求逆">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>[模板]高斯消元和矩阵求逆</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#sass%E4%B8%8Escss%E4%B8%8Eless"><span class="toc-number">1.</span> <span class="toc-text"> sass 与 scss 与 less</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue%E9%A1%B9%E7%9B%AE%E5%BC%95%E5%85%A5sass"><span class="toc-number">2.</span> <span class="toc-text"> Vue 项目引入 sass</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text"> 基本语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E4%BD%BF%E7%94%A8"><span class="toc-number">3.1.</span> <span class="toc-text"> 变量使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B5%8C%E5%A5%97%E8%A7%84%E5%88%99"><span class="toc-number">3.2.</span> <span class="toc-text"> 嵌套规则</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B5%8C%E5%A5%97%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">3.2.1.</span> <span class="toc-text"> 嵌套选择器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B5%8C%E5%A5%97%E5%B1%9E%E6%80%A7"><span class="toc-number">3.2.2.</span> <span class="toc-text"> 嵌套属性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5sass%E6%96%87%E4%BB%B6"><span class="toc-number">4.</span> <span class="toc-text"> 导入 sass 文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%B7%E5%90%88%E5%99%A8"><span class="toc-number">5.</span> <span class="toc-text"> 混合器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95"><span class="toc-number">5.1.</span> <span class="toc-text"> 基础用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%A6%E5%8F%82%E6%95%B0%E7%9A%84%E6%B7%B7%E5%90%88%E5%99%A8"><span class="toc-number">5.2.</span> <span class="toc-text"> 带参数的混合器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E5%99%A8%E7%BB%A7%E6%89%BF"><span class="toc-number">6.</span> <span class="toc-text"> 选择器继承</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95-2"><span class="toc-number">6.1.</span> <span class="toc-text"> 基础用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A5%9E%E5%A5%87%E7%94%A8%E6%B3%95"><span class="toc-number">6.2.</span> <span class="toc-text"> 神奇用法</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="ERUIHNIYHBKBNF"
+      data-src="/blog/images/avatar.jpg">
+  <p class="name" itemprop="name">ERUIHNIYHBKBNF</p>
+  <div class="description" itemprop="description">嘤嘤嘤~</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/blog/archives/">
+        <span class="count">53</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/blog/tags/">
+        <span class="count">31</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL0VSVUlITklZSEJLQk5G" title="https:&#x2F;&#x2F;github.com&#x2F;ERUIHNIYHBKBNF"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/blog/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/blog/2021/07/19/%E8%AE%B0%E5%BD%95%E5%8E%86%E5%8F%B2%E6%80%A7%E7%9A%84%E4%B8%80%E5%88%BB/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/blog/2021/08/17/%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83%E5%92%8C%E7%9F%A9%E9%98%B5%E6%B1%82%E9%80%86/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/02/10/%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/" title="[C++笔记] 运算符重载">[C++笔记] 运算符重载</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/08/18/%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%93%E9%A2%98/" title="Nowcoder前缀和专题">Nowcoder前缀和专题</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/02/03/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1%E8%BF%9B%E9%98%B6/" title="[C++笔记] 类和对象进阶">[C++笔记] 类和对象进阶</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2022/05/12/typeorm-No-metadata-for-User-was-found-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" title="文件路径问题 typeorm &#39;No metadata for User was found&#39; 解决">文件路径问题 typeorm 'No metadata for User was found' 解决</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2020/10/15/%E7%94%A8%E5%86%B0%E8%8C%B6%E5%A7%AC%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E8%BF%B7%E5%AE%AB/" title="[摸鱼] 用冰茶姬生成随机迷宫">[摸鱼] 用冰茶姬生成随机迷宫</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/02/10/%E6%A8%A1%E6%9D%BF%E5%9F%BA%E7%A1%80/" title="[C++笔记] C++中的模板">[C++笔记] C++中的模板</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/03/12/STL%E5%9F%BA%E7%A1%80/" title="[C++笔记] STL基础">[C++笔记] STL基础</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2022/11/28/%E5%8C%BA%E5%9D%97%E9%93%BE-Hyperledger-Fabric%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/" title="[区块链] Hyperledger Fabric实验环境搭建记录">[区块链] Hyperledger Fabric实验环境搭建记录</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2022/01/16/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BD%BF%E7%94%A8less%E4%B8%8D%E7%94%9F%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" title="关于跨域——浏览器使用less不生效的问题解决">关于跨域——浏览器使用less不生效的问题解决</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/09/27/%E6%90%AD%E5%BB%BAmc%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%B0%E5%BD%95/" title="mc服务器搭建记录">mc服务器搭建记录</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">ERUIHNIYHBKBNF @ Eruの兔叽窝</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2021/08/11/sass一个入门笔记/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/blog/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

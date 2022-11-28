@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>Eruの兔叽窝 • Posts by &#34;服务器&#34; tag</title>
+        <link>https://eruihniyhbkbnf.github.io/blog</link>
+        <description>嘤嘤嘤~</description>
+        <language>zh-CN</language>
+        <pubDate>Mon, 27 Sep 2021 01:06:17 +0000</pubDate>
+        <lastBuildDate>Mon, 27 Sep 2021 01:06:17 +0000</lastBuildDate>
+        <category>前端</category>
+        <category>react</category>
+        <category>acm</category>
+        <category>杂题</category>
+        <category>C++</category>
+        <category>C++笔记</category>
+        <category>杂项</category>
+        <category>模板</category>
+        <category>LCS</category>
+        <category>node</category>
+        <category>QT</category>
+        <category>java</category>
+        <category>SpringBoot</category>
+        <category>web后端</category>
+        <category>python</category>
+        <category>机器学习</category>
+        <category>linux</category>
+        <category>sass</category>
+        <category>typeorm</category>
+        <category>字符串</category>
+        <category>图论</category>
+        <category>爬虫</category>
+        <category>数据结构</category>
+        <category>区块链</category>
+        <category>web3</category>
+        <category>服务器</category>
+        <category>mc</category>
+        <category>css</category>
+        <category>ci/cd</category>
+        <category>CDQ分治</category>
+        <category>数学</category>
+        <item>
+            <guid isPermalink="true">https://eruihniyhbkbnf.github.io/blog/2021/09/27/%E6%90%AD%E5%BB%BAmc%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%B0%E5%BD%95/</guid>
+            <title>mc服务器搭建记录</title>
+            <link>https://eruihniyhbkbnf.github.io/blog/2021/09/27/%E6%90%AD%E5%BB%BAmc%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%B0%E5%BD%95/</link>
+            <category>杂项</category>
+            <category>服务器</category>
+            <category>mc</category>
+            <pubDate>Mon, 27 Sep 2021 01:06:17 +0000</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;环境准备&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#环境准备&#34;&gt;#&lt;/a&gt; 环境准备&lt;/h2&gt;
+&lt;h3 id=&#34;云服务器相关&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#云服务器相关&#34;&gt;#&lt;/a&gt; 云服务器相关&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;一台云服务器，可以去嫖各大厂商的学生服务器，顺带装了操作系统 ubuntu。
+&lt;ul&gt;
+&lt;li&gt;顺带进防火墙把 25565（一般习惯都是这个数字 qwq）端口打开。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;ftp 工具，与服务器传输文件用，随便找的 FileZilla。&lt;/li&gt;
+&lt;li&gt;SSH 工具，远程连接服务器，随便找的 PuTTY。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;java环境配置&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#java环境配置&#34;&gt;#&lt;/a&gt; java 环境配置&lt;/h3&gt;
+&lt;p&gt;官网下载：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cub3JhY2xlLmNvbS9qYXZhL3RlY2hub2xvZ2llcy9kb3dubG9hZHMv&#34;&gt;https://www.oracle.com/java/technologies/downloads/&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;下载一个对应版本的压缩包，一般好像都叫 jdk-xxxx-linux-x64.tar.gz&lt;/p&gt;
+&lt;p&gt;顺带最新版 mc 服务器对 jdk 版本要求好像很高来着 qwq&lt;/p&gt;
+&lt;p&gt;顺带低版本 mc 服务器不能拿太高版本的 jdk 跑来着 qwq&lt;/p&gt;
+&lt;p&gt;进去解压，记住路径。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;cd 到  &lt;code&gt;/root&lt;/code&gt;  或者  &lt;code&gt;home/admin&lt;/code&gt; ，看用哪个用户了。&lt;/li&gt;
+&lt;li&gt;文本编辑器打开  &lt;code&gt;.bashrc&lt;/code&gt;  文件，后面添加几行改成自己的路径&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;export JAVA_HOME=/usr/local/java/jdk-8
+export JRE_HOME=$&amp;#123;JAVA_HOME&amp;#125;/jre
+export CLASSPATH=.:$&amp;#123;JAVA_HOME&amp;#125;/lib:$&amp;#123;JRE_HOME&amp;#125;/lib
+export PATH=$&amp;#123;JAVA_HOME&amp;#125;/bin:$PATH
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;然后  &lt;code&gt;java -version&lt;/code&gt;  试一下就好了唔，，&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;启动纯净服&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#启动纯净服&#34;&gt;#&lt;/a&gt; 启动纯净服&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;其实就是个 jar 包没什么特别的 qwq&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;官网下载： &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cubWluZWNyYWZ0Lm5ldC96aC1oYW5zL2Rvd25sb2FkL3NlcnZlcg==&#34;&gt;https://www.minecraft.net/zh-hans/download/server&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;找个地方扔服务器上，跑一下（听说 Server 端最好把 Xmx 和 Xms 设成同一个值）&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;java -Xmx1024M -Xms1024M -jar minecraft_server.1.17.1.jar nogui&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;启动失败，然后 ls 一下，发现多了个  &lt;code&gt;eula.txt&lt;/code&gt; ， 进去把最后一行改成  &lt;code&gt;eula=true&lt;/code&gt;  。&lt;/p&gt;
+&lt;p&gt;然后再启动，进 mc 直接连接  &lt;code&gt;服务器ip:25565&lt;/code&gt;  应该就可以连上。&lt;/p&gt;
+&lt;p&gt;关于  &lt;code&gt; server.properties&lt;/code&gt;  的一些配置文档： &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9taW5lY3JhZnQuZmFuZG9tLmNvbS96aC93aWtpL1NlcnZlci5wcm9wZXJ0aWVz&#34;&gt;https://minecraft.fandom.com/zh/wiki/Server.properties&lt;/span&gt;，改了重启服务器就好了的样子。&lt;/p&gt;
+&lt;p&gt;关于作弊模式，在服务器启动的时候终端输入  &lt;code&gt;op 游戏用户名&lt;/code&gt;  就能把该用户设成管理员了。&lt;/p&gt;
+&lt;h2 id=&#34;支持mod的服务器&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#支持mod的服务器&#34;&gt;#&lt;/a&gt; 支持 mod 的服务器&lt;/h2&gt;
+&lt;p&gt;这边用了 mcforge，下载对应版本安装（或者直接下载 universal 再扔个 libraries 过去）：&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9maWxlcy5taW5lY3JhZnRmb3JnZS5uZXQvbmV0L21pbmVjcmFmdGZvcmdlL2ZvcmdlLw==&#34;&gt;https://files.minecraftforge.net/net/minecraftforge/forge/&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;装好之后跟纯净服一样启动，会多出一个 mods 文件夹，把需要的 mod 放进去就好了。&lt;/p&gt;
+&lt;p&gt;顺带有些 mod 要求客户端也要有的，本地安装 forge，windows 的话进入  &lt;code&gt;%appdata%/.minecraft/mods/&lt;/code&gt;  把 mod 放进去什么的。&lt;/p&gt;
+&lt;h2 id=&#34;长期运行&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#长期运行&#34;&gt;#&lt;/a&gt; 长期运行&lt;/h2&gt;
+&lt;p&gt;遇到一个问题是，玩着玩着服务器突然断掉了 QAQ&lt;/p&gt;
+&lt;p&gt;看了半天 log，怎么看都是服务器正常结束，咱可没手动关掉过这个_(:з」∠)_&lt;/p&gt;
+&lt;p&gt;讲个笑话，咱都不知道 &amp;quot;挂起&amp;quot; 是什么概念 qwq&lt;/p&gt;
+&lt;p&gt;被大佬嘲讽了呜呜呜…&lt;/p&gt;
+&lt;p&gt;跑 jar 的时候加个  &lt;code&gt;nohup&lt;/code&gt;  就可以了 qwq&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;nohup&lt;/span&gt; java -jar -Xmx1700m -Xms1700m forge&lt;span class=&#34;token punctuation&#34;&gt;..&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;..&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;做个记录，溜了溜了 QAQ&lt;/p&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>

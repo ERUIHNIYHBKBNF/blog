@@ -1,0 +1,515 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/blog/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="Eruの兔叽窝" href="https://eruihniyhbkbnf.github.io/blog/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Eruの兔叽窝" href="https://eruihniyhbkbnf.github.io/blog/atom.xml" />
+<link rel="alternate" type="application/json" title="Eruの兔叽窝" href="https://eruihniyhbkbnf.github.io/blog/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/blog/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="C++,node" />
+
+
+<link rel="canonical" href="https://eruihniyhbkbnf.github.io/blog/2022/11/04/Node-C-addons%E5%88%9D%E6%8E%A2/">
+
+
+
+  <title>
+Node C++ addons初探 |
+Eruの兔叽窝 = QwQ</title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">Node C++ addons初探
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2022-11-04 13:00:23">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2022-11-04T13:00:23+08:00">2022-11-04</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/blog/" rel="start">Eruの兔叽窝</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclfdu6exj20zk0m87hw.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipewkhf1zj20zk0m81kx.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipey0a334j20zk0m8qpt.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclxp31goj20zk0m8qv5.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipexw3o58j20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giciub8ja1j20zk0m81ky.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/blog/">首页</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://eruihniyhbkbnf.github.io/blog/2022/11/04/Node-C-addons%E5%88%9D%E6%8E%A2/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/blog/images/avatar.jpg">
+    <meta itemprop="name" content="ERUIHNIYHBKBNF">
+    <meta itemprop="description" content="QwQ, 嘤嘤嘤~">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Eruの兔叽窝">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <p>发现了个好玩的东西，来学一手（实际上就是跟文档随便过一下再拿中文随便记录一下）：<span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnL2Rpc3QvbGF0ZXN0LXYxOC54L2RvY3MvYXBpL2FkZG9ucy5odG1s">https://nodejs.org/dist/latest-v18.x/docs/api/addons.html</span></p>
+<blockquote>
+<p><em>Addons</em> are dynamically-linked shared objects written in C++. The  <code>require()</code>  function can load addons as ordinary Node.js modules. Addons provide an interface between JavaScript and C/C++ libraries.</p>
+</blockquote>
+<p>共享模块，一眼看上去好像 wasm 的说 |･ω･｀)</p>
+<p>使用 C++ 编写源码，编译成 <code>addon.node</code>  这样的二进制文件供 node 调用。</p>
+<p>似乎要先面熟一些东西：</p>
+<ul>
+<li>
+<p>V8：node 用来执行 js 的 C++ 库，萌新阶段就听说的牛逼玩意儿 QwQ</p>
+</li>
+<li>
+<p>libuv：用来实现 node 的 event loop, worker, asynchronous 的 C++ 库</p>
+<ul>
+<li>
+<blockquote>
+<p>Addon authors should avoid blocking the event loop with I/O or other time-intensive tasks by offloading work via libuv to non-blocking system operations, worker threads, or a custom use of libuv threads.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>Internal Node.js libraries：node 自身提供一些 addon 可以使用的 C++ API，最重要比如 <code>node::ObjectWrap</code></p>
+</li>
+<li>
+<p>只有  <code>libuv, OpenSSL, V8, and zlib symbols</code>  被 node 重新暴露出来，其他似乎要手动链接 qwq</p>
+</li>
+</ul>
+<h2 id="编写hello-world"><a class="markdownIt-Anchor" href="#编写hello-world">#</a> 编写 Hello World</h2>
+<p>先跟官网来粘一份代码：</p>
+<figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// hello.cc</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;node.h></span></span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">namespace</span> demo</pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token keyword">using</span> v8<span class="token operator">::</span>FunctionCallbackInfo<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token keyword">using</span> v8<span class="token operator">::</span>Isolate<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token keyword">using</span> v8<span class="token operator">::</span>Local<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token keyword">using</span> v8<span class="token operator">::</span>Object<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token keyword">using</span> v8<span class="token operator">::</span>String<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token keyword">using</span> v8<span class="token operator">::</span>Value<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre></pre></td></tr><tr><td data-num="14"></td><td><pre>  <span class="token keyword">void</span> <span class="token function">Method</span><span class="token punctuation">(</span><span class="token keyword">const</span> FunctionCallbackInfo<span class="token operator">&lt;</span>Value<span class="token operator">></span> <span class="token operator">&amp;</span>args<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="15"></td><td><pre>  <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    Isolate <span class="token operator">*</span>isolate <span class="token operator">=</span> args<span class="token punctuation">.</span><span class="token function">GetIsolate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    args<span class="token punctuation">.</span><span class="token function">GetReturnValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Set</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token operator">::</span><span class="token function">NewFromUtf8</span><span class="token punctuation">(</span></pre></td></tr><tr><td data-num="18"></td><td><pre>                                  isolate<span class="token punctuation">,</span> <span class="token string">"world"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="19"></td><td><pre>                                  <span class="token punctuation">.</span><span class="token function">ToLocalChecked</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="21"></td><td><pre></pre></td></tr><tr><td data-num="22"></td><td><pre>  <span class="token keyword">void</span> <span class="token function">Initialize</span><span class="token punctuation">(</span>Local<span class="token operator">&lt;</span>Object<span class="token operator">></span> exports<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="23"></td><td><pre>  <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="24"></td><td><pre>    <span class="token function">NODE_SET_METHOD</span><span class="token punctuation">(</span>exports<span class="token punctuation">,</span> <span class="token string">"hello"</span><span class="token punctuation">,</span> Method<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="25"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="26"></td><td><pre></pre></td></tr><tr><td data-num="27"></td><td><pre>  <span class="token function">NODE_MODULE</span><span class="token punctuation">(</span>NODE_GYP_MODULE_NAME<span class="token punctuation">,</span> Initialize<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="28"></td><td><pre></pre></td></tr><tr><td data-num="29"></td><td><pre><span class="token punctuation">&#125;</span> <span class="token comment">// namespace demo</span></pre></td></tr></table></figure><p>所有 node addon 必须像这样暴露一个初始化函数：</p>
+<figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">void</span> <span class="token function">Initialize</span><span class="token punctuation">(</span>Local<span class="token operator">&lt;</span>Object<span class="token operator">></span> exports<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">NODE_MODULE</span><span class="token punctuation">(</span>NODE_GYP_MODULE_NAME<span class="token punctuation">,</span> Initialize<span class="token punctuation">)</span> <span class="token comment">// 后面没分号</span></pre></td></tr></table></figure><p>The  <code>module_name</code>  must match the filename of the final binary (excluding the  <code>.node</code>  suffix).</p>
+<p>上面例子中，the initialization function is  <code>Initialize</code>  and the addon module name is  <code>addon</code> .（先比着抄就完事了）</p>
+<h2 id="构建"><a class="markdownIt-Anchor" href="#构建">#</a> 构建</h2>
+<p>这里使用 node-gyp 来编译写好的 C++ 成一个二进制文件 <code>addon.node</code></p>
+<p>node-gyp 作为 npm 内置的一部分，被设计为正常情况下只有在 npm install 装一些 node addons 的时候才可以用内置的 node-gyp 来针对平台编译 addon，自己用的话需要手动安装 node-gyp，参考<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25vZGVqcy9ub2RlLWd5cCNpbnN0YWxsYXRpb24="> github 仓库</span>。</p>
+<p>小插曲：不知道为啥遇到一堆网络问题，npm, yarn, tencent 都试了一遍，还是 cnpm 最顶（顺带安利一个叫 nrm 的工具，顺带半个晚上进去了 QAQ）</p>
+<p>在项目根目录新建一个叫  <code>binding.gyp</code>  的配置文件，供 node-gyp 来编译 addon</p>
+<p>binding.gyp：</p>
+<figure class="highlight json"><figcaption data-lang="JSON"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token property">"targets"</span><span class="token operator">:</span> <span class="token punctuation">[</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>      <span class="token property">"target_name"</span><span class="token operator">:</span> <span class="token string">"addon"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="5"></td><td><pre>      <span class="token property">"sources"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"hello.cc"</span><span class="token punctuation">]</span> <span class="token comment">// 这里注意 cc 文件的路径</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token punctuation">]</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>然后使用  <code>node-gyp configure</code>  会发现新增了一个  <code>build</code>  文件夹，这边 mac 平台里面有个 Makefile，然后再  <code>node-gyp build</code>  会发现新增了  <code>build/Release/addon.node</code> ，就编译完了</p>
+<h2 id="在node中使用addon"><a class="markdownIt-Anchor" href="#在node中使用addon">#</a> 在 node 中使用 addon</h2>
+<p>直接在 node 中使用  <code>require</code>  即可引入刚刚编译的模块（像调用普通模块一样调用二进制文件，怎么这么像 wasm…）</p>
+<p>hello.js：</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> addon <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./build/Release/addon'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>addon<span class="token punctuation">.</span><span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment">// Prints: 'world'</span></pre></td></tr></table></figure><p>编译的二进制文件路径可能因为编译方式不同而不同，可以使用<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1Rvb1RhbGxOYXRlL25vZGUtYmluZGluZ3M="> node-bindings</span> 来确定这个路径。</p>
+<pre><code class="language-Bash">yarn add bindings
+import bindings from 'bindings';
+
+const addon = bindings('addon.node');
+
+console.log(addon.hello());
+</code></pre>
+<h2 id="传递参数"><a class="markdownIt-Anchor" href="#传递参数">#</a> 传递参数</h2>
+<p>还是官网的例子：</p>
+<p><span class="exturl" data-url="aHR0cDovL2FkZG9uLmNj">addon.cc</span>：</p>
+<figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;node.h></span></span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">namespace</span> demo</pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token keyword">using</span> v8<span class="token operator">::</span>Exception<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token keyword">using</span> v8<span class="token operator">::</span>FunctionCallbackInfo<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token keyword">using</span> v8<span class="token operator">::</span>Isolate<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token keyword">using</span> v8<span class="token operator">::</span>Local<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token keyword">using</span> v8<span class="token operator">::</span>Number<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token keyword">using</span> v8<span class="token operator">::</span>Object<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token keyword">using</span> v8<span class="token operator">::</span>String<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token keyword">using</span> v8<span class="token operator">::</span>Value<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre></pre></td></tr><tr><td data-num="14"></td><td><pre>  <span class="token comment">// This is the implementation of the "add" method</span></pre></td></tr><tr><td data-num="15"></td><td><pre>  <span class="token comment">// Input arguments are passed using the</span></pre></td></tr><tr><td data-num="16"></td><td><pre>  <span class="token comment">// const FunctionCallbackInfo&lt;Value>&amp; args struct</span></pre></td></tr><tr><td data-num="17"></td><td><pre>  <span class="token keyword">void</span> <span class="token function">Add</span><span class="token punctuation">(</span><span class="token keyword">const</span> FunctionCallbackInfo<span class="token operator">&lt;</span>Value<span class="token operator">></span> <span class="token operator">&amp;</span>args<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="18"></td><td><pre>  <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    Isolate <span class="token operator">*</span>isolate <span class="token operator">=</span> args<span class="token punctuation">.</span><span class="token function">GetIsolate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre></pre></td></tr><tr><td data-num="21"></td><td><pre>    <span class="token comment">// Check the number of arguments passed.</span></pre></td></tr><tr><td data-num="22"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>args<span class="token punctuation">.</span><span class="token function">Length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="23"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="24"></td><td><pre>      <span class="token comment">// Throw an Error that is passed back to JavaScript</span></pre></td></tr><tr><td data-num="25"></td><td><pre>      isolate<span class="token operator">-></span><span class="token function">ThrowException</span><span class="token punctuation">(</span><span class="token class-name">Exception</span><span class="token operator">::</span><span class="token function">TypeError</span><span class="token punctuation">(</span></pre></td></tr><tr><td data-num="26"></td><td><pre>          <span class="token class-name">String</span><span class="token operator">::</span><span class="token function">NewFromUtf8</span><span class="token punctuation">(</span>isolate<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="27"></td><td><pre>                              <span class="token string">"Wrong number of arguments"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="28"></td><td><pre>              <span class="token punctuation">.</span><span class="token function">ToLocalChecked</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="29"></td><td><pre>      <span class="token keyword">return</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="30"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="31"></td><td><pre></pre></td></tr><tr><td data-num="32"></td><td><pre>    <span class="token comment">// Check the argument types</span></pre></td></tr><tr><td data-num="33"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>args<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">-></span><span class="token function">IsNumber</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token operator">!</span>args<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">-></span><span class="token function">IsNumber</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="34"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="35"></td><td><pre>      isolate<span class="token operator">-></span><span class="token function">ThrowException</span><span class="token punctuation">(</span><span class="token class-name">Exception</span><span class="token operator">::</span><span class="token function">TypeError</span><span class="token punctuation">(</span></pre></td></tr><tr><td data-num="36"></td><td><pre>          <span class="token class-name">String</span><span class="token operator">::</span><span class="token function">NewFromUtf8</span><span class="token punctuation">(</span>isolate<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="37"></td><td><pre>                              <span class="token string">"Wrong arguments"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="38"></td><td><pre>              <span class="token punctuation">.</span><span class="token function">ToLocalChecked</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="39"></td><td><pre>      <span class="token keyword">return</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="40"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="41"></td><td><pre></pre></td></tr><tr><td data-num="42"></td><td><pre>    <span class="token comment">// Perform the operation</span></pre></td></tr><tr><td data-num="43"></td><td><pre>    <span class="token keyword">double</span> value <span class="token operator">=</span></pre></td></tr><tr><td data-num="44"></td><td><pre>        args<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>As<span class="token operator">&lt;</span>Number<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">Value</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> args<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>As<span class="token operator">&lt;</span>Number<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">Value</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="45"></td><td><pre>    Local<span class="token operator">&lt;</span>Number<span class="token operator">></span> num <span class="token operator">=</span> <span class="token class-name">Number</span><span class="token operator">::</span><span class="token function">New</span><span class="token punctuation">(</span>isolate<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="46"></td><td><pre></pre></td></tr><tr><td data-num="47"></td><td><pre>    <span class="token comment">// Set the return value (using the passed in</span></pre></td></tr><tr><td data-num="48"></td><td><pre>    <span class="token comment">// FunctionCallbackInfo&lt;Value>&amp;)</span></pre></td></tr><tr><td data-num="49"></td><td><pre>    args<span class="token punctuation">.</span><span class="token function">GetReturnValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Set</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="50"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="51"></td><td><pre></pre></td></tr><tr><td data-num="52"></td><td><pre>  <span class="token keyword">void</span> <span class="token function">Init</span><span class="token punctuation">(</span>Local<span class="token operator">&lt;</span>Object<span class="token operator">></span> exports<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="53"></td><td><pre>  <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="54"></td><td><pre>    <span class="token function">NODE_SET_METHOD</span><span class="token punctuation">(</span>exports<span class="token punctuation">,</span> <span class="token string">"add"</span><span class="token punctuation">,</span> Add<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="55"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="56"></td><td><pre></pre></td></tr><tr><td data-num="57"></td><td><pre>  <span class="token function">NODE_MODULE</span><span class="token punctuation">(</span>NODE_GYP_MODULE_NAME<span class="token punctuation">,</span> Init<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="58"></td><td><pre></pre></td></tr><tr><td data-num="59"></td><td><pre><span class="token punctuation">&#125;</span> <span class="token comment">// namespace demo</span></pre></td></tr></table></figure><h2 id="总结"><a class="markdownIt-Anchor" href="#总结">#</a> 总结</h2>
+<p>这个看上去像 wasm 的东西大概优点就跟 wasm 差不多叭，能在 node 里跑 C++ 的话对性能提升不用说，还有些 js 实现不了的奇奇怪怪的操作（比如获取某个变量在内存中的表示形式 qwq）</p>
+<p>顺带隔壁 deno 什么时候出个 Rust addons 呀</p>
+
+      <div class="tags">
+          <a href="/blog/tags/C/" rel="tag"><i class="ic i-tag"></i> C++</a>
+          <a href="/blog/tags/node/" rel="tag"><i class="ic i-tag"></i> node</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2022-11-28 22:26:18" itemprop="dateModified" datetime="2022-11-28T22:26:18+08:00">2022-11-28</time>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>ERUIHNIYHBKBNF <i class="ic i-at"><em>@</em></i>Eruの兔叽窝
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://eruihniyhbkbnf.github.io/blog/2022/11/04/Node-C-addons%E5%88%9D%E6%8E%A2/" title="Node C++ addons初探">https://eruihniyhbkbnf.github.io/blog/2022/11/04/Node-C-addons初探/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/blog/2022/08/23/%E7%BE%8E%E5%8C%96github%E9%A6%96%E9%A1%B5%E5%98%A4%EF%BD%9E/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicitht3xtj20zk0m8k5v.jpg" title="美化github首页嘤～">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>美化github首页嘤～</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/blog/2022/11/28/%E5%8C%BA%E5%9D%97%E9%93%BE-Hyperledger-Fabric%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giciryrr3rj20zk0m8nhk.jpg" title="[区块链] Hyperledger Fabric实验环境搭建记录">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>[区块链] Hyperledger Fabric实验环境搭建记录</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E5%86%99hello-world"><span class="toc-number">1.</span> <span class="toc-text"> 编写 Hello World</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%84%E5%BB%BA"><span class="toc-number">2.</span> <span class="toc-text"> 构建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8node%E4%B8%AD%E4%BD%BF%E7%94%A8addon"><span class="toc-number">3.</span> <span class="toc-text"> 在 node 中使用 addon</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%A0%E9%80%92%E5%8F%82%E6%95%B0"><span class="toc-number">4.</span> <span class="toc-text"> 传递参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">5.</span> <span class="toc-text"> 总结</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="ERUIHNIYHBKBNF"
+      data-src="/blog/images/avatar.jpg">
+  <p class="name" itemprop="name">ERUIHNIYHBKBNF</p>
+  <div class="description" itemprop="description">嘤嘤嘤~</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/blog/archives/">
+        <span class="count">53</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/blog/tags/">
+        <span class="count">31</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL0VSVUlITklZSEJLQk5G" title="https:&#x2F;&#x2F;github.com&#x2F;ERUIHNIYHBKBNF"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/blog/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/blog/2022/08/23/%E7%BE%8E%E5%8C%96github%E9%A6%96%E9%A1%B5%E5%98%A4%EF%BD%9E/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/blog/2022/11/28/%E5%8C%BA%E5%9D%97%E9%93%BE-Hyperledger-Fabric%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2020/10/15/%E7%94%A8%E5%86%B0%E8%8C%B6%E5%A7%AC%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E8%BF%B7%E5%AE%AB/" title="[摸鱼] 用冰茶姬生成随机迷宫">[摸鱼] 用冰茶姬生成随机迷宫</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/02/16/kNN%E7%AE%97%E6%B3%95/" title="摸一摸k-NN算法">摸一摸k-NN算法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2022/02/08/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95%E2%80%94%E2%80%94react%E4%BB%BF%E5%86%99%E4%BD%8E%E9%85%8D%E6%8E%98%E9%87%91%E5%AE%A2%E6%88%B7%E7%AB%AF/" title="项目开发记录——react仿写低配掘金客户端">项目开发记录——react仿写低配掘金客户端</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/05/04/%E4%BA%8C%E5%88%86%E5%9B%BE%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D/" title="[杂题] 二分图最大匹配">[杂题] 二分图最大匹配</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/08/17/%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83%E5%92%8C%E7%9F%A9%E9%98%B5%E6%B1%82%E9%80%86/" title="[模板]高斯消元和矩阵求逆">[模板]高斯消元和矩阵求逆</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2020/11/28/%E5%B9%B3%E8%A1%A1%E6%A0%91-Splay%E6%A8%A1%E6%9D%BF/" title="[模板] 平衡树-Splay模板">[模板] 平衡树-Splay模板</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/03/12/STL%E5%9F%BA%E7%A1%80/" title="[C++笔记] STL基础">[C++笔记] STL基础</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2022/01/16/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BD%BF%E7%94%A8less%E4%B8%8D%E7%94%9F%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" title="关于跨域——浏览器使用less不生效的问题解决">关于跨域——浏览器使用less不生效的问题解决</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2022/11/28/%E5%8C%BA%E5%9D%97%E9%93%BE-Hyperledger-Fabric%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/" title="[区块链] Hyperledger Fabric实验环境搭建记录">[区块链] Hyperledger Fabric实验环境搭建记录</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/blog/2021/06/27/SpringBoot%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%E4%B8%8E%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86/" title="[SpringBoot笔记]数据库操作与事务管理">[SpringBoot笔记]数据库操作与事务管理</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">ERUIHNIYHBKBNF @ Eruの兔叽窝</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2022/11/04/Node-C-addons初探/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/blog/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

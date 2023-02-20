@@ -1,7 +1,9 @@
 {
-  "name": "hexo-site",
+  "name": "rabbit-house",
   "version": "0.0.0",
   "private": true,
+  "description": "eru's blog",
+  "author": "ERUIHNIYHBKBNF",
   "scripts": {
     "build": "hexo generate",
     "clean": "hexo clean",

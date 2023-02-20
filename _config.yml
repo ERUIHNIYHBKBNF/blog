@@ -3,12 +3,12 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: "Eru's Rabbit House"
-subtitle: ''
-description: "eru's blog, FE learner, former oier/acmer, chinochann daisuki!"
+title: "カフェラテ、カフェモカ、カプチーノ~"
+subtitle: 'QwQ'
+description: "是个从acm退役的前端笨蛋w"
 keywords: 'eru, blog, frontend, acm'
-author: ERUIHINYHBKBNF
-language: 'zh'
+author: Eru
+language: 'zh-CN'
 timezone: 'Asia/Shanghai'
 
 # URL
@@ -45,16 +45,16 @@ relative_link: false
 future: true
 highlight:
   enable: false
-  line_number: true
-  auto_detect: false
-  tab_replace: ''
-  wrap: true
-  hljs: false
+  # line_number: true
+  # auto_detect: false
+  # tab_replace: ''
+  # wrap: true
+  # hljs: false
 prismjs:
   enable: false
-  preprocess: true
-  line_number: true
-  tab_replace: ''
+  # preprocess: true
+  # line_number: true
+  # tab_replace: ''
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
